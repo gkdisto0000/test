@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="./js/swiper.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+</head>
+
+<style>
+    .cont {width: 150px; display: flex;}
+    ul {display: flex; flex-wrap: wrap; width: 100%;}
+    ul li {margin: 0 10px; height: 50px; width: 50px; background-color: blue; margin-top: 10px; text-align: center; color: #fff; font-weight: bold;}
+    ul.sw02 li {background-color: pink;}
+    ul.sw03 li {background-color: green;}
+</style>
+
+<body>
+
+    <div class="cont">
+        <div class="swiper-wrapper">
+            <ul id="sortable" class="swiper-slide sw01">
+                <li >1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+        
+            <ul id="sortable" class="swiper-slide sw02">
+                <li >1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+        
+            <ul id="sortable" class="swiper-slide sw03">
+                <li >1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+        </div>
+    
+    </div>
+
+
+    <style>
+        ul.sw05 {width: 150px; margin-top: 50px;}
+    </style>
+
+    <ul id="sortable-1" class="swiper-slide sw05">
+        <li >1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+
+
+
+</body>
+</html>
+
+
+<script>
+    $(function() { $("#sortable").sortable(); $("#sortable").disableSelection();});
+    $(function() { $("#sortable-1").sortable(); $("#sortable").disableSelection();});
+
+    var mySwiper = new Swiper ('.cont', {
+        slidesPerView : 1,
+        
+    })
+
+</script>
