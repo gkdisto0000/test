@@ -15,7 +15,7 @@
 </head>
 
 <style>
-    .cont {width: 150px; display: flex;}
+    .cont {width: 150px; display: flex; overflow: hidden;}
     ul {display: flex; flex-wrap: wrap; width: 100%;}
     ul li {margin: 0 10px; height: 50px; width: 50px; background-color: blue; margin-top: 10px; text-align: center; color: #fff; font-weight: bold;}
     ul.sw02 li {background-color: pink;}
@@ -27,42 +27,42 @@
     <div class="cont">
         <div class="swiper-wrapper">
             <ul id="sortable" class="swiper-slide sw01">
-                <li >1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
+                <li id="sort">1</li>
+                <li id="sort">2</li>
+                <li id="sort">3</li>
+                <li id="sort">4</li>
+                <li id="sort">5</li>
+                <li id="sort">6</li>
+                <li id="sort">7</li>
+                <li id="sort">8</li>
+                <li id="sort">9</li>
+                <li id="sort">10</li>
             </ul>
         
             <ul id="sortable" class="swiper-slide sw02">
-                <li >1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
+                <li id="sort">1</li>
+                <li id="sort">2</li>
+                <li id="sort">3</li>
+                <li id="sort">4</li>
+                <li id="sort">5</li>
+                <li id="sort">6</li>
+                <li id="sort">7</li>
+                <li id="sort">8</li>
+                <li id="sort">9</li>
+                <li id="sort">10</li>
             </ul>
         
             <ul id="sortable" class="swiper-slide sw03">
-                <li >1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
+                <li id="sort">1</li>
+                <li id="sort">2</li>
+                <li id="sort">3</li>
+                <li id="sort">4</li>
+                <li id="sort">5</li>
+                <li id="sort">6</li>
+                <li id="sort">7</li>
+                <li id="sort">8</li>
+                <li id="sort">9</li>
+                <li id="sort">10</li>
             </ul>
         </div>
     
@@ -95,7 +95,8 @@
 
 <script>
     $(function() { $("#sortable").sortable(); $("#sortable").disableSelection();});
-    $(function() { $("#sortable-1").sortable(); $("#sortable").disableSelection();});
+    $(function() { $("#sort").sortable(); $("#sort").disableSelection();});
+    $(function() { $("#sortable-1").sortable(); $("#sortable-1").disableSelection();});
 
     var mySwiper = new Swiper ('.cont', {
         slidesPerView : 1,
