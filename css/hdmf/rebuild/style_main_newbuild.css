@@ -44,7 +44,7 @@
 
 
 /* main-icon */
-.newbuild .mn-main-inner .top-date-cont {text-align: center;display: flex;justify-content: center;letter-spacing: -0.8px; align-items: center; font-size: 16px;}
+.newbuild .mn-main-inner .top-date-cont {text-align: center;display: flex;justify-content: center;letter-spacing: -0.8px; align-items: center; font-size: 16px; white-space: nowrap;}
 .newbuild .mn-main-inner .top-date-cont .top-dday {color: #EE7700; border: 1px solid #EE7700; padding: 0 9px; border-radius: 10px; font-size: 12px; line-height: 18px; height: 20px; margin-left: 5px; font-size: 12px;}
 .newbuild .mn-main-inner .btm-icons {height: 300px; overflow-y: hidden; max-width: 400px; margin: 24px auto 0;}
 .newbuild .mn-main-inner .btm-icons ul {display: flex;justify-content: center;flex-wrap : wrap;margin-top: -20px; height: auto; transition: margin 0.5s;}
