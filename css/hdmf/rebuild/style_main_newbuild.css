@@ -47,11 +47,11 @@
 .newbuild .mn-main-inner .top-date-cont {text-align: center;display: flex;justify-content: center;letter-spacing: -0.8px; align-items: center; font-size: 16px;}
 .newbuild .mn-main-inner .top-date-cont .top-dday {color: #EE7700; border: 1px solid #EE7700; padding: 0 9px; border-radius: 10px; font-size: 12px; line-height: 18px; height: 20px; margin-left: 5px; font-size: 12px;}
 .newbuild .mn-main-inner .btm-icons {margin-top: 24px; height: 300px; overflow-y: hidden;}
-.newbuild .mn-main-inner .btm-icons.open {height: auto;}
-.newbuild .mn-main-inner .btm-icons ul {display: flex;justify-content: center;flex-wrap : wrap;margin-top: -20px;}
-.newbuild .mn-main-inner .btm-icons ul li {width: 66px;margin: 0 11px;margin-top: 20px;text-align: center;}
-.newbuild .mn-main-inner .btm-icons ul li img {display: block;width: 100%;}
-.newbuild .mn-main-inner .btm-icons ul li span {font-size: 13px;letter-spacing: -0.65px; color: #000;}
+.newbuild .mn-main-inner .btm-icons ul {display: flex;justify-content: center;flex-wrap : wrap;margin-top: -20px; height: auto;}
+.newbuild .mn-main-inner .btm-icons ul li {width: 66px;margin: 20px 11px;text-align: center;}
+.newbuild .mn-main-inner .btm-icons ul li img {display: block;width: 100%; margin: 0 auto 2px;}
+.newbuild .mn-main-inner .btm-icons ul li a {position: relative; display: block;}
+.newbuild .mn-main-inner .btm-icons ul li span {font-size: 13px;letter-spacing: -0.65px; color: #000; display: block; position: absolute; bottom: -22px; left: 50%; transform: translate(-50%, 0%);}
 .newbuild .mn-main-inner .mn-arr-wrap {margin-top: 25px;}
 .newbuild .mn-main-inner .mn-arr-wrap .icon-morebtn {padding: 0 15px 0 20px; width: fit-content; height: 32px; border: 1px solid #CCCCCC; margin: 0 auto; cursor: pointer; display: flex; align-items: center; border-radius: 16px; color: #333;}
 .newbuild .mn-main-inner .mn-arr-wrap .icon-morebtn img {width: 14px;margin: 0 auto; margin-left: 7px;}
