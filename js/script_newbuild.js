@@ -55,7 +55,6 @@ $(function() {
             $('.mnicon-open').removeClass('hide');
             $('.btm-icons li').addClass('nosort');
             $('.btm-icons').animate({height:300}, 200);
-            $('body,html').animate({scrollTop:0}, 500);
 
             if($('.btm-icons').hasClass('open') === true) {
                 $('.btm-icons').animate({height:iconInnerHAuto}, 200);
