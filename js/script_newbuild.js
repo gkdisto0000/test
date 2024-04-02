@@ -28,6 +28,8 @@ $(function() {
         $('.btm-icons').addClass('open');
         $(this).addClass('hide');
         $('.mnicon-close').removeClass('hide');
+
+
         $("#sortable").sortable({
             cancel: '.nosort',
             delay : 500,
@@ -35,7 +37,8 @@ $(function() {
         $('.btm-icons li').removeClass('nosort');
 
         if($('.btm-icons').hasClass('open') === true) {
-            var iconInnerHAuto = $('.btm-icons ul').height();
+            var iconInnerH = $('.btm-icons ul').height();
+            var iconInnerHAuto = iconInnerH + 5;
             $('.btm-icons').animate({height:iconInnerHAuto}, 200);
         } else if ($('.btm-icons').hasClass('open') === false)  {
             $('.btm-icons').animate({height:300}, 200);
@@ -50,7 +53,8 @@ $(function() {
             $('.btm-icons').animate({height:300}, 200);
 
             if($('.btm-icons').hasClass('open') === true) {
-                var iconInnerHAuto = $('.btm-icons ul').height();
+                var iconInnerH = $('.btm-icons ul').height();
+                var iconInnerHAuto = iconInnerH + 5;
                 $('.btm-icons').animate({height:iconInnerHAuto}, 200);
             } else if ($('.btm-icons').hasClass('open') === false)  {
                 $('.btm-icons').animate({height:300}, 200);
