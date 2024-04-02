@@ -32,7 +32,7 @@ $(function() {
 
         $("#sortable").sortable({
             cancel: '.nosort',
-            delay : 300,
+            delay : 100,
         });
         $('.btm-icons li').removeClass('nosort');
 
