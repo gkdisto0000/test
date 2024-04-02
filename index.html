@@ -1,106 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="hdmf renew newbuild">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/swiper.min.css">
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script src="./js/swiper.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>현대해상 메인</title>
+
+
+    <!-- 기존 js, css -->
+    <link rel="stylesheet" href="././css/hdmf/style.css">
+    <link rel="stylesheet" href="././css/hdmf/style_renew.css">
+    <link rel="stylesheet" href="././css/hdmf/renew/renew_content_v2.css">
+    <script src="././js/jquery-1.12.4.js"></script>
+    <script src="././js/ui_common.js"></script>
+    <script src="././js/ui_common_v2.js"></script>
+    <script src="././js/swiper.js"></script>
+
+
+
+    <!-- 신규 css -->
+    <link rel="stylesheet" href="./css/hdmf/style_rebuild.css">
+
+    <!-- 신규 js -->
+    <script src="./js/script_newbuild.js"></script>
+
+
+    <!-- 메인 아이콘 움직임 js -->
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
 </head>
-
-<style>
-    .cont {width: 150px; display: flex; overflow: hidden;}
-    ul {display: flex; flex-wrap: wrap; width: 100%;}
-    ul li {margin: 0 10px; height: 50px; width: 50px; background-color: blue; margin-top: 10px; text-align: center; color: #fff; font-weight: bold;}
-    ul.sw02 li {background-color: pink;}
-    ul.sw03 li {background-color: green;}
-</style>
-
 <body>
 
-    <div class="cont">
-        <div class="swiper-wrapper">
-            <ul id="sortable" class="swiper-slide sw01">
-                <li id="sort">1</li>
-                <li id="sort">2</li>
-                <li id="sort">3</li>
-                <li id="sort">4</li>
-                <li id="sort">5</li>
-                <li id="sort">6</li>
-                <li id="sort">7</li>
-                <li id="sort">8</li>
-                <li id="sort">9</li>
-                <li id="sort">10</li>
-            </ul>
-        
-            <ul id="sortable" class="swiper-slide sw02">
-                <li id="sort">1</li>
-                <li id="sort">2</li>
-                <li id="sort">3</li>
-                <li id="sort">4</li>
-                <li id="sort">5</li>
-                <li id="sort">6</li>
-                <li id="sort">7</li>
-                <li id="sort">8</li>
-                <li id="sort">9</li>
-                <li id="sort">10</li>
-            </ul>
-        
-            <ul id="sortable" class="swiper-slide sw03">
-                <li id="sort">1</li>
-                <li id="sort">2</li>
-                <li id="sort">3</li>
-                <li id="sort">4</li>
-                <li id="sort">5</li>
-                <li id="sort">6</li>
-                <li id="sort">7</li>
-                <li id="sort">8</li>
-                <li id="sort">9</li>
-                <li id="sort">10</li>
-            </ul>
+    <div id="wrap">
+
+        <!-- header -->
+        <div class="mn-hdrWrap">
+            <div class="mn-hdr">
+                <h1>
+                    <img src="./images3/ico/logo_w.png" alt="Hi-SPORTAL logo"></h1>
+
+                <ul class="mn-nav">
+                    <li>
+                        <img src="./images3/ico/icon_search.png" alt="검색아이콘">
+                    </li>
+                    <li>
+                        <img src="./images3/ico/icon_noti.png" alt="알림아이콘">
+                        <div class="mn-new">N</div>
+                    </li>
+                    <li>
+                        <img src="./images3/ico/icon_menu.png" alt="메뉴아이콘">
+                    </li>
+                </ul>
+            </div>
         </div>
+
+
+        <div class="white-wrap">
+            <!-- main-icon -->
+            <div class="mn-mainWrap">
+                <div class="mn-main-inner">
+                    <div class="top-date-cont">
+                        <div class="top-today">
+                            <span class="mn-month"></span>월 <span class="mn-day"></span>일 <span class="mn-dayweek"></span>요일 
+                            
+                        </div>
+                        <div class="top-dday roboto-re">
+                            D-<span>16</span>
+                        </div>
+                    </div>
+
+                    <div class="btm-icons">
+                        <ul id="sortable">
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_agree.png" alt="아이콘">
+                                    <span>가입설계동의</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_check.png" alt="아이콘">
+                                    <span>고객등록조회</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_deposit.png" alt="아이콘">
+                                    <span>가입설계청약</span> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_inquiry.png" alt="아이콘">
+                                    <span>계약조회</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_sign.png" alt="아이콘">
+                                    <span>모집자서명</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_house.png" alt="아이콘">
+                                    <span>집금책임계약</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_happy.png" alt="아이콘">
+                                    <span>행복보장분석</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_photo.png" alt="아이콘">
+                                    <span>사진등록</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_judge.png" alt="아이콘">
+                                    <span>심사업무조회</span>
+                                </a>
+                            </li>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_certi.png" alt="아이콘">
+                                    <span>증명서발급</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_car.png" alt="아이콘">
+                                    <span>단기운전자</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_write.png" alt="아이콘">
+                                    <span>가입설계요청</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_lookcer.png" alt="아이콘">
+                                    <span>설계명세조회</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_movie.png" alt="아이콘">
+                                    <span>영상교육</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_budget.png" alt="아이콘">
+                                    <span>실손정액담보</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_pay.png" alt="아이콘">
+                                    <span>보험료수납</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_hitalk.png" alt="아이콘">
+                                    <span>Hi심사톡</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_simplesend.png" alt="아이콘">
+                                    <span>간편접수발송</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_longterm.png" alt="아이콘">
+                                    <span>장기사고접수</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_allser.png" alt="아이콘">
+                                    <span>고객통합조회</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_earn.png" alt="아이콘">
+                                    <span>실적소득</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_case.png" alt="아이콘">
+                                    <span>실적건별</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_carend.png" alt="아이콘">
+                                    <span>자동차만기대상</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./images3/ico/icon_longuser.png" alt="아이콘">
+                                    <span>장기만기대상</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="mn-arr-wrap">
+                        <div class="icon-morebtn mnicon-open">
+                            위치변경
+                            <img src="./images3/ico/icon_arrow_open.png" alt="더보기 아이콘">
+                        </div>
+                        <div class="icon-morebtn mnicon-close hide">
+                            위치저장
+                            <img src="./images3/ico/icon_arrow_close.png" alt="더보기 아이콘">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+            <!-- mid-banner -->
+            <div class="mn-bnrWrap">
+                <div class="mn-banner mid-bnr">
+                    <div class="slider-bnr01">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <img src="./images3/banner/mid-banner01.png" alt="배너 이미지">
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images3/banner/mid-banner01.png" alt="배너 이미지">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 컨트롤러 -->
+                    <div class="mid-controller">
+                        <div class="numcount sPage1">
+                        </div>
+                        <div class="playBtns">
+                            <img src="./images3/ico/icon-play.png" alt="재생버튼" class="mn-play hide">
+                            <img src="./images3/ico/icon-pause.png" alt="멈춤버튼" class="mn-pause">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- name search -->
+            <div class="mn-cntwrap">
+                <div class="mn-contInner cnt01">
+
+                    <div class="mn-inputBox">
+                        <img src="./images3/ico/icon-user.png" alt="사람 아이콘">
+                        <input type="text" placeholder="고객명을 입력하세요">
+                        <a class="mn-btn-search">
+                            <img src="./images3/ico/icon_searchbar_search.png" alt="고객검색 버튼">
+                        </a>
+                    </div>
+                    
+                    <ul>
+                        <li>
+                            <span>장기만기대상</span>
+                            <span class="mn-number">111</span>
+                        </li>
+                        <li>
+                            <span>자동차만기대상</span>
+                            <span class="mn-number">23</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- 당월 실적 -->
+            <div class="mn-cntwrap">
+                <div class="mn-contInner cnt02">
+                    <div class="mn-tittxt">
+                        <h2>현재실적 <span class="mn-smalltit">(단위 : 천원)</span></h2>
+                        <div class="mn-arrow"></div>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <div class="tit">장기신</div> 
+                            <div class="mn-counter">
+                                    <div class="lft">
+                                        <span>실적</span>
+                                        <span class="counter">
+                                            22
+                                        </span>
+                                    </div>
+                                    <div class="rht">
+                                        <span>환산</span>
+                                        <span class="counter">
+                                            22
+                                        </span>
+                                    </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tit">자동차</div> 
+                            <div class="mn-counter">
+                                    <div>
+                                        <span>실적</span>
+                                        <span class="counter">
+                                            123
+                                        </span>
+                                    </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- btm-banner -->
+            <div class="mn-bnrWrap">
+                <div class="mn-banner btm-bnr">
+                    <ul class="slider-bnr02">
+                        <li>
+                            <a href="">
+                                <div class="innnerTxts">
+                                    <h4>비대면 영업지원부터 교육까지 한 번에!</h4>
+                                    <h3>M 소식지</h3>
+                                </div>
+                                <img src="./images3/ico/img_book.png" alt="책 아이콘">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <!-- 행복보장분석 -->
+            <div class="mn-cntwrap">
+                <div class="mn-contInner cnt03">
+                    <div class="mn-tittxt">
+                        <h2>행복보장분석</h2>
+                    </div>
+
+                    <div class="slider-bnr03">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <div class="mn-user-info">
+                                    <span class="mn-name">김길동</span>
+                                    <span class="mn-infos">
+                                        (<span>1987-01-01</span>, <span>38</span>세)
+                                    </span>
+                                </div>
     
-    </div>
+                                <div class="mn-detail-date">
+                                    <div class="date-fu">
+                                        <span>상령일:</span>
+                                        <span>2023-07-22</span>
+                                    </div>
+                                    <div class="mn-date-design">
+                                        <span>보장분석일:</span>
+                                        <span>2024-03-10</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="mn-user-info">
+                                    <span class="mn-name">홍길동</span>
+                                    <span class="mn-infos">
+                                        (<span>1991-11-05</span>, <span>20</span>세)
+                                    </span>
+                                </div>
+    
+                                <div class="mn-detail-date">
+                                    <div class="date-fu">
+                                        <span>상령일:</span>
+                                        <span>2020-03-11</span>
+                                    </div>
+                                    <div class="mn-date-design">
+                                        <span>보장분석일:</span>
+                                        <span>2022-02-20</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="slider-bnr03-arrows"></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- white-wrap -->
 
 
-    <style>
-        ul.sw05 {width: 150px; margin-top: 50px;}
-    </style>
-
-    <ul id="sortable-1" class="swiper-slide sw05">
-        <li >1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-    </ul>
 
 
-
-
+        <!-- footer -->
+        <div class="mn-ftrWrap">
+            <div class="mn-ftr">
+                <p>
+                    ⓒ 2024 Hyundai Marine & Fire Insurance Co, Ltd All right reserved.  
+                </p>
+            </div>
+        </div>
+    </div> <!-- wrap -->
+    
+    
 </body>
 </html>
 
-
-<script>
-    $(function() { $("#sortable").sortable(); $("#sortable").disableSelection();});
-    $(function() { $("#sort").sortable(); $("#sort").disableSelection();});
-    $(function() { $("#sortable-1").sortable(); $("#sortable-1").disableSelection();});
-
-    var mySwiper = new Swiper ('.cont', {
-        slidesPerView : 1,
-        
-    })
-
-</script>

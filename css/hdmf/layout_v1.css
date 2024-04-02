@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/* header */
+.hdmf .h_wrap{padding:17px 20px;height:50px}
+.hdmf .h_wrap .menu{top:6px;right:7px;font-size:0}
+.hdmf .h_wrap [class^='btn_']{margin-right:5px}
+.hdmf .h_wrap .menu .quick-all-menu{float:left;width:40px;height:40px;}
+.hdmf .h_wrap .menu .quick-all-menu .btn-menu{width:40px;height:40px;text-indent: -9999em;font-size:0;background-image:url('../../images/renew/ico/ico_menu.png');background-size:17px auto;background-repeat: no-repeat;background-position: 50% 50%;}
+.hdmf .h_wrap .menu .quick-all-menu .btn-menu:after{display:none}
+.hdmf .h_wrap .menu .btn-logout{width:40px;height:40px;text-indent: -9999em;font-size:0;background-image:url('../../images/renew/ico/ico_logout.png');background-size:17px auto;background-repeat: no-repeat;background-position: 50% 50%;}
+
+
+/* footer */
+.hdmf #footer{margin-top:0;padding:16px 0;}
+
+
+/* slidemenu */
+.hdmf .slidemenu .user_info{border-bottom:0}
+.hdmf .slidemenu .user_info .img{width:50px;height:50px}
+.hdmf .slidemenu .user_info .menu_card{position:relative;margin-left:8px;padding:5px 10px 6px 33px;border:1px solid #cdcdcd;border-radius:16px;font-size:13px;color:#333}
+.hdmf .slidemenu .user_info .menu_card:before{content:'';position:absolute;top:50%;left:10px;width:16px;height:14px;-webkit-transform: translateY(-50%);transform: translateY(-50%);background:url(../../images/renew/ico/ico_mem_menu_card.png) no-repeat 0 0;background-size:100%}
+
+.hdmf .slidemenu .member_menu li a{padding-top:47px;height:88px;font-size:13px;color:#333;}
+.hdmf .slidemenu .member_menu li.m1 a{background:url(../../images/renew/ico/ico_mem_menu1.png) no-repeat 50% 10px;background-size:26.5px auto;}
+.hdmf .slidemenu .member_menu li.m2 a{background:url(../../images/renew/ico/ico_mem_menu2.png) no-repeat 50% 10px;background-size:27px auto;}
+.hdmf .slidemenu .member_menu li.m3 a{background:url(../../images/renew/ico/ico_mem_menu3.png) no-repeat 50% 10px;background-size:27px auto;}
+.hdmf .slidemenu .member_menu li.m4 a{background:url(../../images/renew/ico/ico_mem_menu4.png) no-repeat 50% 10px;background-size:27px auto;}
+
+.hdmf .slidemenu .menu_gnb .inner:before{width:140px}
+.hdmf .slidemenu .menu_gnb li.active>a:after{width:140px;height:42px}
+.hdmf .slidemenu .menu_gnb .dep1{width:170px;padding:25px 20px 30px 15px}
+.hdmf .slidemenu .menu_gnb .dep1>li{margin-top:2px}
+.hdmf .slidemenu .menu_gnb .dep1>li:first-child{margin-top:0}
+.hdmf .slidemenu .menu_gnb .dep1>li>a{font-size:15px;color:#333;font-family:notoM}
+.hdmf .slidemenu .menu_gnb li.active>a{color:#fff}
+.hdmf .slidemenu .menu_gnb .dep2-box{padding:18px 20px 18px 170px;}
+.hdmf .slidemenu .menu_gnb .dep2>li{margin-top:6px}
+.hdmf .slidemenu .menu_gnb .dep2>li>a{padding-left:0;font-size:15px;color:#333;line-height:28px}
+.hdmf .slidemenu .menu_gnb .dep3 li a{padding-left:0;font-size:14px}
+.hdmf .slidemenu .menu_gnb .dep3 li a:before{width:2px;height:2px;margin-right:6px;background-color:#777}
+

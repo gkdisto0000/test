@@ -1,0 +1,295 @@
+@charset 'utf-8';
+
+
+/* ======================================================
+    ======================================================
+    
+	font
+	
+    ======================================================
+    ====================================================== */
+@font-face{
+    font-family:'notoB';
+    font-style:normal;
+    font-weight:700;
+    src:url(../../../font/NotoSansKR-Bold-Hestia.eot);
+    src:local("?"),
+        url(../../../font/NotoSansKR-Bold-Hestia.eot?#iefix) format('embedded-opentype'),
+        url(../../../font/NotoSansKR-Bold-Hestia.woff) format('woff');}
+        
+
+@font-face{
+    font-family:robotoB;
+    font-style:normal;
+    font-weight:700;
+    src:url('../../../font/Roboto-Bold-webfont.eot');
+    src:local(☺),
+        url(../../../font/Roboto-Bold-webfont.eot?#iefix) format('embedded-opentype'),
+        url(../../../font/Roboto-Bold-webfont.woff) format('woff'),
+        url(../../../font/Roboto-Bold-webfont.woff2) format('woff2');
+}
+        
+        
+/* ======================================================
+    ======================================================
+    
+	common
+	
+    ======================================================
+    ====================================================== */
+ html.renew body{height:100vh !important;height:-webkit-fill-available !important; height:fill-available !important;color:#777;line-height:1.572;letter-spacing:-.4px}
+/*  html.renew body.scrollOff{overflow:hidden;position:fixed;touch-action: none;width:100%} */
+.renew body, .renew a, .renew input, .renew textarea, .renew select, .renew button, .renew table, .renew pre, .renew p .renew span{font-family:'robotoR', 'notoR', 'Malgun Gothic', '맑은 고딕', Dotum, Gulim, sans-serif;font-size:13px}
+.renew #wrap{overflow-x:unset}
+.renew #header{z-index:20}
+.blind{visibility:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:1px;line-height:0;}
+.renew .nowrap{white-space:nowrap;}
+
+
+/* color */
+.renew .color_point{color:#f18d00 !important}
+.renew .color_blue{color:#008cd3 !important}
+.renew .color_red{color:#ec665f !important}
+.renew .color_dkBlue {color:#002c72 !important}
+.renew .color_green{color:#048901 !important}
+.renew .color_dkRed {color:#ed0014 !important;}
+
+/* text  */
+.renew .basicC0{color:#000 !important}
+.renew .basicC1{color:#222 !important}
+.renew .basicC2{color:#333 !important}
+.renew .basicC3{color:#555 !important}
+.renew .basicC4{color:#777 !important}
+.renew .basicC5{color:#888 !important}
+.renew .txt{font-size:14px !important;}
+
+
+/* font */
+.renew .notoL {font-family:notoL !important;font-weight:400 !important;}
+.renew .notoR {font-family:notoR !important;font-weight:400 !important;}
+.renew .notoM {font-family:notoM !important;font-weight:500 !important;}
+.renew .font13{font-size:13px !important}
+.renew .font15{font-size:15px !important}
+
+/* bar */
+.renew .bar{margin:40px -20px;}
+.renew .bar.line{margin:0 -20px;height:1px;background-color:#ccc}
+.renew .bar + *{margin-top:0 !important}
+.renew .bar + .tits01{margin-top:-7px !important}
+
+/* border */
+.renew .btLine {border-top:1px solid #aaa !important;}
+.renew .blLine {border-left:1px solid #aaa !important;}
+.renew .brLine {border-right:1px solid #aaa !important;}
+
+/* 좌우 정렬 */
+.renew .al, .renew .al input{text-align:left !important}
+.renew .ar{text-align:right !important}
+
+/* 간격 */
+.renew .mt10{margin-top:10px !important;}
+.renew .mt40{margin-top:40px !important;}
+.renew .mt50{margin-top:50px !important;}
+
+/* 개발 숨김처리 none/block */
+.renew .hide{display:none !important}
+.renew .show{display:block !important}
+.renew .input_text.show{display:flex !important}
+
+/* etc */
+.renew .location{border-bottom:0}
+.renew .btn-menu{width:57px}
+.renew .break_all{word-break:break-all}
+.renew .blk {display:block !important;}
+.renew .bold{font-family:notoB !important}
+.renew .w100 {width:100% !important;}
+.renew .text_m {font-size:16px;}
+.renew .text_m > li {margin-top:24px;}
+.renew .bg_color01 input, .renew .bg_color01 textarea{background-color:#fff5ec;}
+.renew .bg_color01 input:disabled{background-color:#fff5ec;}
+.renew .underline{text-decoration:underline;}
+.renew .scroll_none{overflow:hidden !important}
+
+/* full 간격설정 */
+.renew .full:not(.layer) {margin-left:-20px; margin-right:-20px;}
+
+
+
+
+/* ======================================================
+    ======================================================
+    
+	layout
+	
+    ======================================================
+    ====================================================== */
+/* layout 하단 여백 */
+.renew .contents.sub{padding-bottom:50px}
+.renew .contents.fixed, .renew .contents.bottom_fixed{padding-bottom:110px}
+.renew .contents.bottomSpace {padding-bottom:240px;}
+/* sub_inr : 안에 첫번째 마진값 */
+.renew .sub_inr > *:first-child{margin-top:0}
+
+
+
+
+/* ======================================================
+    ======================================================
+    
+	header
+	
+    ======================================================
+    ====================================================== */
+.renew #header{position:fixed;top:0;left:0;right:0;background-color:#fff}
+.renew #header .location h2{font-size:16px;color:#222}
+.renew #header .layer_close{position: absolute;top: 0;right: 0;width: 50px;height: 50px;background: url(../../../images/renew/ico/btn_layer_close.png) no-repeat 50% 50%;background-size: 17px auto;}
+
+/* progress_step */
+.renew .progress_step {position:absolute; top:0; right:58px;}
+.renew .progress_step .present {position:relative; width:auto; height:26px;padding:0 7px; line-height:25px; border-radius:50px; background-color:#ec665f; color:#fff; font-size:13px;font-family:robotoM}
+/* .renew .progress_step .present:before {content:""; position:absolute; top:0; bottom:0; left:0; right:0; width:100%; height:100%; background-position:50% 50%; background-repeat:no-repeat; background-size:43px auto;
+	-webkit-animation:spepAni 3s linear infinite; animation:spepAni 3s linear infinite;} */
+.renew .progress_step .present:after{content:"";display:inline-block;width:8px;height:5px;margin-top:11px;vertical-align:top;background:url(../../../images/renew/ico/ico_arrow_down_w.png) no-repeat 0 0;background-size:100% auto;}
+.renew .progress_step .step_list {display:none; position:absolute; top:50px; right:-58px;min-width:250px; padding:0px 20px 25px; white-space:nowrap; line-height:normal; background-color:#fff; border-radius:0 0 0 30px; text-align:center; z-index:10;}
+.renew .progress_step .step_list .desc {display:inline-block; position:relative; margin-top:20px; padding:0 0 4px; color:#008cd3; font-size:13px; z-index:1;}
+.renew .progress_step .step_list .desc:before {content:""; position:absolute; bottom:0; left:0; right:0; top:60%; background-color:#e6f7ff; z-index:-1;}
+.renew .progress_step .step_list ol {counter-reset:section; position:relative; margin-top:25px;}
+.renew .progress_step .step_list ol > li {position:relative; margin-top:15px; padding-left:55px; text-align:left;}
+.renew .progress_step .step_list ol > li button:before {content:"Step"counter(section); counter-increment:section; display:inline-block; position:absolute; top:4px; left:0; width:45px; height:24px; font-size:11px; border:1px solid #ddd; border-radius:50px; line-height:22px; text-align:center; box-sizing:border-box; background-color:#fff;}
+.renew .progress_step .step_list ol > li.chk:before {position:absolute; top:20px; left:12px; height:14px; border:1px solid #ec665f;}
+.renew .progress_step .step_list ol > li.chk button:before {color:#ec665f;}
+.renew .progress_step .step_list ol > li.chk button:before {border:1px solid #ec665f;}
+.renew .progress_step .step_list ol > li.chk button > .title:after, .renew .progress_step .step_list ol > li.on button > .title:after {content:""; display:inline-block; width: 8px; height: 4px; margin:0 0 4px 5px; border:2px solid #ec665f; border-width:0 0 2px 2px; -webkit-transform:rotate(-45deg); vertical-align:middle;}
+.renew .progress_step .step_list ol > li.on button:before {color:#fff; background-color:#ec665f; border-color:#ec665f; font-weight:normal;}
+.renew .progress_step .step_list ol > li button {min-height:25px; font-size:14px; text-align:left; color:#aaa;}
+.renew .progress_step .step_list ol > li button:disabled {color:#aaa;}
+.renew .progress_step .step_list ol > li.chk button {color:#333;}
+.renew .progress_step .step_list ol > li.on button {font-weight:700; color:#ec665f;font-size:16px;}
+.renew .progress_step .step_list ol > li button .info{display:block;font-size:14px;font-family:notoR;font-weight:400}
+.renew .progress_step .step_list .btn_close {position:absolute; bottom:-16px; right:20px; width:36px; height:36px; background: url(../../../images/renew/ico/btn_layer_close.png) no-repeat 50% 50%; border-radius:50%; background-size:15px auto; background-color:#fff; box-shadow:4px 4px 8px rgb(113 93 235 / 24%);}
+
+.renew .progress_step .step_list .current_head{margin:0 -20px;padding:15px 0 15px 20px;background-color:#f9f9fb;line-height:1}
+.renew .progress_step .step_list .current_head .num{display:block;margin-bottom:8px;font-size:13px;font-family:robotoM;color:#333;text-align:left}
+.renew .progress_step .step_list .current_head .title{position:relative;display:block;width:100%;height:24px;font-size:13px;color:#333;line-height:1.385;font-family:notoR;font-weight:400;}
+.renew .progress_step .step_list .current_head .title:after{display: block;content: '';width: 50px;height: 100%;position: absolute;top: 0;right: 0;background: linear-gradient(to right, rgba(255,255,255,0), #f9f9fb 40px);}
+.renew .progress_step .step_list .current_head .title span{position:absolute;top:0;left:0;width:100%;padding-right:25px;line-height:24px;overflow:hidden;overflow-x:scroll;}
+
+
+
+/* ======================================================
+    ======================================================
+    
+	iframe
+	
+    ======================================================
+    ====================================================== */
+/* layout */
+.renew .main_wrap{overflow:hidden}
+.renew .main_wrap #wrap{padding-top:0}
+.renew .main_iframe{position:relative;height:100vh}
+.renew .main_iframe_body{padding-top:50px}
+/* .renew .main_iframe_body .inform_top{top:0} */
+
+/* tab 안에  */
+.renew .tab_iframe_body .cont_iframe{width: -webkit-fill-available;height:calc( 100vh - 125px );margin-left:-20px;margin-right:-20px}
+.renew .tab_iframe_body .layer_cont{padding-bottom:60px;overflow:hidden}
+.renew .iframe_content{padding:25px 20px 60px;}
+.renew .iframe_content > .tits01:first-child{margin-top:0}
+.renew .bottom_fixed .iframe_content .layer_cont{padding-bottom:60px;overflow:hidden}
+
+/* popup */
+.renew .modal_iframe{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;height:-webkit-fill-available;height:fill-available;z-index:99999;}
+.renew .modal_iframe.is_on{display:block}
+.renew .modal_popup{background:transparent;overflow:hidden}
+
+
+
+
+/* ======================================================
+    ======================================================
+    
+	ico
+	
+    ======================================================
+    ====================================================== */
+.renew .ico_essential{position:relative;font-size:0;vertical-align:top}
+.renew .ico_essential:before{display:inline-block;content:'*';margin-top:3px;color:#f18d00;font-size:14px;width:11px;}
+.renew .btn-infopop.ico_question{margin:-1px 0 0 7px;background:url(../../../images/renew/ico/ico_question.png) no-repeat 0 0;background-size:16px auto}
+.renew .btn-infopop.ico_question:hover{background-image:url(../../../images/renew/ico/ico_question_hover.png)}
+.renew .link_btn.arrow.basicC0:after {top:1px;background-image: url(../../../images/renew/ico/ico_arrow_b_s.png);}
+
+/* 화살표 텍스트 */
+.renew .arrow {display:inline-block; position:relative; padding-right:13px;}
+.renew .arrow:after {content:""; position:absolute; top:0;right:0;width:7px; height:100%; background-image:url(../../../images/renew/ico/ico_orange.png);background-position:50% 50%;background-repeat:no-repeat;background-size:7px auto}
+.renew .color_dkBlue.arrow{font-family:notoM}
+.renew .color_dkBlue.arrow:after {background-image:url(../../../images/renew/ico/ico_navy.png)}
+
+
+
+
+/* ======================================================
+    ======================================================
+    
+	sticky
+	
+    ======================================================
+    ====================================================== */
+.renew .sticky_area{position:sticky;top:49px;z-index:2;background-color:#fff}
+.renew .sticky_wrap .sticky_area{position:sticky;top:0;min-width:100%;margin:0 -20px;padding:0 20px 10px 20px;background-color:#fff;}
+
+
+
+
+
+/* ======================================================
+    ======================================================
+    
+	text_ellipsis 
+	
+    ======================================================
+    ====================================================== */
+.renew .text_ellipsis{max-width:99%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.renew .text_ellipsis.line_2 {display:-webkit-box !important;vertical-align:middle;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;white-space:unset;}
+.renew .text_ellipsis.line_3 {display:-webkit-box !important;vertical-align:middle;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:3;-webkit-box-orient:vertical;white-space:unset;word-break: break-all;}
+
+ 
+ 
+ 
+ 
+ 
+ /* ======================================================
+    ======================================================
+    
+	dimmed
+	
+    ======================================================
+    ====================================================== */
+.renew .dimmed {display:none; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; background-color:rgba(0,0,0,0.4); z-index:300;}
+.renew.dim .dimmed {display:block;}
+.renew.dim #header {z-index:301;}
+
+.renew .dim{position:relative}
+.renew .dim:after{content:'';position:absolute;top:0;left:0;bottom:0;width:100%;background-color:#000;opacity:.4}
+
+
+.renew .dim .dim_off{position:relative;z-index:9}
+.renew .dim .dim_off .acco_head{background-color:#fff}
+
+
+
+
+
+ /* ======================================================
+    ======================================================
+    
+	loading
+	
+    ======================================================
+    ====================================================== */
+.loading{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(255,255,255,.7);z-index:100000;}
+.loading:before{content:'';display:inline-block;width:60px;height:60px;position:absolute;top:50%;left:50%;border-radius:50%;box-shadow:2px 2px 10px 0px rgb(0 0 0 / 12%);background:url(../../../images/renew/loading.gif) no-repeat 50% 50%;background-size:100% auto;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}
+
+
+
+
+

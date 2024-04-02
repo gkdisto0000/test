@@ -1,0 +1,180 @@
+@charset 'utf-8';
+
+
+/* ======================================================
+    ======================================================
+    
+	 accordion
+	 
+    ======================================================
+    ====================================================== */
+/* 공통 아코디언 */
+ .renew .acco_wrap {margin-top:30px;}
+ .renew .acco_wrap .acco_list {border-top:1px solid #aaa;width:100%}
+ .renew .acco_wrap .acco_list .item {border-bottom:1px solid #ddd;}
+ .renew .acco_wrap .acco_list .item.on {border-bottom:1px solid #aaa;}
+ .renew .acco_wrap .acco_list .item .acco_head {border-bottom:1px solid transparent;}
+ .renew .acco_wrap .acco_list .item.on .acco_head {border-bottom:1px solid #eee;}
+ .renew .acco_wrap .acco_list .acco_head .acco_btn {display:block; position:relative; padding:20px 50px 20px 20px;}
+ .renew .acco_wrap .acco_list .acco_head .acco_btn:after{margin-top:-4px}
+ .renew .acco_wrap .acco_list .item > .acco_head .acco_btn:after {content:""; position:absolute; top:50%; right:20px; width:10px; height:10px; border:2px solid #333; border-width:0 0 2px 2px; -webkit-transform:rotate(-45deg) translate(0, -50%); transition:all 0.35s;}
+ .renew .acco_wrap .acco_list .item.on > .acco_head .acco_btn:after {margin-top:-2px;left:auto;right:23px; -webkit-transform:rotate(135deg) translate(0, 0); border-color:#f18d00;}
+ .renew .acco_wrap .acco_list .acco_head .acco_btn .tit {padding-top:0; color:#000; font-size:16px;font-family:notoM;font-weight:500}
+ .renew .acco_wrap .acco_list .acco_head .acco_btn .tit .sub_desc {display:block; font-weight:300; font-size:13px;}
+ .renew .acco_wrap .acco_list .acco_head .acco_btn .info_list .tit + .val {padding-top:0;}
+ .renew .acco_wrap .acco_list .acco_body {display:none; padding:25px 20px; background-color:#fff;}
+ .renew .acco_wrap .acco_list .acco_body .bg_wrap {margin:15px -20px; padding:15px 20px; background-color:#f9f9f9;}
+ .renew .acco_wrap .acco_list .acco_body .bg_wrap > *:first-child{margin-top:0}
+ .renew .acco_wrap .acco_list .acco_body .table-col {margin-top:0;}
+ .renew [class*="_list"] li > .acco_wrap{margin-left:-15px}
+ .renew .acco_wrap .acco_list .acco_body > *:first-child{margin-top:0}
+ .renew .acco_wrap .acco_list .acco_body > .check-tab-ty01:first-child > div{margin-top:0}
+ .renew .acco_wrap .acco_list .acco_body.bg_wrap{background-color: #f9f9f9;}
+ .renew .acco_wrap .acco_list .acco_body .acco_btn .tit {font-size:14px; font-weight:500;}
+ 
+ /* 클릭 안되게 */
+ .renew .acco_wrap .acco_list .acco_head .acco_btn.event_off{pointer-events:none}
+ 
+/* dataList */
+.renew .layer .acco_wrap.dataList.no_acco {margin:20px 0 0;}
+.renew .layer .acco_wrap.dataList.no_acco .acco_list .item .acco_head {padding:20px 10px;}
+.renew .layer .acco_wrap.dataList.no_acco .acco_list .item .acco_head .text_tip span {color:#000;}
+.renew .layer .acco_wrap.dataList.no_acco .acco_list .item .acco_head .text_tip em {color:#000;font-size:14px;font-weight:500;font-family:notoM;}
+.renew .layer .acco_wrap.dataList.no_acco .acco_list .item .acco_head .cell_group {align-items:baseline;}
+.renew .layer .acco_wrap.dataList.no_acco .acco_list .item .acco_head .cell .join_price p {color: #003070;font-size:14px;font-weight:500;font-family:notoM;}
+.renew .layer .acco_wrap.dataList.no_acco .acco_list .item .acco_head .cell .state_period {margin-bottom:-1px;padding:0;color:#333;background:none;}
+.renew .layer .acco_wrap.dataList.no_acco .acco_list .item .acco_head .cell .state_period > em {color:#333;font-weight:500;}
+
+/* 팝업 dataList */
+.renew .layer .acco_wrap.dataList .acco_list .item .acco_head {padding:20px 25px 20px 0;}
+.renew .layer .acco_wrap.dataList .acco_list .item .acco_head .acco_btn {right:0;}
+.renew .layer .acco_wrap.dataList .acco_list .item .acco_body {padding:20px;}
+
+
+/* 아코디언 라운딩 */
+.renew .layer.full .acco_wrap.round {margin-left:0; margin-right:0;}
+.renew .acco_wrap.round > .acco_list {border-top:0;}
+.renew .acco_wrap.round > .acco_list > .item {margin-top:10px; padding:0 20px; border:1px solid #ccc; border-radius:10px; overflow:hidden;}
+.renew .acco_wrap.round > .acco_list > .item:first-child {margin-top:0;}
+.renew .acco_wrap.round > .acco_list > .item .acco_head {border-bottom:0;}
+.renew .acco_wrap.round > .acco_list > .item .acco_head .acco_btn {padding:20px 50px 20px 0;}
+.renew .acco_wrap.round > .acco_list > .item > .acco_body:not(.full) {border-top:1px solid #eee;}
+.renew .acco_wrap.round .acco_list .acco_body {padding:0;}
+.renew .acco_wrap.round .acco_list .acco_body .item {border-color:#eee;}
+.renew .acco_wrap.round .acco_list .acco_body .item:last-child {border:0;}
+.renew .acco_wrap.round .acco_list .acco_body .acco_list {border:0;}
+.renew .acco_wrap.round .acco_list .acco_body .acco_list .item:last-child {border-bottom:0;}
+.renew .acco_wrap.round .acco_list .acco_body .acco_list .item > .acco_head {border-bottom:0;}
+.renew .acco_wrap.round .acco_list .acco_body .card_box_wrap.bg_gray {border-radius:0;}
+
+ /* 플랜선택 */
+ .renew .acco_wrap.unfiled{margin:0 !important;}
+ .renew .acco_wrap.unfiled .acco_list .acco_head .acco_btn {display:block; position:relative; padding:20px 40px 20px 10px;}
+ .renew .acco_wrap.unfiled .acco_list .acco_head .acco_btn:after{right:10px}
+ .renew .acco_wrap.unfiled .acco_list .item.on .acco_head .acco_btn:after{right:14px}
+
+/* fixed_wrap > 아코디언 */
+.renew .fixed_wrap .acco_wrap{position:relative;margin:0}
+.renew .fixed_wrap .acco_list .item{min-height:62px;}
+.renew .fixed_wrap .acco_list .item .acco_head{position:absolute;width:100%;background-color:#fff;line-height:20px}
+.renew .fixed_wrap .acco_list .item.on .acco_head.fixed{position:sticky;top:49px;left:0;right:0;z-index:2;}
+.renew .fixed_wrap .acco_list .item .acco_body{padding-top:90px;}
+.renew .fixed_wrap .acco_list .item .acco_body > .tits02:first-child, 
+.renew .acco_list .item .acco_body > div:first-child > .tits02:first-child{margin-top:0}
+.renew .fixed_wrap .acco_wrap .acco_list .item.on:last-child{border-bottom:0}
+.renew .fixed_wrap + .acco_wrap{margin-top:0}
+
+
+
+/* 아코디언 > radio 포함 */
+.renew .acco_wrap.chk_input .acco_head.flex_wrap .flex_title  input[type='radio']{height:calc(100% - 40px)}
+
+
+
+/* 아코디언 > 유의사항 */
+ .renew .acco_wrap.noti{margin-left:-20px;margin-right:-20px;margin-bottom:-40px;}
+ .renew .acco_wrap.noti .acco_list .acco_body{padding:30px 20px;background-color:#f9f9f9}
+ .renew .acco_wrap.noti:last-child .acco_list .acco_head .acco_btn{padding:20px 20px 40px}
+ .renew .acco_wrap.noti .acco_list .item.on .acco_head,  .renew .acco_wrap.noti .acco_list .item{border-bottom:0 !important;}
+ .renew .acco_wrap.noti .acco_list{border-top:0}
+ .renew .acco_wrap.noti .acco_list .acco_head .acco_btn:after{top:32px;right:20px;}
+ .renew .acco_wrap.noti .acco_list .item.on .acco_head .acco_btn{padding:20px;}
+ .renew .acco_wrap.noti .acco_list .item.on .acco_head .acco_btn:after{right:24px;}
+ .renew .layer.full .acco_wrap.noti{margin-bottom:-60px;}
+ .renew .layer.full.bottom_fixed .acco_wrap.noti{margin-bottom:-50px;}
+ .renew .acco_wrap.noti.cont{margin-bottom:0 !important}
+ .renew .contents  .acco_wrap.noti{margin-bottom:-80px}
+ .renew .contents.fixed  .acco_wrap.noti{margin-bottom:-50px}
+ 
+ 
+ 
+ 
+ /* 담보 아코디언 목록 */
+.renew .acco_wrap.dataList {}
+.renew .acco_wrap.dataList .acco_list {border-color:#ddd;}
+
+.renew .acco_wrap.dataList .acco_list .item.sel .acco_head {background-color:#fff5ec;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head {position:relative; padding:20px 55px 20px 20px;}
+
+
+.renew .acco_wrap.dataList .acco_list .item .acco_head .check-tab-ty01 input[type='checkbox'] + label,
+.renew .acco_wrap.dataList .acco_list .item .acco_head .tit strong {display:block; height:25px; line-height:25px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; font-size:15px; font-weight:700; color:#000;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .tit em {color:#000;font-size:15px;font-weight:500;font-family:notoM;word-break:break-all;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .scroll{display:block;height:29px;overflow-x:scroll;white-space:nowrap}
+.renew .acco_wrap.dataList .acco_list .item.sel .acco_head .check-tab-ty01 {position:relative;}
+.renew .acco_wrap.dataList .acco_list .item.sel .acco_head .check-tab-ty01 input[type='checkbox'] + label {padding-right:24px;}
+.renew .acco_wrap.dataList .acco_list .item.sel .acco_head .check-tab-ty01 .icoBtn_alarm {position:absolute; top:6px; right:0; width:16px; height:14px; border:0; background-color:transparent;}
+.renew .acco_wrap.dataList .acco_list .item.sel .acco_head .check-tab-ty01 .icoBtn_alarm:after {content:""; display:inline-block; width:16px; height:14px; background:url(../../../images/renew/ico/ico_alarm.png) no-repeat 50% 50%; background-size:16px auto;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .price_group {margin-top:10px;text-align:right}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .price_group + .cell_group{margin-top:0}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .tit + .cell_group {padding-left:0;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell_group {display:flex; align-items:flex-end; margin-top:10px; padding-left:35px;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell.rt {margin-left:auto; text-align:right;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell .state_period {display:inline-block; padding:4px 24px 4px 8px;border-radius:10px; font-size:14px;color:#333;background:#f5f5f5 url(../../../images/ico/ico_select_down.png) no-repeat right 7px top 50%;background-size: 12px auto;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell .state_period > em {font-weight:700; color:#333;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell .join_price > button {color:#003070; font-size:17px; font-weight:700;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell .join_price > button em {font-weight:700;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell .join_price > button:disabled{opacity:.5}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell .join_price p {color:#003070;font-size:17px;font-weight:500;font-family:notoM;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .cell .join_price p > em {font-weight:700;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .btn_search,
+.renew .acco_wrap.dataList .acco_list .item .acco_head .acco_btn {position:absolute; top:0; right:20px;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .acco_btn.full {top:0;left:0;right:0;width:100%;height:100%;margin:0;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .acco_btn.full:after {position:absolute;top:unset;bottom:28px;/* right:4px; */}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .btn_search {top:20px; width:24px; height:24px;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .btn_search.ico:before {border:0;}
+.renew .acco_wrap.dataList .acco_list .item .acco_head .acco_btn {top:auto; bottom:34px; right:23px;}
+.renew .acco_wrap.dataList .acco_list .item.on .acco_head .acco_btn {right:26px;}
+
+.renew .acco_wrap.dataList .acco_list .item.on {border-color:#ddd;}
+.renew .acco_wrap.dataList .acco_list .item.on .acco_head {border:0;}
+
+.renew .acco_wrap.dataList .acco_list .acco_head .acco_btn {width:12px; height:6px; padding:0;}
+.renew .acco_wrap.dataList .acco_list .acco_head .acco_btn:after {display:inline-block; position:static; width:6px; height:6px;}
+
+.renew .acco_wrap.dataList .acco_list .acco_body {padding:20px 25px; background-color:#f9f9fb;}
+.renew .acco_wrap.dataList .acco_list .acco_body .dot_list {margin-top:0;}
+.renew .acco_wrap.dataList .acco_list .acco_body .dot_list > li {font-size:14px; color:#333;}
+.renew .acco_wrap.dataList .acco_list .acco_body .dot_list > li > p {padding-top:10px; color:#555;}
+
+
+ 
+ 
+ 
+ /* progress */
+.renew .progress_value_off, .renew .progress_value_on,.renew .progress_check{display:none}
+.renew .progress_value_off.is_active, .renew .progress_value_on.is_active,.renew .progress_check.is_active{display:inline-block;}
+.renew .progress_value_off, .renew .progress_value_on, .renew .progress_value_add{position:absolute;top:21px;right:48px;font-size:13px;color:#777}
+.renew .progress_value_on{color:#f18d00}
+.renew .progress_value_off{color:#ed0014}
+.renew  .progress_value_add:after{content:'';position:absolute;top:0;right:-28px;width:20px;height:20px;z-index:1;background:#fff url(../../../images/renew/ico/ico_plus.png) no-repeat 50% 50%;background-size:16px auto}
+.renew .acco_wrap .acco_list .item.on .progress_value_add:after{display:none}
+.renew .progress_check{margin-left:6px;width:20px;height:20px;vertical-align:top;background:url(../../../images/renew/ico/ico_check.png) no-repeat 0 0;background-size:20px auto;}
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 

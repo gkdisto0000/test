@@ -1,0 +1,392 @@
+/*--- sub페이지 common ---*/
+.newbuild .sub_new_inr {padding: 0px 20px 30px;}
+.newbuild .contents.fixed, .renew .contents.bottom_fixed {padding-bottom: 0;}
+.newbuild .newbuil-icon {display: inline-block; width: 20px; height: 20px; margin-left: 8px;}
+.newbuild .blue-big {color: #003070 !important; font-size: 18px !important; font-family: 'robotoM', 'notoM'; font-weight: bold;}
+
+.newbuild .contact-icons {display: inline-block; margin: 0 0 0 auto; width: fit-content; text-align: right; white-space: nowrap;}
+.newbuild table tr td.side-cell {display: flex; justify-content: space-between !important; padding: 8px 0 8px 15px;}
+
+/* 중간 회색바 가이드*/
+.newbuild .grayLine {position: relative; padding-top: 25px; margin-top: 25px;}
+.newbuild .grayLine:before {display: block; content: ''; background-color: #F5F5F5; height: 10px; width: 100vw; position: absolute; top:-5px; left: -20px;}
+
+
+/* 중간 타이틀 가이드 */
+.newbuild .tits07 {font-size: 18px !important; letter-spacing: -0.3px;}
+
+/* 인풋박스 플레이스홀더 */
+.newbuild input::placeholder {color: #888888;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px; padding: 0 10px;}
+
+
+/* 오렌지 버튼 */
+.newbuild .colored-btn {background-color: #F18D00; color: #fff; font-size: 14px; letter-spacing: -0.7px; height: 30px; border-radius: 15px; text-align: center; line-height: 0; padding: 0 17.5px;}
+.newbuild .colored-btn.right {margin: 0 0 0 auto;}
+
+
+/* 플렉스 가운데 정렬 */
+.newbuild .flex_wrap.nb-center {align-items: center;}
+
+/* 알림 문구 */
+.newbuild .nb-info {font-size: 13px; letter-spacing: -0.65px; padding-top: 10px; display: block;}
+.newbuild .nb-info.red {color: #ED0014;}
+
+
+
+/* 하단 fix 회색 버튼 */
+.newbuild .gray-fixbtn {padding: 20px;}
+
+
+
+/* ---고객정보 통합조회 ---*/
+
+/* name search */
+.newbuild .sub_new_inr {margin-top: 28px;}
+.newbuild .sub_new_inr .mn-inputBox {display: flex;justify-content: space-between;align-items: center;width: 100%;height: 50px;border: 1px solid #F18D00;border-radius: 25px;overflow: hidden;position: relative;}
+.newbuild .sub_new_inr .mn-inputBox img {width: 20px;height: 20px;}
+.newbuild .sub_new_inr .mn-inputBox > img {margin-left: 20px;}
+.newbuild .sub_new_inr .mn-inputBox input {width: 70%;height: 100%;border: 0;margin: 0 auto;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px;}
+.newbuild .sub_new_inr .mn-inputBox input:focus {box-shadow: none;}
+.mn-inputBox input::placeholder {color: #AAAAAA;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px;}
+.newbuild .sub_new_inr .mn-inputBox > .mn-btn-search {margin-right: 20px;}
+
+.newbuild .all_infos {margin-top: 25px; color: #333333; padding: 0 20px;}
+.newbuild .all_infos table tr td {padding-bottom: 10px;}
+.newbuild .all_infos table tr td:nth-child(1) {text-align: left; font-size: 15px; letter-spacing: -0.75px; white-space: nowrap;vertical-align: top;}
+.newbuild .all_infos table tr td:nth-child(2) {text-align: right; font-size: 16px; letter-spacing: -0.8px; font-family: 'robotoM', 'notoM'; display: flex; align-items: center; justify-content: right;}
+.newbuild .all_infos .grayBtn {font-size: 14px; letter-spacing: -1.4px; width: fit-content; margin: 0 0 0 auto; border: 1px solid #DDDDDD; border-radius: 5px; height: 32px; line-height: 26px; padding: 0 10px;}
+.newbuild .all_infos .btnflex {justify-content: space-between; margin-top: 10px; align-items: center;}
+.newbuild .all_infos .btnflex .blueBtn {width: 95px; text-align: center; background-color: #D1F0FF; border-radius: 5px; height: 31px; display: flex; align-items: center; justify-content: center;}
+.newbuild .all_infos .btnflex .blueBtn img {width: 16px; margin-right: 5px;}
+.newbuild .all_infos .btnflex .blueBtn span {color: #003070; font-weight: bold;}
+
+.newbuild .agreeDate_wrap {background-color: #F9F9F9; border-radius: 10px; padding: 10px 20px; margin-top: 20px;}
+.newbuild .agreeDate_wrap tr td {padding: 5px 0; font-size: 15px;}
+.newbuild .agreeDate_wrap tr td:nth-child(1) {color: #777777; letter-spacing: -0.75px; text-align: left;}
+.newbuild .agreeDate_wrap tr td:nth-child(2) { letter-spacing: 0px; text-align: right; font-family: 'robotoM', 'notoM'; color: #333;} 
+
+.newbuild .cases_wrap {border-radius: 10px; border: 1px solid #DDDDDD; padding: 20px 0px; margin-top: 20px;}
+.newbuild .cases_wrap ul {display: flex; justify-content: space-between;}
+.newbuild .cases_wrap ul li {width: 49%; text-align: center; position: relative;}
+.newbuild .cases_wrap ul li:nth-child(2):before {display: block; content: ''; width: 1px; height: 83px; border-left: 1px dotted #CCCCCC; position: absolute; left: -3px; top: 15px;}
+.newbuild .cases_wrap ul li span {font-size: 16px; letter-spacing: -0.8px;}
+.newbuild .cases_wrap ul li .case_btm {display: flex; justify-content: center; margin-top: 7.5px;}
+.newbuild .cases_wrap ul li .case_btm > div {margin: 0 8px;}
+.newbuild .cases_wrap ul li .case_btm > div > span {display: block;}
+.newbuild .cases_wrap ul li .case_btm > div > span:nth-child(1) {font-size: 12px; border-radius: 11.75px; border: 1px solid #003070; height: 23.5px; width: fit-content; padding: 0 8px; margin: 0 auto; color: #003070; line-height: 21px;}
+.newbuild .cases_wrap ul li .case_btm > div:nth-child(2) > span:nth-child(1) {border: 1px solid #6477B6; color: #6477B6;}
+.newbuild .cases_wrap ul li .case_btm > div > span.num { font-size: 19px; margin-top: 5px; font-family: 'robotoM', 'notoM';}
+
+.newbuild .acco_wrap.checkMemos {margin-top: 0;}
+.newbuild .acco_wrap.checkMemos .acco_list {border-top: 0;}
+.newbuild .acco_wrap.checkMemos .acco_list .item .acco_head {width: 100%; display: block; }
+.newbuild .acco_wrap.checkMemos .acco_list .item .acco_head .acco_btn {font-size: 16px; color: #555555; letter-spacing: -0.75px; width: 100%; display: flex; padding: 14px 15px;}
+.newbuild .acco_wrap.checkMemos .acco_list .item .acco_head .acco_btn h4 {font-weight: normal;}
+.newbuild .acco_wrap.checkMemos .acco_list .item > .acco_head .acco_btn:after {right: 0; width: 10.3px; border-width: 0 0 1px 1px;}
+.newbuild .acco_wrap.checkMemos .acco_body {font-size: 15px; font-weight: normal; line-height: 1.4;}
+
+
+
+.newbuild .circle-chk-wrap > h3 {font-size: 15px; letter-spacing: -0.4px; margin-right: 30px;}
+
+.newbuild .circle-chk-wrap .check-tab-ty02 {margin: 0; width: 90px;}
+.newbuild .circle-chk-wrap .check-tab-ty02 input[type='checkbox'] + label{background-image: url('../../../images/ico/ico_checkbox.png'); width: 20px; height: 20px;}
+.newbuild .circle-chk-wrap [class^=check-tab-] input[type='checkbox']:checked + label {background-image: url('../../../images/ico/ico_checkbox_active.png');}
+
+
+
+
+/* 고객정보 통합조회 팝업 */
+.newbuild .layer .layer_close, .renew .layer.full .layer_close, .renew .layer.flo .layer_close, .renew .layer.flo .btn_close {background-size: 19px auto;}
+.newbuild .info-list-pop {font-size: 15px; letter-spacing: -0.7px;}
+.newbuild .info-list-pop li + li {margin-top: 15px;}
+.newbuild .layer.flo .layer_head {padding: 25px 30px;}
+.newbuild .layer.flo .layer_cont {padding: 0 30px 40px 30px;}
+
+
+.newbuild .cardwrap {margin-top: 20px;}
+.newbuild .cardwrap .boxtabs {display: flex; justify-content: left;}
+.newbuild .cardwrap .boxtabs li {width: 72.5px; text-align: center; border-radius: 10px; background-color: #EEEEEE; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 16px; letter-spacing: -0.8px; transition: all 0.2s; font-family: 'notoR';}
+.newbuild .cardwrap .boxtabs li + li {margin-left: 10px;}
+.newbuild .cardwrap .boxtabs li.active {background-color: #F18D00; color: #fff;}
+
+.newbuild .cardwrap .card-tit-info {display: flex; margin-top: 20px; justify-content: space-between; align-items: center;}
+.newbuild .cardwrap .card-tit-info .tit-lft {font-size: 18px; letter-spacing: -0.9px;}
+.newbuild .cardwrap .card-tit-info .tit-rht {margin: 0 0 0 auto; font-size: 15px; color: #222; letter-spacing: -0.75px;}
+.newbuild .cardwrap .card-tit-info .tit-rht .color_point {font-family: 'robotoM', 'notoM';}
+
+.newbuild .card_box_wrap.nb-card-wrap {padding: 20px;}
+.newbuild .card_box_wrap.nb-card-wrap .card_box_header .state .left .color_blue, .newbuild .card_box_wrap.nb-card-wrap .card_box_header .state .left .color_red {letter-spacing: -0.5px; font-family: 'robotoM', 'notoM'; font-size: 15px;}
+.newbuild .card_box_wrap.nb-card-wrap .card_box_header .state .left .color_red {color: #ED0014 !important;}
+.newbuild .card_box_wrap.nb-card-wrap .card_box_header .state .right {color: #777777; letter-spacing: 0; margin: 0 0 0 auto;}
+.newbuild .card_box_wrap.nb-card-wrap .card_box_header h3 {margin-top: 15px; line-height: 1.6; font-family: 'robotoM', 'notoM'; font-weight: normal; font-size: 16px; letter-spacing: -1.6px;}
+.newbuild .card_box_wrap.nb-card-wrap.ty02 {margin-top: 10px; padding: 20px 20px 16px 20px;}
+.newbuild .card_box_wrap.nb-card-wrap.ty02 .card_box_header {margin-bottom: 12px; padding-bottom: 15px;}
+.newbuild .card_box_wrap.nb-card-wrap .card_box_info {font-family: inherit;}
+.newbuild .card_box_wrap.nb-card-wrap .card_box_info dt {margin: 4px 0; font-size: 15px; letter-spacing: -0.75px;}
+.newbuild .card_box_wrap.nb-card-wrap .card_box_info dd {margin: 3px 0; font-size: 15px; letter-spacing: -0.75px; font-family: 'robotoM', 'notoM'; color: #222;}
+
+/* 두줄방지 클래스*/
+.newbuild .card_box_wrap.nb-card-wrap .card_box_header.longline-box h3 {height: 52px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; word-break: break-all;}
+
+/* 팝업 */
+.newbuild .family-info dl {font-size: 15px; display: flex; justify-content: center;}
+.newbuild .family-info dl + dl {margin-top: 18px;}
+.newbuild .family-info dl dt {color: #777777; width: 50px;}
+.newbuild .family-info dl dd {color: #000000; display: flex; flex-wrap: wrap; width: 100px; margin-left: 20px;}
+.newbuild .family-info dl dd span {display: block;}
+.newbuild .family-info dl dd span:nth-child(n+3) {margin-top: 10px;}
+.newbuild .family-info dl dd span:nth-child(2n) {margin-left: 10px;}
+.newbuild .layer .btn_area .btn.ok {font-size: 18px; font-family: 'notoR';}
+
+
+
+/* 자동차 만기 당월 미갱신 */
+.newbuild .card_box_wrap.nb-card-wrap .card_box_info dd.blue-big span {font-family: 'robotoM', 'notoM';}
+
+.newbuild .car_infos {margin-top: 20px; padding: 0 20px;}
+.newbuild .car_infos table {text-align: left; font-size: 15px; letter-spacing: -0.75px;}
+.newbuild .car_infos table tr {border-bottom: 1px solid #EEEEEE;}
+.newbuild .car_infos table tr td:nth-child(1) {color: #777777;}
+.newbuild .car_infos table tr td:nth-child(2) {font-family: 'robotoM', 'notoM'; display: flex; align-items: center; justify-content: left; color: #222;}
+.newbuild .car_infos table tr:nth-last-child(1) {border-bottom: 1px solid #DDDDDD;}
+.newbuild .car_infos table tr td {padding: 7px 0;}
+
+
+
+
+/* 실적 소득 */
+.newbuild .checkTerm_wrap .checkTerm {display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm {display: flex; align-items: center;}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm label {letter-spacing: -0.85px; font-size: 17px;}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm .termInput {margin-left: 8px;}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm .termInput input {width: 110px; height: 30px; line-height: 30px; font-family: 'robotoR'; border: 1px solid #DDDDDD; color: #333;}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm .termInput input::-webkit-datetime-edit-text {
+    -webkit-appearance: none;
+    display: none;
+}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm .termInput input[type=date]::-webkit-datetime-edit-month-field{
+    -webkit-appearance: none;
+    display: none;
+}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm .termInput input[type=date]::-webkit-datetime-edit-day-field {
+    -webkit-appearance: none;
+    display: none;
+}
+.newbuild .checkTerm_wrap .checkTerm .leftTerm .termInput input[type=date]::-webkit-datetime-edit-year-field {
+    -webkit-appearance: none;
+    display: none;
+}
+
+.newbuild .checkTerm_wrap .checkTerm .btn_wrap {margin-top: 0;}
+
+
+
+
+.newbuild .card-term {border: 1px solid #DDDDDD; border-radius: 10px; padding: 20px; margin-top: 20px;}
+.newbuild .card-term tr th {text-align: right; font-size: 16px; letter-spacing: -1.6px; padding: 10px 0; letter-spacing: -0.8px; font-family: 'robotoM', 'notoM'; font-weight: initial; border-bottom: 1px solid #EEEEEE;}
+.newbuild .card-term tr th:nth-child(2) {background-color: #F9F9F9; padding-right: 20px;}
+.newbuild .card-term tr td:nth-child(2) {background-color: #F9F9F9; letter-spacing: 0; font-family: 'robotoM', 'notoM';}
+.newbuild .card-term tr td {font-size: 15px; letter-spacing: -0.75px; padding: 7px 0;}
+.newbuild .card-term tr td:nth-child(1) {text-align: left; color: #777777; font-family: 'notoR';}
+.newbuild .card-term tr td:nth-child(2) {color: #F18D00; text-align: right; padding-right: 20px; }
+.newbuild .card-term tr td:nth-child(3) {text-align: right; color: #777777; letter-spacing: 0; font-family: 'robotoM', 'notoM';}
+
+.newbuild .card-term .termTotal {border-top: 1px solid #EEEEEE;}
+.newbuild .card-term .termTotal tr:nth-child(1) td {padding-top: 20px; font-size: 16px;}
+.newbuild .card-term .termTotal tr td:nth-child(1) {color: #000; }
+.newbuild .card-term .termTotal tr td:nth-child(2) {color: #003070; font-size: 18px;}
+.newbuild .card-term .termTotal tr td:nth-child(3) {font-size: 15px;}
+
+
+
+/* 장기집금책임계약 */
+.newbuild .nb-cont-wrap .tits02 {font-size: 15px; margin: 15px 0 10px;}
+.newbuild .nb-cont-wrap .form-select select {font-size: 16px; color: #000; letter-spacing: -0.75px;}
+.newbuild .nb-cont-wrap .inline_wrap.inner_input .inp_bar input {padding: 0 10px;}
+
+
+/* 장기집금책임계약 현황 */
+.newbuild .mid-box {padding: 11px 20px; border-radius: 10px; margin: 10px 0 20px;}
+.newbuild .mid-box table {font-size: 15px; text-align: right;}
+.newbuild .mid-box table tr td {padding: 7px 0;}
+.newbuild .mid-box table tr td:nth-child(1) {text-align: left; color: #777777;}
+.newbuild .mid-box table tr td:nth-child(2) {padding-right: 10px; letter-spacing: -0.75px; font-family: 'robotoM', 'notoM'; color: #222;}
+.newbuild .mid-box table tr td:nth-child(3) {letter-spacing: -0.75px; font-family: 'robotoM', 'notoM'; color: #222;}
+
+
+
+/* 장기집금책임계약 상세현황 */
+.newbuild .long-all-wrap table {border-top: 1px solid #AAAAAA; border-bottom: 1px solid #AAAAAA;}
+.newbuild .long-all-wrap table tr th , .newbuild .long-all-wrap table tr td {text-align: left; padding: 8px 15px; font-size: 15px; border-top: 1px solid #DDDDDD; letter-spacing: -0.75px; color: #222;}
+.newbuild .long-all-wrap table tr:nth-child(1) th, .newbuild .long-all-wrap table tr:nth-child(1) td {border-top: 0;}
+.newbuild .long-all-wrap table tr th{background-color: #F5F5F5; font-weight: normal;}
+
+
+
+/* 가상계좌 부여 및 조회 */
+.newbuild .small_infos_wrap .small_infos {border: 1px solid #DDDDDD; border-radius: 10px; position: relative; padding: 20px;}
+.newbuild .small_infos_wrap .small_infos tr td {text-align: left; font-size: 15px; padding-bottom: 8px;}
+.newbuild .small_infos_wrap .small_infos tr:nth-last-child(1) td {padding-bottom: 0;}
+.newbuild .small_infos_wrap .small_infos tr td:nth-child(1) {color: #777777; letter-spacing: -0.75px;}
+.newbuild .small_infos_wrap .small_infos tr td:nth-child(2) {font-family: 'robotoM', 'notoM'; color: #222;} 
+
+
+
+/* 신용카드승인 */
+.newbuild .flex_wrap.two-part .form-select{margin: 0; width: calc(100% - 120px);}
+.newbuild .flex_wrap.two-part .btn_wrap{margin-top: 0; margin-left: 10px; width: 110px;}
+.newbuild .flex_wrap.two-part .btn_wrap .btns {font-size: 16px; font-family: 'notoR';}
+
+
+
+
+/* 즉시이체 */
+.newbuild .bx-inline-wrap .card_box_header.longline-box h3 {margin-top: 0;}
+.newbuild .bx-inline-wrap .bx-cnt .bi-num {font-size: 18px; color: #003070; font-family: 'robotoB', 'notoB'; letter-spacing: -0.9px;}
+.newbuild .bx-inline-wrap .bx-cnt .bi-months {margin: 5px 0 10px;}
+.newbuild .bx-inline-wrap .bx-cnt dl {display: flex; align-items: center; color: #777777;}
+.newbuild .bx-inline-wrap .bx-cnt dl dd {margin-left: 20px; position: relative;}
+.newbuild .bx-inline-wrap .bx-cnt dl dd::before {display: block; content: ''; width: 1px; height: 12.5px; background-color: #AAAAAA; position: absolute; left: -10px; top: 3px;}
+.newbuild .acco_wrap.noti:last-child .acco_list .acco_head .acco_btn {padding: 20px;}
+.newbuild .acco_wrap.noti.nb-alert-wrap .acco_list .item {border-bottom: 1px solid #dddddd !important;}
+.newbuild .acco_wrap .acco_list .acco_head .acco_btn .tit {font-size: 17px;}
+.newbuild .flex_wrap.search_input {border: 1px solid #CCCCCC; border-radius: 5px; overflow: hidden;}
+.newbuild .flex_wrap.search_input .search-box {margin-top: 0;}
+.newbuild .flex_wrap.search_input .search-box input {border: 0;}
+.newbuild .flex_wrap.search_input .form-select {margin-top: 0;}
+.newbuild .flex_wrap.search_input .form-select select {border: 0; width: 100px; color: #000;}
+.newbuild .flex_wrap.two-part .input_text{margin: 0; width: calc(100% - 120px);}
+
+
+
+/* btm-banner */
+.newbuild .sub_new_inr .mn-banner.btm-bnr ul {margin-top: 25px;}
+.newbuild .sub_new_inr .mn-banner.btm-bnr ul li {background-color: #D1F0FF;border-radius: 10px;position: relative;padding: 18px 24px;display: flex;align-items: center;}
+.newbuild .sub_new_inr .mn-banner.btm-bnr ul li a {width: 100%;display: block;}
+.newbuild .sub_new_inr .mn-banner.btm-bnr ul li .innnerTxts {width: 100%;}
+.newbuild .sub_new_inr .mn-banner.btm-bnr ul li h4 {font-size: 13px;letter-spacing: -0.65px;max-width: 75%;word-break: keep-all;line-height: 1.3; font-weight: normal;}
+.newbuild .sub_new_inr .mn-banner.btm-bnr ul li h3 {font-size: 18px;letter-spacing: -0.9px;font-weight: 700;color: #003070;line-height: 1;margin-top: 5px;}
+.newbuild .sub_new_inr .mn-banner.btm-bnr ul li img {position: absolute;right: -6px;top: -8px;width: 81px;}
+
+
+
+/* 가상계좌 카카오톡 전송 */
+.newbuild .posi-re.nb-pl30 input[type='radio'] + label {padding-left: 33px;}
+
+
+
+/* 전자명함 bc-ty01*/
+.newbuild .buis-cardWrap {margin-top: 60px;}
+.newbuild .busi-card {max-width: 300px; height: 450px; margin: 0 auto; background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 20px;}
+.newbuild .busi-card.bc-ty01 {padding: 30px; border: 1px solid #ddd; }
+.newbuild .busi-card.bc-ty01 .busi-cnt-top {display: flex; justify-content: space-between; align-items: center;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-top h1 {width: 120px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-top dl {display: flex; font-size: 11px; margin-top: 7px; letter-spacing: -0.5px; color: #333;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-top dl dd {margin-left: 15px; position: relative;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-top dl dd::before {display: block; content: ''; width: 1px; height: 10px; background-color: #ddd; position: absolute; left: -7px; top: 4px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-mid {margin-top: 100px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-mid .bs-name {color: #FF7300; letter-spacing: -0.8px; font-size: 33px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-mid p {font-size: 14px; color: #333; letter-spacing: -0.7px; margin-top: 5px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-btm {margin-top: 25px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-btm dl {display: flex;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-btm dl + dl {margin-top: 8px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-btm dl dt {color: #003070; font-size: 10px; font-weight: bold; min-width: 50px; margin-top: 1px;}
+.newbuild .busi-card.bc-ty01 .busi-cnt-btm dl dd {color: #000; font-size: 12px; word-break: keep-all; line-height: 1.4;}
+
+
+
+/* 전자명함 bc-ty02*/
+.newbuild .busi-card.bc-ty02 {padding: 60px 32px 50px 38px; color: #fff;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-top {display: flex; justify-content: left; align-items: end;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-top .bs-name {font-size: 32px; letter-spacing: -0.8px; margin-right: 12px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-top dl {display: flex; font-size: 11px; margin-bottom: 9px; letter-spacing: -0.5px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-top dl dd {margin-left: 15px; position: relative;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-top dl dd::before {display: block; content: ''; width: 1px; height: 10px; background-color: #ddd; position: absolute; left: -6.5px; top: 4px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-mid {margin-top: 15px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-mid dl {display: flex; align-items: flex-start;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-mid dl + dl {margin-top: 6px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-mid dl dt {display: flex; align-items: center;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-mid dl dt img {width: 15px; min-width: 15px; margin-right: 8px; margin-top: 2px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-mid dl dd { font-size: 14px; word-break: keep-all; line-height: 1.4;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-mid dl:nth-last-child(1) dd {font-size: 12px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-btm {display: flex; justify-content: space-between; margin-top: 70px; align-items: flex-end;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-btm p {font-size: 12px; white-space: nowrap; letter-spacing: -0.4px;}
+.newbuild .busi-card.bc-ty02 .busi-cnt-btm h1 {width: 62px; margin-bottom: 3px;}
+
+
+
+/* 전자명함 bc-ty03*/
+.newbuild .busi-card.bc-ty03 {padding: 30px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-top {margin: 0 0 0 auto; width: fit-content;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-top h1 {width: 120px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-top dl {display: flex; font-size: 11px; margin-top: 5px; margin-bottom: 7px; letter-spacing: -0.5px; width: fit-content; margin: 10px 0 0 auto;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-top dl dd {margin-left: 15px; position: relative;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-top dl dd::before {display: block; content: ''; width: 1px; height: 10px; background-color: #000; position: absolute; left: -7px; top: 4px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-mid {margin-top: 75px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-mid p {color: #555; font-size: 14px; letter-spacing: -0.7px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-mid .bs-name {margin-top: 10px; color: #003070; font-size: 32px; letter-spacing: -0.7px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm {margin-top: 15px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm dl {display: flex; align-items: flex-start;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm dl + dl {margin-top: 5px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm dl dt {display: flex; align-items: center; min-width: 65px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm dl dt span {font-size: 10px; color: #003070; margin-top: 2px; display: block;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm dl dt img {width: 15px; min-width: 15px; margin-right: 8px; margin-top: 2.5px;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm dl dd { font-size: 14px; word-break: keep-all; line-height: 1.4; color: #555555;}
+.newbuild .busi-card.bc-ty03 .busi-cnt-btm dl:nth-last-child(1) dd {font-size: 12px;}
+
+
+
+.newbuild .buis-btm ul {display: flex; justify-content: space-between; padding: 0 20px; margin: 50px auto 0; max-width: 280px;}
+.newbuild .buis-btm ul li {text-align: center;}
+.newbuild .buis-btm ul li img {width: 32px;}
+.newbuild .buis-btm ul li span {display: block; font-size: 12px; letter-spacing: -0.6px; margin-top: 7px;}
+
+
+
+
+/* 로그인 01*/
+.newbuild h2.logintit {text-align: center; font-size: 17px; letter-spacing: -0.4px;}
+.newbuild .loginCnt {padding: 0 20px;}
+.newbuild .loginTop h1 {width: 115px; margin-top: 72.5px;}
+.newbuild .loginTop h2 {font-size: 21px; line-height: 1.5; margin-top: 8px; font-weight: normal; letter-spacing: -1px;}
+.newbuild .loginBtm {margin-top: 40px;}
+.newbuild .loginBtm .login-input-wrap input {border: 0; border-bottom: 1px solid #CCCCCC; padding: 0; border-radius: 0;}
+.newbuild input::placeholder {color: #222; font-family : 'robotoR', 'notoR'; letter-spacing: -0.75px;font-size: 14px; padding: 0;}
+.newbuild .loginBtm .login-input-wrap input:focus {box-shadow: none;}
+.newbuild .loginBtm .login-input-wrap + .login-input-wrap {margin-top: 20px;}
+.newbuild .login-info {margin-top: 12px; display: flex;}
+.newbuild .login-info span {font-size: 13px; color: #888888; letter-spacing: -0.65px; display: block;}
+.newbuild .login-info span:nth-child(1) {margin-right: 5px;}
+
+
+
+/* 로그인 02*/
+.newbuild .login-method {margin: 210px 13px 0; display: flex; justify-content: space-between; flex-wrap: wrap;}
+.newbuild .login-method li {text-align: center; width: 60px;}
+.newbuild .login-method li img {min-width: 60px;}
+.newbuild .login-method li span {display: block; margin-top: 3px; color: #222; letter-spacing: -0.7px;}
+
+
+
+/* 로그인 03_지문*/
+.newbuild .fingerPrint {width: 70px; margin: 50px auto 0;}
+.newbuild .three-lay-wrap {margin-top: 114px; margin: 115px 35px 0;}
+.newbuild .three-lay-wrap .login-method {margin: 0;}
+.newbuild .three-lay-wrap dl {display: flex; justify-content: space-between; margin-top: 40px; color: #888888; letter-spacing: -0.7px; position: relative;}
+.newbuild .three-lay-wrap dl::before {display: block; content: ''; width: 1px; height: 12.5px; background-color: #AAAAAA; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.newbuild .three-lay-wrap dl dt {position: relative; padding-right: 10px;}
+.newbuild .three-lay-wrap dl dt:after {content: '';position: absolute;top: 50.5%;right: -3px;width: 6px;height: 10px;border: none;background: url('../../../images3/ico/ico_arrow_b.png') no-repeat center center;background-size: 6px 10px;transform: translateY(-50%);}
+.newbuild .three-lay-wrap dl dd span {color: #F18D00; padding-right: 5px; display: inline-block;}
+
+
+/* 사용자등록 */
+.newbuild .inp_bar.placeGray input::placeholder {color: #777; letter-spacing: -0.4px;font-size: 14px;}
+
+
+/* 사용자등록 팝업 */
+.newbuild .layer_cont .p-black {font-size: 15px; color: #000; letter-spacing: -0.7px;}
+.newbuild .layer_cont .p-black .bold-big {font-size: 15px;}
+.newbuild .layer .btn_area .btn.ok.blck {color: #000;}
+
+

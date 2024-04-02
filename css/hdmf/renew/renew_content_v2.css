@@ -1,0 +1,126 @@
+@charset 'utf-8';
+
+
+/* ======================================================
+    ======================================================
+
+	장기계약조회 
+	
+    ======================================================
+    ====================================================== */
+.renew .card_box_wrap .card_box_info.max_w65 dt{min-width:35%}
+.renew .card_box_wrap .card_box_info.max_w65 dd{max-width:65%}
+    
+.renew .card_box_wrap.ty04{padding:20px}
+.renew .card_box_wrap.ty04 .title{color:#000;word-break: break-all;}
+.renew .card_box_wrap.ty04 .date{margin-top:10px;font-size:13px;color:#333;line-height:1;}
+.renew .card_box_wrap.ty04 .card_box_info{margin-top:15px;padding-top:20px;border-top:1px solid #eee;}
+.renew .card_box_wrap.ty04 .card_box_info .price{font-size:12px;color:#777}
+.renew .card_box_wrap.ty04 .card_box_info .join_price button{font-size:17px;color:#003070;font-family:notoB}
+.renew .card_box_wrap.ty04 .card_box_info .join_price em{font-family:robotoB}
+.renew .card_box_wrap.ty04.has_acco .card_box_header .acco_btn{position:absolute;bottom:-15px;right:-20px;width:50px;height:50px;padding:0;}
+.renew .card_box_wrap.ty04.has_acco .card_box_header .acco_btn:after{content: "";position: absolute;top: 21px;right: 21px;width: 6px;height: 6px;border: 2px solid #333;border-width: 0 0 2px 2px;transform: rotate(-45deg);transition: all 0.35s;}
+.renew .card_box_wrap.ty04.has_acco .item.on .card_box_header .acco_btn:after{top:25px;border-color: #f18d00;transform: rotate(135deg);}
+.renew .card_box_wrap.ty04 .acco_body{margin:15px -20px -20px -20px;padding:20px;border-radius:0 0 10px 10px;font-size:13px;color:#555;background-color:#f9f9fb}
+.renew [class^=table-] td .btn_ico_box{float:right;margin:-7px 0;}
+.renew [class^=table-] td .btn_ico_box a{display:inline-block;width:36px;height:36px;margin-left:2px;vertical-align:top;border-radius:50%;overflow:hidden;text-indent:-10000px;background-color:#f5f5f5;background-repeat:no-repeat;background-position:50%;background-size:16px auto;}
+.renew .btn_sms{background-image:url(../../../images2/ico/ico_sms4.png);}
+.renew .btn_tel{background-image:url(../../../images2/ico/ico_tel2.png);}
+
+
+
+
+/* ======================================================
+    ======================================================
+
+	보험료 수납 
+	
+    ======================================================
+    ====================================================== */
+.renew .payment_page .title{font-size:13px;color:#777;font-weight:400}
+.renew .payment_page .bar + .title{margin-top:20px !important}
+.renew .payment_page .payment_list{margin:0 -20px}
+.renew .payment_page .payment_list li{padding:25px 20px;border-top:1px solid #eee;}
+.renew .payment_page .payment_list li:first-child{border-top:0}
+.renew .payment_page .payment_list li a{display:block;padding-left:25px;font-family:notoM;font-size:15px;color:#000;background-repeat:no-repeat;background-position:0 50%;background-size:14px auto} 
+.renew .payment_page .payment_list .m01 a{background-image:url(../../../images2/ico/ico_payment_list01.png);}
+.renew .payment_page .payment_list .m02 a{background-image:url(../../../images2/ico/ico_payment_list02.png);}
+.renew .payment_page .payment_list .m03 a{background-image:url(../../../images2/ico/ico_payment_list03.png);background-size:15px auto}
+.renew .payment_page .payment_list .m04 a{background-image:url(../../../images2/ico/ico_payment_list04.png);background-size:15px auto}
+.renew .payment_page .bar{margin:0px -20px}
+.renew .payment_page .arrow:after{background-image:url(../../../images/renew/ico/ico_arrow_w6.png)}
+
+
+
+
+
+/* ======================================================
+    ======================================================
+
+	행복보장분석
+	
+    ======================================================
+    ====================================================== */
+/* ====  가입현황  ==== */    
+.renew .user_result{min-height:68px;font-size:14px;color:#333;}
+.renew .user_result.step1{background:url(../../../images2/bg/img_user_result01.png) no-repeat 100% 100%;background-size:auto 100%;}
+.renew .user_result + .tits01{margin-top:13px}
+.renew .user_result + .btn_tablink{margin-top:28px;}
+
+.renew .btn_tablink ul{display:flex;flex-wrap: wrap;margin:0 -2px 0 1px;}
+.renew .btn_tablink li{flex:1 0 50%;text-align:center;}
+.renew .btn_tablink li button{display:block;margin:-1px 0 0 -1px;width:100%;height:46px;font-size:15px;color:#777;border:1px solid #ccc;}
+.renew .btn_tablink li:nth-child(1) button{border-top-left-radius:7px}
+.renew .btn_tablink li:nth-child(2) button{border-top-right-radius:7px}
+.renew .btn_tablink li:nth-child(3) button{border-bottom-left-radius:7px}
+.renew .btn_tablink li:nth-child(4) button{border-bottom-right-radius:7px}
+.renew .btn_tablink li:nth-child(2n) button{margin-left:-2px}
+.renew .btn_tablink li.on button{color:#fff;font-family:notoB;border:2px solid #f18d00;background-color:#f18d00}
+
+.renew .graph_box_list{padding:0 5px 24px;font-size:0;text-align:center}
+.renew .graph_box_list .graph_item{display:inline-block;margin-top:24px;width:50%;vertical-align:top}
+.renew .graph_item .graph_title{display:block;margin-bottom:12px;font-family:notoM;font-size:15px;line-height:1;color:#000;font-weight:500}
+.renew .graph_item .graph_inner{position:relative;width:90px;height:90px;margin:0 auto;}
+.renew .graph_item .graph_score{position:absolute;top:50%;left:50%;font-family:notoB;font-size:17px;color:#000;transform:translate(-50%, -50%)}
+
+.renew .info_list.half{display:flex;flex-wrap: wrap;}
+.renew .info_list.half li{padding:0 10px 0 0;flex:1 0 50%}
+.renew .info_list.half li:nth-child(2n){padding:0 0 0 10px;}
+.renew .info_list.half .val{color:#333;font-family:robotoM, notoM;font-size:14px}
+
+.happy_page #tabTy1_01 .noti{margin-bottom:-110px;}
+.happy_page .card_box_wrap + .card_box_wrap{margin-top:15px}
+
+/* ====  보유현황  ==== */
+
+/* ====  분석결과  ==== */
+.renew .user_result.step2{background:url(../../../images2/bg/img_user_result02.png) no-repeat 100% 100%;background-size:auto 100%;}
+.renew .user_result.step2 .desc{display:block;margin-top:10px;font-wieght:400}
+.renew .graph_bar_list .graph_item:after{display:block;content:'';margin:20px 0;width:100%;height:1px;background-color:#eee;}
+.renew .graph_bar_list .graph_item:last-child:after{display:none}
+.renew .graph_bar_list .graph_item .state{display:inline-block;margin-right:5px;min-width:47px;font-family:notoB;font-size:12px;line-height:20px;border:1px solid #a2a2a2;color:#a2a2a2;border-radius:10px;text-align:center;}
+.renew .graph_bar_list .graph_item .tit{font-size:15px;color:#000;font-weight:500}
+.renew .graph_bar_list .graph_item .arrow{float:right;font-size:14px;color:#333;font-family:notoM}
+.renew .graph_bar_list .graph_item .arrow:after{width:6px;background-image:url(../../../images/renew/ico/ico_arrow_w6.png);background-size:6px auto}
+.renew .graph_bar_list .price{float:right;font-family:notoM;font-size:13px;color:#333;line-height:1}
+.renew .graph_bar_list .price em{font-family:robotoM;}
+.renew .graph_bar_list .join_price button{font-family:notoB;font-size:13px;vertical-align:top;line-height:1}
+.renew .graph_bar_list .graph_bar_wrap{margin:10px 0;height:6px;border-radius:6px;background-color:#e5e5e5}
+.renew .graph_bar_list .graph_bar_wrap .graph_bar{display:block;height:6px;border-radius:6px;background-color:#a2a2a2}
+/* 미흡 */
+.renew .graph_bar_list .state_ty1 .state{color:#a2a2a2;border-color:#a2a2a2}
+.renew .graph_bar_list .state_ty1  .join_price button{color:#a2a2a2;}
+.renew .graph_bar_list .state_ty1 .graph_bar{background-color:#a2a2a2}
+/* 부족 */
+.renew .graph_bar_list .state_ty2 .state{color:#f18d00;border-color:#f18d00}
+.renew .graph_bar_list .state_ty2  .join_price button{color:#f18d00;}
+.renew .graph_bar_list .state_ty2 .graph_bar{background-color:#f18d00}
+/* 적정 */
+.renew .graph_bar_list .state_ty3 .state{color:#003070;border-color:#003070}
+.renew .graph_bar_list .state_ty3  .join_price button{color:#003070;}
+.renew .graph_bar_list .state_ty3 .graph_bar{background-color:#003070}
+
+
+
+    
+    

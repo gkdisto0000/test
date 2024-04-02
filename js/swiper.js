@@ -1,20 +1,20 @@
 /**
- * Swiper 4.5.1
+ * Swiper 4.4.6
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * http://www.idangero.us/swiper/
  *
- * Copyright 2014-2019 Vladimir Kharlampidi
+ * Copyright 2014-2018 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: September 13, 2019
+ * Released on: December 19, 2018
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Swiper = factory());
-}(this, function () { 'use strict';
+  (global.Swiper = factory());
+}(this, (function () { 'use strict';
 
   /**
    * SSR Window 1.0.1
@@ -90,17 +90,17 @@
   } : window; // eslint-disable-line
 
   /**
-   * Dom7 2.1.3
+   * Dom7 2.1.2
    * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
    * http://framework7.io/docs/dom.html
    *
-   * Copyright 2019, Vladimir Kharlampidi
+   * Copyright 2018, Vladimir Kharlampidi
    * The iDangero.us
    * http://www.idangero.us/
    *
    * Licensed under MIT
    *
-   * Released on: February 11, 2019
+   * Released on: September 13, 2018
    */
 
   var Dom7 = function Dom7(arr) {
@@ -391,9 +391,6 @@
           for (var k = handlers.length - 1; k >= 0; k -= 1) {
             var handler = handlers[k];
             if (listener && handler.listener === listener) {
-              el.removeEventListener(event, handler.proxyListener, capture);
-              handlers.splice(k, 1);
-            } else if (listener && handler.listener && handler.listener.dom7proxy && handler.listener.dom7proxy === listener) {
               el.removeEventListener(event, handler.proxyListener, capture);
               handlers.splice(k, 1);
             } else if (!listener) {
@@ -846,7 +843,7 @@
   };
 
   Object.keys(Methods).forEach(function (methodName) {
-    $.fn[methodName] = $.fn[methodName] || Methods[methodName];
+    $.fn[methodName] = Methods[methodName];
   });
 
   var Utils = {
@@ -971,7 +968,7 @@
         return !!((win.navigator.maxTouchPoints > 0) || ('ontouchstart' in win) || (win.DocumentTouch && doc instanceof win.DocumentTouch));
       }()),
 
-      pointerEvents: !!(win.navigator.pointerEnabled || win.PointerEvent || ('maxTouchPoints' in win.navigator && win.navigator.maxTouchPoints > 0)),
+      pointerEvents: !!(win.navigator.pointerEnabled || win.PointerEvent || ('maxTouchPoints' in win.navigator)),
       prefixedPointerEvents: !!win.navigator.msPointerEnabled,
 
       transition: (function checkTransition() {
@@ -1018,19 +1015,6 @@
     };
   }());
 
-  var Browser = (function Browser() {
-    function isSafari() {
-      var ua = win.navigator.userAgent.toLowerCase();
-      return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
-    }
-    return {
-      isIE: !!win.navigator.userAgent.match(/Trident/g) || !!win.navigator.userAgent.match(/MSIE/g),
-      isEdge: !!win.navigator.userAgent.match(/Edge/g),
-      isSafari: isSafari(),
-      isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(win.navigator.userAgent),
-    };
-  }());
-
   var SwiperClass = function SwiperClass(params) {
     if ( params === void 0 ) params = {};
 
@@ -1069,11 +1053,7 @@
 
       handler.apply(self, args);
       self.off(events, onceHandler);
-      if (onceHandler.f7proxy) {
-        delete onceHandler.f7proxy;
-      }
     }
-    onceHandler.f7proxy = handler;
     return self.on(events, onceHandler, priority);
   };
 
@@ -1085,7 +1065,7 @@
         self.eventsListeners[event] = [];
       } else if (self.eventsListeners[event] && self.eventsListeners[event].length) {
         self.eventsListeners[event].forEach(function (eventHandler, index) {
-          if (eventHandler === handler || (eventHandler.f7proxy && eventHandler.f7proxy === handler)) {
+          if (eventHandler === handler) {
             self.eventsListeners[event].splice(index, 1);
           }
         });
@@ -1320,24 +1300,15 @@
         var newSlideOrderIndex = (void 0);
         var column = (void 0);
         var row = (void 0);
-        if (
-          (params.slidesPerColumnFill === 'column')
-          || (params.slidesPerColumnFill === 'row' && params.slidesPerGroup > 1)
-        ) {
-          if (params.slidesPerColumnFill === 'column') {
-            column = Math.floor(i / slidesPerColumn);
-            row = i - (column * slidesPerColumn);
-            if (column > numFullColumns || (column === numFullColumns && row === slidesPerColumn - 1)) {
-              row += 1;
-              if (row >= slidesPerColumn) {
-                row = 0;
-                column += 1;
-              }
+        if (params.slidesPerColumnFill === 'column') {
+          column = Math.floor(i / slidesPerColumn);
+          row = i - (column * slidesPerColumn);
+          if (column > numFullColumns || (column === numFullColumns && row === slidesPerColumn - 1)) {
+            row += 1;
+            if (row >= slidesPerColumn) {
+              row = 0;
+              column += 1;
             }
-          } else {
-            var groupIndex = Math.floor(i / params.slidesPerGroup);
-            row = Math.floor(i / params.slidesPerView) - groupIndex * params.slidesPerColumn;
-            column = i - row * params.slidesPerView - groupIndex * params.slidesPerView;
           }
           newSlideOrderIndex = column + ((row * slidesNumberEvenToRows) / slidesPerColumn);
           slide
@@ -1385,7 +1356,7 @@
             var marginLeft = parseFloat(slideStyles.getPropertyValue('margin-left'));
             var marginRight = parseFloat(slideStyles.getPropertyValue('margin-right'));
             var boxSizing = slideStyles.getPropertyValue('box-sizing');
-            if (boxSizing && boxSizing === 'border-box' && !Browser.isIE) {
+            if (boxSizing && boxSizing === 'border-box') {
               slideSize = width + marginLeft + marginRight;
             } else {
               slideSize = width + paddingLeft + paddingRight + marginLeft + marginRight;
@@ -1397,7 +1368,7 @@
             var marginTop = parseFloat(slideStyles.getPropertyValue('margin-top'));
             var marginBottom = parseFloat(slideStyles.getPropertyValue('margin-bottom'));
             var boxSizing$1 = slideStyles.getPropertyValue('box-sizing');
-            if (boxSizing$1 && boxSizing$1 === 'border-box' && !Browser.isIE) {
+            if (boxSizing$1 && boxSizing$1 === 'border-box') {
               slideSize = height + marginTop + marginBottom;
             } else {
               slideSize = height + paddingTop + paddingBottom + marginTop + marginBottom;
@@ -1612,8 +1583,8 @@
       if (params.watchSlidesVisibility) {
         var slideBefore = -(offsetCenter - slide.swiperSlideOffset);
         var slideAfter = slideBefore + swiper.slidesSizesGrid[i];
-        var isVisible = (slideBefore >= 0 && slideBefore < swiper.size - 1)
-                  || (slideAfter > 1 && slideAfter <= swiper.size)
+        var isVisible = (slideBefore >= 0 && slideBefore < swiper.size)
+                  || (slideAfter > 0 && slideAfter <= swiper.size)
                   || (slideBefore <= 0 && slideAfter >= swiper.size);
         if (isVisible) {
           swiper.visibleSlides.push(slide);
@@ -1793,9 +1764,7 @@
     if (previousRealIndex !== realIndex) {
       swiper.emit('realIndexChange');
     }
-    if (swiper.initialized || swiper.runCallbacksOnInit) {
-      swiper.emit('slideChange');
-    }
+    swiper.emit('slideChange');
   }
 
   function updateClickedSlide (e) {
@@ -3218,9 +3187,6 @@
         swiper.slideTo(swiper.activeIndex, 0, false, true);
       }
     }
-    if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
-      swiper.autoplay.run();
-    }
     // Return locks after resize
     swiper.allowSlidePrev = allowSlidePrev;
     swiper.allowSlideNext = allowSlideNext;
@@ -3362,12 +3328,7 @@
       }
 
       var breakpointParams = breakpointOnlyParams || swiper.originalParams;
-      var directionChanged = breakpointParams.direction && breakpointParams.direction !== params.direction;
-      var needsReLoop = params.loop && (breakpointParams.slidesPerView !== params.slidesPerView || directionChanged);
-
-      if (directionChanged && initialized) {
-        swiper.changeDirection();
-      }
+      var needsReLoop = params.loop && (breakpointParams.slidesPerView !== params.slidesPerView);
 
       Utils.extend(swiper.params, breakpointParams);
 
@@ -3385,7 +3346,6 @@
         swiper.updateSlides();
         swiper.slideTo((activeIndex - loopedSlides) + swiper.loopedSlides, 0, false);
       }
-
       swiper.emit('breakpoint', breakpointParams);
     }
   }
@@ -3415,6 +3375,19 @@
 
   var breakpoints = { setBreakpoint: setBreakpoint, getBreakpoint: getBreakpoint };
 
+  var Browser = (function Browser() {
+    function isSafari() {
+      var ua = win.navigator.userAgent.toLowerCase();
+      return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
+    }
+    return {
+      isIE: !!win.navigator.userAgent.match(/Trident/g) || !!win.navigator.userAgent.match(/MSIE/g),
+      isEdge: !!win.navigator.userAgent.match(/Edge/g),
+      isSafari: isSafari(),
+      isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(win.navigator.userAgent),
+    };
+  }());
+
   function addClasses () {
     var swiper = this;
     var classNames = swiper.classNames;
@@ -3423,7 +3396,6 @@
     var $el = swiper.$el;
     var suffixes = [];
 
-    suffixes.push('initialized');
     suffixes.push(params.direction);
 
     if (params.freeMode) {
@@ -3676,8 +3648,6 @@
     runCallbacksOnInit: true,
   };
 
-  /* eslint no-param-reassign: "off" */
-
   var prototypes = {
     update: update,
     translate: translate,
@@ -3695,7 +3665,7 @@
 
   var extendedDefaults = {};
 
-  var Swiper = /*@__PURE__*/(function (SwiperClass) {
+  var Swiper = /*@__PURE__*/(function (SwiperClass$$1) {
     function Swiper() {
       var assign;
 
@@ -3713,7 +3683,7 @@
       params = Utils.extend({}, params);
       if (el && !params.el) { params.el = el; }
 
-      SwiperClass.call(this, params);
+      SwiperClass$$1.call(this, params);
 
       Object.keys(prototypes).forEach(function (prototypeGroup) {
         Object.keys(prototypes[prototypeGroup]).forEach(function (protoMethod) {
@@ -3904,8 +3874,8 @@
       return swiper;
     }
 
-    if ( SwiperClass ) Swiper.__proto__ = SwiperClass;
-    Swiper.prototype = Object.create( SwiperClass && SwiperClass.prototype );
+    if ( SwiperClass$$1 ) Swiper.__proto__ = SwiperClass$$1;
+    Swiper.prototype = Object.create( SwiperClass$$1 && SwiperClass$$1.prototype );
     Swiper.prototype.constructor = Swiper;
 
     var staticAccessors = { extendedDefaults: { configurable: true },defaults: { configurable: true },Class: { configurable: true },$: { configurable: true } };
@@ -3945,7 +3915,7 @@
       return spv;
     };
 
-    Swiper.prototype.update = function update () {
+    Swiper.prototype.update = function update$$1 () {
       var swiper = this;
       if (!swiper || swiper.destroyed) { return; }
       var snapGrid = swiper.snapGrid;
@@ -3986,43 +3956,6 @@
         swiper.checkOverflow();
       }
       swiper.emit('update');
-    };
-
-    Swiper.prototype.changeDirection = function changeDirection (newDirection, needUpdate) {
-      if ( needUpdate === void 0 ) needUpdate = true;
-
-      var swiper = this;
-      var currentDirection = swiper.params.direction;
-      if (!newDirection) {
-        // eslint-disable-next-line
-        newDirection = currentDirection === 'horizontal' ? 'vertical' : 'horizontal';
-      }
-      if ((newDirection === currentDirection) || (newDirection !== 'horizontal' && newDirection !== 'vertical')) {
-        return swiper;
-      }
-
-      swiper.$el
-        .removeClass(("" + (swiper.params.containerModifierClass) + currentDirection + " wp8-" + currentDirection))
-        .addClass(("" + (swiper.params.containerModifierClass) + newDirection));
-
-      if ((Browser.isIE || Browser.isEdge) && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        swiper.$el.addClass(((swiper.params.containerModifierClass) + "wp8-" + newDirection));
-      }
-
-      swiper.params.direction = newDirection;
-
-      swiper.slides.each(function (slideIndex, slideEl) {
-        if (newDirection === 'vertical') {
-          slideEl.style.width = '';
-        } else {
-          slideEl.style.height = '';
-        }
-      });
-
-      swiper.emit('changeDirection');
-      if (needUpdate) { swiper.update(); }
-
-      return swiper;
     };
 
     Swiper.prototype.init = function init () {
@@ -4156,7 +4089,7 @@
     };
 
     staticAccessors.Class.get = function () {
-      return SwiperClass;
+      return SwiperClass$$1;
     };
 
     staticAccessors.$.get = function () {
@@ -4441,75 +4374,24 @@
       if (params.cache) { swiper.virtual.cache[index] = $slideEl; }
       return $slideEl;
     },
-    appendSlide: function appendSlide(slides) {
+    appendSlide: function appendSlide(slide) {
       var swiper = this;
-      if (typeof slides === 'object' && 'length' in slides) {
-        for (var i = 0; i < slides.length; i += 1) {
-          if (slides[i]) { swiper.virtual.slides.push(slides[i]); }
-        }
-      } else {
-        swiper.virtual.slides.push(slides);
-      }
+      swiper.virtual.slides.push(slide);
       swiper.virtual.update(true);
     },
-    prependSlide: function prependSlide(slides) {
+    prependSlide: function prependSlide(slide) {
       var swiper = this;
-      var activeIndex = swiper.activeIndex;
-      var newActiveIndex = activeIndex + 1;
-      var numberOfNewSlides = 1;
-
-      if (Array.isArray(slides)) {
-        for (var i = 0; i < slides.length; i += 1) {
-          if (slides[i]) { swiper.virtual.slides.unshift(slides[i]); }
-        }
-        newActiveIndex = activeIndex + slides.length;
-        numberOfNewSlides = slides.length;
-      } else {
-        swiper.virtual.slides.unshift(slides);
-      }
+      swiper.virtual.slides.unshift(slide);
       if (swiper.params.virtual.cache) {
         var cache = swiper.virtual.cache;
         var newCache = {};
         Object.keys(cache).forEach(function (cachedIndex) {
-          newCache[parseInt(cachedIndex, 10) + numberOfNewSlides] = cache[cachedIndex];
+          newCache[cachedIndex + 1] = cache[cachedIndex];
         });
         swiper.virtual.cache = newCache;
       }
       swiper.virtual.update(true);
-      swiper.slideTo(newActiveIndex, 0);
-    },
-    removeSlide: function removeSlide(slidesIndexes) {
-      var swiper = this;
-      if (typeof slidesIndexes === 'undefined' || slidesIndexes === null) { return; }
-      var activeIndex = swiper.activeIndex;
-      if (Array.isArray(slidesIndexes)) {
-        for (var i = slidesIndexes.length - 1; i >= 0; i -= 1) {
-          swiper.virtual.slides.splice(slidesIndexes[i], 1);
-          if (swiper.params.virtual.cache) {
-            delete swiper.virtual.cache[slidesIndexes[i]];
-          }
-          if (slidesIndexes[i] < activeIndex) { activeIndex -= 1; }
-          activeIndex = Math.max(activeIndex, 0);
-        }
-      } else {
-        swiper.virtual.slides.splice(slidesIndexes, 1);
-        if (swiper.params.virtual.cache) {
-          delete swiper.virtual.cache[slidesIndexes];
-        }
-        if (slidesIndexes < activeIndex) { activeIndex -= 1; }
-        activeIndex = Math.max(activeIndex, 0);
-      }
-      swiper.virtual.update(true);
-      swiper.slideTo(activeIndex, 0);
-    },
-    removeAllSlides: function removeAllSlides() {
-      var swiper = this;
-      swiper.virtual.slides = [];
-      if (swiper.params.virtual.cache) {
-        swiper.virtual.cache = {};
-      }
-      swiper.virtual.update(true);
-      swiper.slideTo(0, 0);
+      swiper.slideNext(0);
     },
   };
 
@@ -4533,8 +4415,6 @@
           update: Virtual.update.bind(swiper),
           appendSlide: Virtual.appendSlide.bind(swiper),
           prependSlide: Virtual.prependSlide.bind(swiper),
-          removeSlide: Virtual.removeSlide.bind(swiper),
-          removeAllSlides: Virtual.removeAllSlides.bind(swiper),
           renderSlide: Virtual.renderSlide.bind(swiper),
           slides: swiper.params.virtual.slides,
           cache: {},
@@ -4572,10 +4452,10 @@
       if (e.originalEvent) { e = e.originalEvent; } // jquery fix
       var kc = e.keyCode || e.charCode;
       // Directions locks
-      if (!swiper.allowSlideNext && ((swiper.isHorizontal() && kc === 39) || (swiper.isVertical() && kc === 40) || kc === 34)) {
+      if (!swiper.allowSlideNext && ((swiper.isHorizontal() && kc === 39) || (swiper.isVertical() && kc === 40))) {
         return false;
       }
-      if (!swiper.allowSlidePrev && ((swiper.isHorizontal() && kc === 37) || (swiper.isVertical() && kc === 38) || kc === 33)) {
+      if (!swiper.allowSlidePrev && ((swiper.isHorizontal() && kc === 37) || (swiper.isVertical() && kc === 38))) {
         return false;
       }
       if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
@@ -4584,7 +4464,7 @@
       if (doc.activeElement && doc.activeElement.nodeName && (doc.activeElement.nodeName.toLowerCase() === 'input' || doc.activeElement.nodeName.toLowerCase() === 'textarea')) {
         return undefined;
       }
-      if (swiper.params.keyboard.onlyInViewport && (kc === 33 || kc === 34 || kc === 37 || kc === 39 || kc === 38 || kc === 40)) {
+      if (swiper.params.keyboard.onlyInViewport && (kc === 37 || kc === 39 || kc === 38 || kc === 40)) {
         var inView = false;
         // Check that swiper should be inside of visible area of window
         if (swiper.$el.parents(("." + (swiper.params.slideClass))).length > 0 && swiper.$el.parents(("." + (swiper.params.slideActiveClass))).length === 0) {
@@ -4611,19 +4491,19 @@
         if (!inView) { return undefined; }
       }
       if (swiper.isHorizontal()) {
-        if (kc === 33 || kc === 34 || kc === 37 || kc === 39) {
+        if (kc === 37 || kc === 39) {
           if (e.preventDefault) { e.preventDefault(); }
           else { e.returnValue = false; }
         }
-        if (((kc === 34 || kc === 39) && !rtl) || ((kc === 33 || kc === 37) && rtl)) { swiper.slideNext(); }
-        if (((kc === 33 || kc === 37) && !rtl) || ((kc === 34 || kc === 39) && rtl)) { swiper.slidePrev(); }
+        if ((kc === 39 && !rtl) || (kc === 37 && rtl)) { swiper.slideNext(); }
+        if ((kc === 37 && !rtl) || (kc === 39 && rtl)) { swiper.slidePrev(); }
       } else {
-        if (kc === 33 || kc === 34 || kc === 38 || kc === 40) {
+        if (kc === 38 || kc === 40) {
           if (e.preventDefault) { e.preventDefault(); }
           else { e.returnValue = false; }
         }
-        if (kc === 34 || kc === 40) { swiper.slideNext(); }
-        if (kc === 33 || kc === 38) { swiper.slidePrev(); }
+        if (kc === 40) { swiper.slideNext(); }
+        if (kc === 38) { swiper.slidePrev(); }
       }
       swiper.emit('keyPress', kc);
       return undefined;
@@ -5080,23 +4960,8 @@
           && !$(e.target).is($prevEl)
           && !$(e.target).is($nextEl)
         ) {
-          var isHidden;
-          if ($nextEl) {
-            isHidden = $nextEl.hasClass(swiper.params.navigation.hiddenClass);
-          } else if ($prevEl) {
-            isHidden = $prevEl.hasClass(swiper.params.navigation.hiddenClass);
-          }
-          if (isHidden === true) {
-            swiper.emit('navigationShow', swiper);
-          } else {
-            swiper.emit('navigationHide', swiper);
-          }
-          if ($nextEl) {
-            $nextEl.toggleClass(swiper.params.navigation.hiddenClass);
-          }
-          if ($prevEl) {
-            $prevEl.toggleClass(swiper.params.navigation.hiddenClass);
-          }
+          if ($nextEl) { $nextEl.toggleClass(swiper.params.navigation.hiddenClass); }
+          if ($prevEl) { $prevEl.toggleClass(swiper.params.navigation.hiddenClass); }
         }
       },
     },
@@ -5427,12 +5292,6 @@
           && swiper.pagination.$el.length > 0
           && !$(e.target).hasClass(swiper.params.pagination.bulletClass)
         ) {
-          var isHidden = swiper.pagination.$el.hasClass(swiper.params.pagination.hiddenClass);
-          if (isHidden === true) {
-            swiper.emit('paginationShow', swiper);
-          } else {
-            swiper.emit('paginationHide', swiper);
-          }
           swiper.pagination.$el.toggleClass(swiper.params.pagination.hiddenClass);
         }
       },
@@ -5529,7 +5388,7 @@
       } else {
         $el[0].style.display = '';
       }
-      if (swiper.params.scrollbar.hide) {
+      if (swiper.params.scrollbarHide) {
         $el[0].style.opacity = 0;
       }
       Utils.extend(scrollbar, {
@@ -5540,13 +5399,6 @@
       });
       scrollbar.$el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](swiper.params.scrollbar.lockClass);
     },
-    getPointerPosition: function getPointerPosition(e) {
-      var swiper = this;
-      if (swiper.isHorizontal()) {
-        return ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageX : e.pageX || e.clientX);
-      }
-      return ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageY : e.pageY || e.clientY);
-    },
     setDragPosition: function setDragPosition(e) {
       var swiper = this;
       var scrollbar = swiper.scrollbar;
@@ -5554,11 +5406,15 @@
       var $el = scrollbar.$el;
       var dragSize = scrollbar.dragSize;
       var trackSize = scrollbar.trackSize;
-      var dragStartPos = scrollbar.dragStartPos;
 
+      var pointerPosition;
+      if (swiper.isHorizontal()) {
+        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageX : e.pageX || e.clientX);
+      } else {
+        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageY : e.pageY || e.clientY);
+      }
       var positionRatio;
-      positionRatio = ((scrollbar.getPointerPosition(e)) - $el.offset()[swiper.isHorizontal() ? 'left' : 'top']
-        - (dragStartPos !== null ? dragStartPos : dragSize / 2)) / (trackSize - dragSize);
+      positionRatio = ((pointerPosition) - $el.offset()[swiper.isHorizontal() ? 'left' : 'top'] - (dragSize / 2)) / (trackSize - dragSize);
       positionRatio = Math.max(Math.min(positionRatio, 1), 0);
       if (rtl) {
         positionRatio = 1 - positionRatio;
@@ -5579,8 +5435,6 @@
       var $el = scrollbar.$el;
       var $dragEl = scrollbar.$dragEl;
       swiper.scrollbar.isTouched = true;
-      swiper.scrollbar.dragStartPos = (e.target === $dragEl[0] || e.target === $dragEl)
-        ? scrollbar.getPointerPosition(e) - e.target.getBoundingClientRect()[swiper.isHorizontal() ? 'left' : 'top'] : null;
       e.preventDefault();
       e.stopPropagation();
 
@@ -5735,7 +5589,6 @@
           enableDraggable: Scrollbar.enableDraggable.bind(swiper),
           disableDraggable: Scrollbar.disableDraggable.bind(swiper),
           setDragPosition: Scrollbar.setDragPosition.bind(swiper),
-          getPointerPosition: Scrollbar.getPointerPosition.bind(swiper),
           onDragStart: Scrollbar.onDragStart.bind(swiper),
           onDragMove: Scrollbar.onDragMove.bind(swiper),
           onDragEnd: Scrollbar.onDragEnd.bind(swiper),
@@ -5832,7 +5685,7 @@
       var slides = swiper.slides;
       var progress = swiper.progress;
       var snapGrid = swiper.snapGrid;
-      $el.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y], [data-swiper-parallax-opacity], [data-swiper-parallax-scale]')
+      $el.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
         .each(function (index, el) {
           swiper.parallax.setTransform(el, progress);
         });
@@ -5842,7 +5695,7 @@
           slideProgress += Math.ceil(slideIndex / 2) - (progress * (snapGrid.length - 1));
         }
         slideProgress = Math.min(Math.max(slideProgress, -1), 1);
-        $(slideEl).find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y], [data-swiper-parallax-opacity], [data-swiper-parallax-scale]')
+        $(slideEl).find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
           .each(function (index, el) {
             swiper.parallax.setTransform(el, slideProgress);
           });
@@ -5853,7 +5706,7 @@
 
       var swiper = this;
       var $el = swiper.$el;
-      $el.find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y], [data-swiper-parallax-opacity], [data-swiper-parallax-scale]')
+      $el.find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
         .each(function (index, parallaxEl) {
           var $parallaxEl = $(parallaxEl);
           var parallaxDuration = parseInt($parallaxEl.attr('data-swiper-parallax-duration'), 10) || duration;
@@ -5889,17 +5742,17 @@
       },
       init: function init() {
         var swiper = this;
-        if (!swiper.params.parallax.enabled) { return; }
+        if (!swiper.params.parallax) { return; }
         swiper.parallax.setTranslate();
       },
       setTranslate: function setTranslate() {
         var swiper = this;
-        if (!swiper.params.parallax.enabled) { return; }
+        if (!swiper.params.parallax) { return; }
         swiper.parallax.setTranslate();
       },
       setTransition: function setTransition(duration) {
         var swiper = this;
-        if (!swiper.params.parallax.enabled) { return; }
+        if (!swiper.params.parallax) { return; }
         swiper.parallax.setTransition(duration);
       },
     },
@@ -7085,7 +6938,7 @@
       }
     },
     slugify: function slugify(text) {
-      return text.toString()
+      return text.toString().toLowerCase()
         .replace(/\s+/g, '-')
         .replace(/[^\w-]+/g, '')
         .replace(/--+/g, '-')
@@ -7254,7 +7107,6 @@
       if ($activeSlideEl.attr('data-swiper-autoplay')) {
         delay = $activeSlideEl.attr('data-swiper-autoplay') || swiper.params.autoplay.delay;
       }
-      clearTimeout(swiper.autoplay.timeout);
       swiper.autoplay.timeout = Utils.nextTick(function () {
         if (swiper.params.autoplay.reverseDirection) {
           if (swiper.params.loop) {
@@ -7993,7 +7845,7 @@
         } else {
           newThumbsIndex = swiper.realIndex;
         }
-        if (thumbsSwiper.visibleSlidesIndexes && thumbsSwiper.visibleSlidesIndexes.indexOf(newThumbsIndex) < 0) {
+        if (thumbsSwiper.visibleSlidesIndexes.indexOf(newThumbsIndex) < 0) {
           if (thumbsSwiper.params.centeredSlides) {
             if (newThumbsIndex > currentThumbsIndex) {
               newThumbsIndex = newThumbsIndex - Math.floor(slidesPerView / 2) + 1;
@@ -8016,7 +7868,7 @@
       }
 
       thumbsSwiper.slides.removeClass(thumbActiveClass);
-      if (thumbsSwiper.params.loop || thumbsSwiper.params.virtual) {
+      if (thumbsSwiper.params.loop) {
         for (var i = 0; i < thumbsToActivate; i += 1) {
           thumbsSwiper.$wrapperEl.children(("[data-swiper-slide-index=\"" + (swiper.realIndex + i) + "\"]")).addClass(thumbActiveClass);
         }
@@ -8131,4 +7983,4 @@
 
   return Swiper;
 
-}));
+})));

@@ -1,0 +1,180 @@
+@charset 'utf-8';
+
+
+/* ==================== 
+	btn
+	
+    ======================================================
+    ====================================================== */
+ .renew [class^=btns]{height:47px;border-radius:7px;font-size:15px;font-family: notoM;}
+ .renew .btns.ty05{min-width:100px;padding:0 20px;color:#000;border:solid 1px #666;background-color:#fff}
+ .renew .btns.ty05.on{color:#f18d00;border-color:#f18d00;background-color:#fdeee0}
+ .renew .btns.ty06{position:relative;display:flex;flex-direction:column;justify-content:center;height:auto;min-height:87px;padding: 0 27px;color:#222;font-size:17px;text-align:left;line-height:1;font-family:notoB;border:1px solid #ddd;border-radius:10px;background-color:#fff}
+ .renew .btns.ty06 .sub{margin-bottom:10px;color:#767676;font-size:13px;font-family:notoR;}
+ .renew .btns.ty06 .value{display:flex;align-items:center}
+ .renew .btns.ty06 .value + .sub{margin:10px 0 0 0}
+ .renew .btns.ty06 .value .line{font-size:14px;margin:0 4px;}
+ .renew .btns.ty06:after{content: '';position:absolute;right:30px;display:inline-block;width:6px;height:11px;background-image:url(../../../images/renew/ico/ico_arrow_w6.png);background-size:6px auto;background-repeat:no-repeat}
+ .renew .btns.ty06.oneTit {min-height:54px;}
+ .renew .btns.ty07{width:auto;height:30px;padding:0 13px;color:#000;font-size:12px;line-height:28px;border:1px solid #666;background-color:#fff}
+ .renew .btns.ty08{background-color:#787a82}
+ .renew .btns.ty09{color:#333;border:1px solid #ccc;background-color:#f1f1f2}
+ .renew .btns.ty10{height:40px;line-height:38px;font-size:14px;color:#000;font-family:notoB;border:1px solid #f18d00;background-color:#fff}
+ 
+ .renew .btns.ico{padding-left:84px;background-size:55px auto;background-repeat:no-repeat;background-position:15px 50%;}
+ .renew .btns.ico_check{background-image:url(../../../images/renew/ico/ico_check_round.png)}
+ .renew .btns.ico_file{background-image:url(../../../images/renew/ico/ico_file.png)}
+ .renew .btns.ico_accord{background-image:url(../../../images/renew/ico/ico_accord.png)}
+ .renew .btns.ico.ico_check{padding:0 27px;background:none}
+ .renew .btns.ico.ico_check .value:after{display:inline-block;content:'';margin:-22px 0 0 2px;width:6px;height:6px;border-radius:50%;background-color:#f18d00}
+
+.renew .search-box .btn_search{width:40px;}
+.renew .search-box .btn_search:disabled, .renew .search-box .btn_search.disabled{opacity:0.3}
+.renew .search-box .form-table.iptSet{border:0;margin-top:0}
+.renew .search-box .form-table.iptSet .cell input{box-shadow:none}
+
+.renew .search-box.btn input[readonly]::-webkit-input-placeholder{color:#888;-webkit-text-fill-color:#888}
+.renew .search-box.btn input, .renew .search-box.btn input[readonly]{cursor:pointer;background-color:#fff;color:#666;-webkit-text-fill-color:#666}
+
+.renew .rightbtn-box{position:relative;display:flex;margin:10px 0}
+.renew .rightbtn-box input, .renew .rightbtn-box .inp_bar{flex:1;margin:auto;}
+.renew .rightbtn-box .inp_bar, 
+.renew .rightbtn-box .form-table{margin:0}
+.renew .rightbtn-box > div + .btn_wrap{flex:0 0 auto;margin:0 0 0 10px !important;white-space: nowrap;}
+.renew .rightbtn-box .input_text {flex:1; margin:auto;}
+.renew .rightbtn-box .country-radio-list {flex:1;margin:0;}
+.renew .rightbtn-box .rightbtn-box > [clasa^=btns] {flex:1;margin:auto;}
+.renew .rightbtn-box > [class^=btns] + .btn_wrap{flex:0 0 auto;margin:0 0 0 10px !important;white-space: nowrap;}
+.renew .rightbtn-box .btn_wrap .btns:not(.reset) {padding:0 20px;}
+.renew .rightbtn-box .inp_bar + .btn_wrap .btn_search {width: 46px; height: 47px; border-radius: 5px; border:solid 1px #666; background-color:#fff;}
+
+.renew .btn_more_right{position:relative;float:right;padding:5px 11px 4px;font-size:12px;color:#000;border:1px solid #666;border-radius:5px;background-color:#fff}
+.renew .btn_more_right:after{display:inline-block;content:'';width:6px;height:11px;margin:4px 0 0 5px;vertical-align:top;background:url(../../../images/renew/ico/ico_arrow_w6.png) no-repeat 0 0;background-size:6px auto;}
+
+.renew [class^=btns] .item_ok:before{content: '';padding-left: 23px;background: url(../../../images/renew/ico/ico_message.png) no-repeat 0 2px; background-size: auto 16px;vertical-align:middle}
+
+/* 새로고침 버튼 */
+.renew .btn_reflesh{position:relative;}
+.renew .btn_reflesh:before{display:inline-block;content:'';width:15px;height:15px;margin-right:10px;background: url(../../../images/renew/ico/ico_reset.png) no-repeat 50% 50%;
+    background-size: 15px auto;}
+    
+/* 돋보기 버튼 */
+.renew .btn_search.ico {position:relative;width:38px;height:38px;background:none;}
+.renew .btn_search.ico:before {content:'';position:absolute;top:50%;left:50%;width:27px;height:27px;border-radius:50%;background:#f5f5f5 url('../../../images/layout/ico_search.png') no-repeat 7px 6px; background-size:14px;transform:translate(-50%,-50%);}
+
+/* 삭제 버튼 */
+.renew .btn-del-trash {width:24px;height:24px;background-image:url('../../../images/renew/ico/ico_new_trash.png');background-size:16px;}
+
+/* 검색 - 필터 버튼 */
+.renew .btns.filt {min-width:auto;width:47px;height:46px;margin-top:1px;border:1px solid #666;background:#fff url('../../../images/renew/ico/ico_filt_bk.png') no-repeat center center;background-size:18px 16px;}
+.renew .btns.w47{min-width:auto;width:47px;padding:0 10px;font-size:13px;border-color:#ccc}
+
+/* reset 버튼 */
+.renew .btn_reset {height:27px;padding:0 12px;border:1px solid #ecedf3;border-radius:27px;color:#555;font-size:12px;background-color:#fff;line-height:25px;}
+.renew .btn_reset > span {padding-left:20px;background:url('../../../images/ico/ico_more_new.png') no-repeat left center; background-size:13px 12px;}
+
+/* 수정 버튼 */
+.renew .btn_edit{width:26px;height:26px;background: url(../../../images/renew/ico/ico_edit.png) no-repeat 50% 50%;background-size:16px auto}
+
+/* 복사하기 */
+.renew .btn_copy:after {content:""; display:inline-block; width:12px; height:14px; margin:-2px 0 0 4px; background:url(../../../images/renew/ico/ico_copy.png) no-repeat 50% 50%; background-size:12px 14px; vertical-align:middle}
+.renew .btn_copy > em {color:#6d6e70; text-decoration:underline;}
+
+/* 초기화 버튼 */
+.renew .btns.reset {position:relative; width:46px; height:47px;min-width:auto;}
+.renew .btns.reset:before {content:""; position:absolute; top:50%; left:50%; width:19px; height:19px; background:url(../../../images/renew/ico/ico_reset.png) no-repeat 50% 50%; border-radius:50%; background-size:19px auto; -webkit-transform:translate(-50%, -50%);}
+.renew .btns.reset.ty08:before {background:url(../../../images/renew/ico/ico_reset_w.png) #787a82 no-repeat 50% 50%; background-size:19px auto;}
+
+/* 스크롤 안에 버튼 */
+.renew .scroll_bar{margin:15px -20px 0;background-color:#f9f9f9}
+.renew .scroll_bar .scroll_inner{padding:15px 20px;white-space: nowrap;overflow-x:scroll;font-size:0;}
+.renew .scroll_bar .scroll_item{display:inline-block;padding:7px 16px 9px;font-size:14px;color:#fff;border-radius:20px;background-color:#8f8e92}
+.renew .scroll_bar .scroll_item + .scroll_item{margin-left:6px}
+
+.renew .btn_fixed{z-index:11;background-color:#fff}
+.renew .btn_fixed .btn{font-family:notoB}
+
+.renew [class^=btn_wrap]{margin-top:20px;font-size:0;overflow:hidden}
+
+ /* 텍스트 바로가기 버튼 */
+.renew .btn_wrap.line02 {display:flex; flex-wrap:wrap; margin:0 -5px;margin-top:-9px !important}
+.renew .btn_wrap.line02 > li {flex:1 1 50%; padding:0 5px;margin-top:10px;}
+.renew .btn_wrap.line02 > li > a.oneTit {font-size:14px;font-family:notoR}
+.renew .btn_wrap.line02 > li.w100{flex:1 1 100%}
+.renew .btn_wrap.line02 .ico {width:100% !important;}
+
+.renew .btn_wrap.pct3{padding:0 15px;}
+.renew .btn_wrap.pct3 button{margin:0 5px;width:calc(100% / 3 - 10px)}
+.renew .btn_wrap_inline{font-size:0;}
+.renew .btn_wrap_inline .btns{width:calc((100% / 2) - 5px)}
+.renew .btn_wrap_inline .btns + .btns{margin-left:10px}
+
+/* 하단버튼 half */
+.renew [class^=btn_].half {display:flex;justify-content:space-between;}
+.renew [class^=btn_].half [class^=btn] {flex-grow:1;}
+.renew [class^=btn_].half [class^=btns] {width:calc((100% / 2) - 5px); flex-grow:unset;}
+
+.renew .btn_wrap_column{margin-top:30px}
+.renew .btn_wrap_column li{margin-top:15px}
+.renew .btn_wrap_column li:first-child{margin-top:0}
+/* 하단고정 버튼 */
+.renew .btn_wrap_column.bottom {position:absolute;bottom:50px;width:calc(100% - 40px);}
+
+/* 상단에 사용하는 버튼 영역 */
+.renew .btn_wrap.top{margin:10px 20px !important;}
+.renew .btn_bring{padding:6px 10px;font-size:12px;color:#000;font-family:notoM;border-radius:5px;border:1px solid #666;}
+.renew .btn_bring:before{display:inline-block;content:'';width:12px;height:12px;margin:4px 6px 0 0;vertical-align:top;background:url(../../../images/renew/ico/ico_bring.png) no-repeat 0 50%;background-size:12px auto;}
+
+/* 동의하기 버튼 */
+.renew .btns.btn_agree{padding:0 10px;}
+.renew .btn_agree:before{display:inline-block;content:'';width:12px;height:12px;margin:8px 6px 0 0;vertical-align:top;background:url(../../../images/renew/ico/ico_check.png) no-repeat 0 50%;background-size:12px auto;}
+
+/* 공통 가변 정렬 버튼 */
+.renew .btn_wrap.sort {display:flex; flex-wrap:wrap; margin:20px -10px 0;}
+.renew [class^='btn_line'] {min-width:100px; height:40px; margin:0 0 10px 10px; padding:0 8px; border-radius:5px; font-size:14px; font-weight:700; color:#000;}
+.renew [class^='btn_line']:disabled {opacity:0.5;}
+.renew .btn_line01 {border:1px solid #f18d00;}
+.renew .btn_line02 {border:1px solid #666;}
+
+.renew .btn_wrap.step{margin-top:30px;margin-bottom:30px;overflow:hidden}
+.renew .btn_step{position:relative;color:#333;font-family:notoM;font-size:15px;height:34px}
+.renew .btn_step:before, .renew .btn_step:after{display:inline-block;content:'';vertical-align:middle}
+.renew .btn_step:before{position:absolute;top:0;width:32px;height:32px;border:1px solid #ccc;border-radius:50%;}
+.renew .btn_step:after{position:absolute;top:11px;width:7px;height:11px;background:url(../../../images/renew/ico/ico_arrow_b_s.png) no-repeat 50% 50%;background-size:auto 100%;}
+
+.renew .btn_step.prev{padding-left:39px}
+.renew .btn_step.prev:before{left:0}
+.renew .btn_step.prev:after{left:13px;transform:rotate(180deg);}
+.renew .btn_step.next{padding-right:39px;float:right}
+.renew .btn_step.next:before{right:0}
+.renew .btn_step.next:after{right:13px;}
+
+.renew [class^=text_link].blue{color:#008cd3;text-align:left;text-decoration:underline}
+.renew #wrap [class^=tits] + .btn_wrap {margin-top:12px;}
+
+
+/* 노출/비노출 버튼 */
+.renew .btn_show {display:inline-block; position:relative; margin-top:20px; padding:8px 40px 8px 20px; border:1px solid #ea7404; border-radius:50px; font-size:13px; color:#000;}
+.renew .btn_show:after {content:""; position:absolute; top:50%; right:17px; width:6px; height:6px; margin-top:-2px; margin-left:12px; border:2px solid #f18d00; border-width:0 0 2px 2px; -webkit-transform:rotate(-45deg) translate(0, -50%); transition:all 0.35s;}
+.renew .btn_show.on:after {margin-top:-4px; margin-right:6px; -webkit-transform:rotate(135deg) translate(0, -50%);}
+.renew .show_wrap {display:none;}
+
+
+/* disabled */
+.renew .btn_fixed .btn.disabled, .renew .btn_fixed .btn:disabled{background-color:#f6d9bd;cursor:no-drop}
+.renew .btn_fixed .btn.gray.disabled, .renew .btn_fixed .btn.gray:disabled{background-color:#4a4b50;opacity:.5}
+.renew .btns.disabled, .renew .btns:disabled{opacity:.5;cursor:no-drop}
+
+
+/* btn_switch */
+.renew .selected_box .value_txt{margin-right:10px;color:#f18d00;font-weight:400}
+.renew .selected_box .btn_select{position:relative;display:inline-block;width:81px;height:23px;line-height:22px;vertical-align:middle;}
+.renew .selected_box .btn_select input {opacity: 0;width: 0!important; height: 0!important;border: none!important;}
+.renew .selected_box .btn_select .slider{display:block;height:23px;padding:0 8px 0 26px;border-radius:15px;background-color:#777;-webkit-transition:.4s;transition:.4s}
+.renew .selected_box .btn_select .slider:before{content:'';position:absolute;top:3px;left:4px;width:17px;height:17px;border-radius:50%;background-color:#fff;transition:.6s;}
+.renew .selected_box .btn_select .slider:after{display:block;content:'미리보기';width:auto;height:auto;text-align:center;color:#fff;border:0;font-family:notoM;background-color:transparent;}
+.renew .selected_box.active .btn_select .slider{padding:0 24px 0 10px;background-color:#f18d00}
+.renew .selected_box.active .btn_select .slider:after{content:'발송';}
+.renew .selected_box.active .btn_select .slider:before{/* -webkit-transform: translateX(100%);transform: translateX(100%); */left:calc(100% - 21px);}
+
+
