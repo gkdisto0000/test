@@ -26,7 +26,12 @@ $(function() {
     // 메인 아이콘 움직임
     var iconOutH = $('.btm-icons').height();
     var iconInnerH = $('.btm-icons ul').height();
+    var iconInnerHAuto = $('.btm-icons ul').css('height','auto').height();
     
+    console.log(iconOutH);
+    console.log(iconInnerH);
+    console.log(iconInnerHAuto);
+
     $('.icon-morebtn.mnicon-open').click(function(){
         $(this).addClass('hide');
         $('.mnicon-close').removeClass('hide');
@@ -34,14 +39,14 @@ $(function() {
             cancel: '.nosort'
         });
         $('.btm-icons li').removeClass('nosort');
-        $('.btm-icons').animate({height:iconInnerH}, 200);
+        $('.btm-icons').animate({height:iconInnerHAuto}, 200);
     });
 
     $('.icon-morebtn.mnicon-close').click(function(){
             $(this).addClass('hide');
             $('.mnicon-open').removeClass('hide');
             $('.btm-icons li').addClass('nosort');
-            $('.btm-icons').animate({height:iconOutH}, 200);
+            $('.btm-icons').animate({height:300}, 200);
             $('body,html').animate({scrollTop:0}, 500);
     });
 
