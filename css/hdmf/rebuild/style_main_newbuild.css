@@ -48,7 +48,7 @@
 .newbuild .mn-main-inner .top-date-cont .top-dday {color: #EE7700; border: 1px solid #EE7700; padding: 0 9px; border-radius: 10px; font-size: 12px; line-height: 18px; height: 20px; margin-left: 5px; font-size: 12px;}
 .newbuild .mn-main-inner .btm-icons {margin-top: 24px; height: 300px; overflow-y: hidden;}
 .newbuild .mn-main-inner .btm-icons ul {display: flex;justify-content: center;flex-wrap : wrap;margin-top: -20px; height: auto; transition: all 0.5s;}
-.newbuild .mn-main-inner .btm-icons ul li {width: 66px;margin: 20px 11px;text-align: center; transition: all 0.5s;}
+.newbuild .mn-main-inner .btm-icons ul li {width: 66px;margin: 20px 11px;text-align: center; transition: width 0.5s;}
 
 /* 활성화 */
 .newbuild .mn-main-inner .btm-icons.open ul {margin: 0 30px 0px; border: 1px dotted #F18D00; border-radius: 10px; padding-bottom: 20px;}
