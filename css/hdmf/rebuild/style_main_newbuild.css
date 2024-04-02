@@ -53,7 +53,6 @@
 /* 활성화 */
 .newbuild .mn-main-inner .btm-icons.open ul {margin: 0 30px 0px; border: 1px dotted #F18D00; border-radius: 10px; padding-bottom: 20px;}
 .newbuild .mn-main-inner .btm-icons.open ul li {width: 55px;}
-.newbuild .mn-main-inner .btm-icons.open + .mn-arr-wrap {margin-top: -30px;}
 .newbuild .mn-main-inner .btm-icons ul li span {font-size: 12px;}
 
 .newbuild .mn-main-inner .btm-icons ul li img {display: block;width: 100%; margin: 0 auto 2px;}
