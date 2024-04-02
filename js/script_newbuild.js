@@ -33,21 +33,35 @@ $(function() {
     console.log(iconInnerHAuto);
 
     $('.icon-morebtn.mnicon-open').click(function(){
+        $('.btm-icons').addClass('open');
         $(this).addClass('hide');
         $('.mnicon-close').removeClass('hide');
         $("#sortable").sortable({
             cancel: '.nosort'
         });
         $('.btm-icons li').removeClass('nosort');
-        $('.btm-icons').animate({height:iconInnerHAuto}, 200);
+
+        if($('.btm-icons').hasClass('open') === true) {
+            $('.btm-icons').animate({height:iconInnerHAuto}, 200);
+        } else if ($('.btm-icons').hasClass('open') === false)  {
+            $('.btm-icons').animate({height:300}, 200);
+        }
+
     });
 
     $('.icon-morebtn.mnicon-close').click(function(){
+            $('.btm-icons').removeClass('open');
             $(this).addClass('hide');
             $('.mnicon-open').removeClass('hide');
             $('.btm-icons li').addClass('nosort');
             $('.btm-icons').animate({height:300}, 200);
             $('body,html').animate({scrollTop:0}, 500);
+
+            if($('.btm-icons').hasClass('open') === true) {
+                $('.btm-icons').animate({height:iconInnerHAuto}, 200);
+            } else if ($('.btm-icons').hasClass('open') === false)  {
+                $('.btm-icons').animate({height:300}, 200);
+            }
     });
 
 
