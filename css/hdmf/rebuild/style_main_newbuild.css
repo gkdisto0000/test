@@ -52,8 +52,8 @@
 
 /* 활성화 */
 .newbuild .mn-main-inner .btm-icons.open {margin: 14px auto 0;}
-.newbuild .mn-main-inner .btm-icons.open ul {margin: 5px; border: 1px dotted #F18D00; border-radius: 10px; padding: 0px 0px 20px 0px;}
-.newbuild .mn-main-inner .btm-icons.open ul li {width: 14%; margin: 10px 9px;}
+.newbuild .mn-main-inner .btm-icons.open ul {margin: 5px; border: 1px dotted #F18D00; border-radius: 10px; padding: 0px 0px 15px 0px;}
+.newbuild .mn-main-inner .btm-icons.open ul li {width: 14%; margin: 10px 9px; padding-bottom: 5px;}
 .newbuild .mn-main-inner .btm-icons.open ul li span {font-size: 12px; letter-spacing: -1.6px;}
 
 .newbuild .mn-main-inner .btm-icons ul li img {display: block;width: 100%; margin: 0 auto 2px;}
