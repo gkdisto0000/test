@@ -25,7 +25,6 @@ $(function() {
 
     // 메인 아이콘 움직임
     $('.icon-morebtn.mnicon-open').click(function(){
-        var iconInnerHAuto = $('.btm-icons ul').height();
         $('.btm-icons').addClass('open');
         $(this).addClass('hide');
         $('.mnicon-close').removeClass('hide');
@@ -35,6 +34,7 @@ $(function() {
         $('.btm-icons li').removeClass('nosort');
 
         if($('.btm-icons').hasClass('open') === true) {
+            var iconInnerHAuto = $('.btm-icons ul').height();
             $('.btm-icons').animate({height:iconInnerHAuto}, 200);
         } else if ($('.btm-icons').hasClass('open') === false)  {
             $('.btm-icons').animate({height:300}, 200);
@@ -42,7 +42,6 @@ $(function() {
     });
 
     $('.icon-morebtn.mnicon-close').click(function(){
-        var iconInnerHAuto = $('.btm-icons ul').height();
             $('.btm-icons').removeClass('open');
             $(this).addClass('hide');
             $('.mnicon-open').removeClass('hide');
@@ -50,6 +49,7 @@ $(function() {
             $('.btm-icons').animate({height:300}, 200);
 
             if($('.btm-icons').hasClass('open') === true) {
+                var iconInnerHAuto = $('.btm-icons ul').height();
                 $('.btm-icons').animate({height:iconInnerHAuto}, 200);
             } else if ($('.btm-icons').hasClass('open') === false)  {
                 $('.btm-icons').animate({height:300}, 200);
