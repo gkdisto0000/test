@@ -24,15 +24,8 @@ $(function() {
 
 
     // 메인 아이콘 움직임
-    var iconOutH = $('.btm-icons').height();
-    var iconInnerH = $('.btm-icons ul').height();
-    var iconInnerHAuto = $('.btm-icons ul').css('height','auto').height();
-    
-    console.log(iconOutH);
-    console.log(iconInnerH);
-    console.log(iconInnerHAuto);
-
     $('.icon-morebtn.mnicon-open').click(function(){
+        var iconInnerHAuto = $('.btm-icons ul').height();
         $('.btm-icons').addClass('open');
         $(this).addClass('hide');
         $('.mnicon-close').removeClass('hide');
@@ -46,10 +39,10 @@ $(function() {
         } else if ($('.btm-icons').hasClass('open') === false)  {
             $('.btm-icons').animate({height:300}, 200);
         }
-
     });
 
     $('.icon-morebtn.mnicon-close').click(function(){
+        var iconInnerHAuto = $('.btm-icons ul').height();
             $('.btm-icons').removeClass('open');
             $(this).addClass('hide');
             $('.mnicon-open').removeClass('hide');
