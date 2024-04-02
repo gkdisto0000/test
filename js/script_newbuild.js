@@ -29,7 +29,8 @@ $(function() {
         $(this).addClass('hide');
         $('.mnicon-close').removeClass('hide');
         $("#sortable").sortable({
-            cancel: '.nosort'
+            cancel: '.nosort',
+            delay : 500,
         });
         $('.btm-icons li').removeClass('nosort');
 
