@@ -37,8 +37,10 @@ $(function() {
         $('.btm-icons li').removeClass('nosort');
 
         if($('.btm-icons').hasClass('open') === true) {
-            var iconInnerH = $('.btm-icons ul').height();
-            var iconInnerHAuto = iconInnerH + 5;
+            var iconInnerH = $('.btm-icons.open').find(('#sortable')).height();
+            var iconInnerHAuto = iconInnerH + 15;
+            console.log(iconInnerH);
+            console.log(iconInnerHAuto);
             $('.btm-icons').animate({height:iconInnerHAuto}, 200);
         } else if ($('.btm-icons').hasClass('open') === false)  {
             $('.btm-icons').animate({height:300}, 200);
@@ -53,8 +55,10 @@ $(function() {
             $('.btm-icons').animate({height:300}, 200);
 
             if($('.btm-icons').hasClass('open') === true) {
-                var iconInnerH = $('.btm-icons ul').height();
-                var iconInnerHAuto = iconInnerH + 5;
+                var iconInnerH = $('.btm-icons.open ul').height();
+                var iconInnerHAuto = $('.btm-icons.open ul').height();
+                console.log(iconInnerH);
+                console.log(iconInnerHAuto);
                 $('.btm-icons').animate({height:iconInnerHAuto}, 200);
             } else if ($('.btm-icons').hasClass('open') === false)  {
                 $('.btm-icons').animate({height:300}, 200);
