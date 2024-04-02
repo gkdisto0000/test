@@ -51,10 +51,10 @@
 .newbuild .mn-main-inner .btm-icons ul li {width: 18%;margin: 20px 11px;text-align: center; transition: width 0.5s; transition: max-width 0.5s; max-width: 66px;}
 
 /* 활성화 */
-.newbuild .mn-main-inner .btm-icons.open ul {margin: 5px; border: 1px dotted #F18D00; border-radius: 10px; padding: 5px 5px 20px 5px;}
+.newbuild .mn-main-inner .btm-icons.open ul {margin: 5px; border: 1px dotted #F18D00; border-radius: 10px; padding: 0px 0px 20px 0px;}
 .newbuild .mn-main-inner .btm-icons.open ul li {width: 14%; margin: 10px 9px;}
 .newbuild .mn-main-inner .btm-icons.open ul li span {font-size: 12px; letter-spacing: -1.6px;}
-.newbuild .mn-main-inner .btm-icons.open ul li:nth-child(n+6) {margin-top: 10px;}
+.newbuild .mn-main-inner .btm-icons.open ul li:nth-child(n+6) {margin-top: 17px;}
 .newbuild .mn-main-inner .btm-icons ul li img {display: block;width: 100%; margin: 0 auto 2px;}
 .newbuild .mn-main-inner .btm-icons ul li a {position: relative; display: block;}
 .newbuild .mn-main-inner .btm-icons ul li span {font-size: 13px;letter-spacing: -0.65px; color: #000; display: block; position: absolute; bottom: -22px; left: 50%; transform: translate(-50%, 0%);}
