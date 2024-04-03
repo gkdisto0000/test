@@ -1,6 +1,8 @@
 $(function() {
     
     // -------- 메인 --------
+    
+    
     // 01. 메인 최상단 날짜 노출
     var mnnow = new Date();
     var month = mnnow.getMonth()+1;//월
@@ -45,6 +47,9 @@ $(function() {
         } else if ($('.btm-icons').hasClass('open') === false)  {
             $('.btm-icons').animate({height:300}, 200);
         }
+
+        $('.nb-all-icon').css('display','none');
+
     });
 
     $('.icon-morebtn.mnicon-close').click(function(){
@@ -63,7 +68,14 @@ $(function() {
             } else if ($('.btm-icons').hasClass('open') === false)  {
                 $('.btm-icons').animate({height:300}, 200);
             }
+
+            
+            $('.nb-all-icon').css('display','block');
+
     });
+
+
+
 
 
 
@@ -121,12 +133,6 @@ $(function() {
         $('.mn-banner.mid-bnr .mn-play').removeClass('hide');
         swiper01.autoplay.stop();
     });
-
-
-
-
-
-
 
 
 

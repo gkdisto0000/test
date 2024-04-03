@@ -32,7 +32,6 @@
 .newbuild .nb-info.red {color: #ED0014;}
 
 
-
 /* 하단 fix 회색 버튼 */
 .newbuild .gray-fixbtn {padding: 20px;}
 
@@ -43,11 +42,13 @@
 /* name search */
 .newbuild .sub_new_inr {margin-top: 28px;}
 .newbuild .sub_new_inr .mn-inputBox {display: flex;justify-content: space-between;align-items: center;width: 100%;height: 50px;border: 1px solid #F18D00;border-radius: 25px;overflow: hidden;position: relative;}
-.newbuild .sub_new_inr .mn-inputBox img {width: 20px;height: 20px;}
+.newbuild .sub_new_inr .mn-inputBox img {width: 20px;height: 20px; min-width: 20px;}
 .newbuild .sub_new_inr .mn-inputBox > img {margin-left: 20px;}
-.newbuild .sub_new_inr .mn-inputBox input {width: 70%;height: 100%;border: 0;margin: 0 auto;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px;}
+.newbuild .sub_new_inr .mn-inputBox .inp_bar {width: 100%;}
+.newbuild .sub_new_inr .mn-inputBox input {width: 100%;height: 100%;border: 0;margin: 0 auto;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px;}
 .newbuild .sub_new_inr .mn-inputBox input:focus {box-shadow: none;}
 .mn-inputBox input::placeholder {color: #AAAAAA;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px;}
+.newbuild .sub_new_inr .mn-inputBox  .input_reset {top:-14px;}
 .newbuild .sub_new_inr .mn-inputBox > .mn-btn-search {margin-right: 20px;}
 
 .newbuild .all_infos {margin-top: 25px; color: #333333; padding: 0 20px;}
@@ -390,3 +391,11 @@
 .newbuild .layer .btn_area .btn.ok.blck {color: #000;}
 
 
+
+/* M소식지 */
+.newbuild .nb-tab-containers {position: relative;}
+.newbuild .nb-tab-containers::before {display: block; content: ''; width: 100vw; height: 50px; background-color: #F18D00; position: absolute; top:0; left: 0; z-index: 0;}
+.newbuild .nb-tab-containers .tab_bullet {position: relative; border-top-left-radius: 40px; border-top-right-radius: 40px;}
+.newbuild .nb-tab-containers .tab_bullet li a {color: #222; letter-spacing: -0.7px; font-size: 14px;}
+.newbuild .nb-tab-containers .tab_bullet li.active a {color: #F18D00;}
+.newbuild .nb-tab-containers .thumb_item_box .item_date {z-index: 1;}

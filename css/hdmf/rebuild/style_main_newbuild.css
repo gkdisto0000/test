@@ -29,18 +29,21 @@
 
 
 /* header */
-.newbuild .mn-hdrWrap { background-color: #f18d00;}
-.newbuild .mn-hdr {padding: 20px 20px 55px; display: flex;justify-content: space-between;}
-.newbuild .mn-hdr h1 img{ width: 115px;}
-.newbuild .mn-hdr .mn-nav {display: flex;}
-.newbuild .mn-hdr .mn-nav li{width: 20px;height: 20px;margin-left: 18px; position: relative;}
-.newbuild .mn-hdr .mn-nav li img {display: block;width: 100%;height: 100%;}
-.newbuild .mn-hdr .mn-new {background-color: #008cd3; width: 17px; height: 17px; text-align: center; border-radius: 100%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; position: absolute; top:-7px; right: -10px;}
-
+.newbuild #header {background: #f18d00;}
+.newbuild #header .mn-hdr {padding: 20px 20px 38px; display: flex;justify-content: space-between;}
+.newbuild #header .mn-hdr.nb-sub-hdr {padding-bottom: 100px; z-index: 0; position: relative;}
+.newbuild #header .mn-hdr h1 { width: 115px; height: 18px; background-image: url('../../../images3/ico/logo_w.png'); background-position: center; background-repeat: no-repeat; background-size: contain; text-indent: -99999999px;}
+.newbuild #header .mn-hdr .mn-nav {display: flex; position: absolute; right: 52px; top: 15px;}
+.newbuild #header .mn-hdr .mn-nav li{width: 20px;height: 20px;margin-left: 18px; position: relative; background-position: center; background-repeat: no-repeat; background-size: cover;}
+.newbuild #header .mn-hdr .mn-nav .nb-btn-search {background-image: url('../../../images3/ico/icon_search.png');}
+.newbuild #header .mn-hdr .mn-nav .nb-btn_notice {background-image: url('../../../images3/ico/icon_noti.png');}
+.newbuild #header .mn-hdr .mn-new {background-color: #008cd3; width: 17px; height: 17px; text-align: center; border-radius: 100%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; position: absolute; top:-7px; right: -10px;}
+.newbuild .h_wrap .menu .quick-all-menu .btn-menu {background-image: url('../../../images3/ico/icon_menu.png'); top: 4px; background-size: 20px auto;}
 
 
 /* white-sec */
-.newbuild .white-wrap {background-color: #fff;padding-top: 24px;border-top-left-radius: 40px;border-top-right-radius: 40px;margin-top: -40px; }
+.newbuild .white-wrap {background-color: #fff;padding-top: 24px;border-top-left-radius: 40px;border-top-right-radius: 40px;margin-top: 58px; position: relative;}
+.newbuild .white-wrap::before {display: block; content: ''; width: 100vw; height: 100vh; background-color: #f18d00; position: absolute; top:-60px; left: 0; z-index: -1;}
 
 
 /* main-icon */
@@ -85,11 +88,13 @@
 /* name search */
 .newbuild .mn-contInner.cnt01 {margin-top: 20px;}
 .newbuild .mn-contInner.cnt01 .mn-inputBox {display: flex;justify-content: space-between;align-items: center;width: 100%;height: 50px;border: 1px solid #F18D00;border-radius: 25px;overflow: hidden;position: relative;}
-.newbuild .mn-contInner.cnt01 .mn-inputBox img {width: 20px;height: 20px;}
+.newbuild .mn-contInner.cnt01 .mn-inputBox img {width: 20px;height: 20px; min-width: 20px;}
 .newbuild .mn-contInner.cnt01 .mn-inputBox > img {margin-left: 20px;}
-.newbuild .mn-contInner.cnt01 .mn-inputBox input {width: 70%;height: 100%;border: 0;margin: 0 auto;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px;}
+.newbuild .mn-contInner.cnt01 .mn-inputBox .inp_bar {width: 100%;}
+.newbuild .mn-contInner.cnt01 .mn-inputBox .inp_bar input {width: 100%;height: 100%;border: 0;margin: 0 auto;font-family: 'NotoSans';letter-spacing: -0.75px;font-size: 15px;}
 .mn-contInner.cnt01 .mn-inputBox input::placeholder {color: #AAAAAA;font-family : 'robotoR', 'notoR';letter-spacing: -0.75px;font-size: 15px;}
 .newbuild .mn-contInner.cnt01 .mn-inputBox input:focus {box-shadow: none;}
+.newbuild .mn-contInner.cnt01 .mn-inputBox  .input_reset {top:-14px;}
 .newbuild .mn-contInner.cnt01 .mn-inputBox > .mn-btn-search {margin-right: 20px;}
 .newbuild .mn-contInner.cnt01 ul {margin-top: 20px; display: flex;justify-content: space-between;}
 .newbuild .mn-contInner.cnt01 ul li {background-color: #FFF5EC;width: 50%;height: 61px;display: flex;justify-content: center;align-items: center;padding: 20px 12px;border-radius: 10px;}
@@ -158,3 +163,7 @@
 .newbuild .mn-contInner.cnt02.ty02 ul li .mn-counter span.counter em {font-family: 'robotoM', 'notoM';}
 .newbuild .mn-contInner.cnt02.ty02 ul li .mn-counter span.counter.grn {color: #048901; letter-spacing: -1.4px; font-size: 14px;}
 .newbuild .mn-contInner.cnt02.ty02 ul li .mn-counter span.counter span {font-size: 11px; margin-top: 2px; margin-left: 2px;}
+
+
+
+
