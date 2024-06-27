@@ -15,10 +15,8 @@
     <script src="././js/ui_common_v2.js"></script>
     <script src="././js/swiper.js"></script>
 
+    <style src="./css/reset.css"></style>
 
-
-    <!-- 신규 css -->
-    <link rel="stylesheet" href="./css/hdmf/style_rebuild.css">
 
     <!-- 신규 js -->
     <script src="./js/script_newbuild.js"></script>
@@ -28,587 +26,104 @@
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
+    <style>
+
+/* 퀵메뉴 */
+.quickmn-wrap {padding: 0 2rem 2rem 2rem;margin-top: -5rem;position: relative;z-index: 1;}
+.quick-mn {display: flex;justify-content: space-between;background-color: #fff;align-items: center;box-shadow: 3px 3px 20px #00000029;border-radius: 11.4rem;margin: 5rem auto 0;padding: 2.6rem 11rem;width: 1280px;height: 19.7rem;}
+.quick-mn img {display: block;}
+.quick-mn h3 {font-size: 3.3rem;font-weight: 700;letter-spacing: -0.82px;line-height: 1.2;white-space: nowrap;margin-right: 9.9rem;padding-right: 5rem;position: relative;}
+.quick-mn h3:after {display: block;content: '';width: 1px;height: 15.5rem;background-color: #EDEDED;position: absolute;right: 0;bottom: -4rem;}
+.quick-mn ul {display: flex;justify-content: space-between;align-items: center;transition: all 0.5s;height: 100%;width: 100%;opacity: 1;overflow: hidden;}
+.quick-mn ul.hide {opacity: 0;height: 0;}
+.quick-mn ul li {width: 10.7rem;padding-bottom: 3.5rem;}
+.quick-mn ul li + li{margin-left: 4.8rem;}
+.quick-mn ul li a {position: relative;}
+.quick-mn ul li h4{text-align: center;font-size: 1.8rem;margin-top: 1.3rem;letter-spacing: -0.45px;white-space: nowrap;position: absolute;bottom: -3rem;left: 50%;transform: translate(-50%, 0);font-weight: 400;font-family: 'pretendard';}
+.quick-mn ul li:hover h4{font-weight: 700;}
+.quick-mn ul li h4 span {color: #0565F0;}
+.mn-search-box-wrap {display: flex;height: 0;overflow-y: hidden;opacity: 0;transition: all 0.5s;position: absolute;z-index: 1;right: 19.5rem;}
+
+.mn-search-box-wrap.show {height: 8rem;overflow: initial;opacity: 1;}
+.mnSearchBox {display: flex;border: 3px solid #000000;border-radius: 1.5rem;overflow: hidden;width: 62.2rem;}
+.mnSearchBox input {width: 53.2rem;border: 0;padding: 2.1rem 2.9rem;font-size: 2.4rem;color: #000;font-family: 'pretendard';letter-spacing: -0.6px;}
+.mnSearchBox input::placeholder {color: #9D9D9D;font-family: 'pretendard';letter-spacing: -0.6px;}
+.mnSearchBox .mn-s-btn {width: 9rem;background-color: #0097E5;display: flex;align-items: center;cursor: pointer;border-left: 3px solid #000;}
+.mnSearchBox .mn-s-btn .btn-icon{background-image: url('/entpf/images/product/webResource/mn-seacrhBox-icon.png');background-repeat: no-repeat;background-size: cover;background-position: center;width: 3.6rem;height: 3.6rem;margin: 0 auto;transition: all 0.5s;}
+.mn-search-box-wrap .mn-s-back {width: 3.8rem;height: 3.8rem;background-image: url('/entpf/images/product/webResource/mn-seacrhBox-back.png');background-repeat: no-repeat;background-size: cover;background-position: center;margin-left: 4.5rem;margin-top: -3rem;cursor: pointer;}
+
+@media (max-width:760px) {
+    /* 퀵메뉴 */
+    .quickmn-wrap {padding: 0;margin-top: -8rem;}
+    .quick-mn {width: 100%;padding: 2rem 1rem;border-radius: 0rem;box-shadow: initial;height: 13rem; border-top-left-radius: 3rem; border-top-right-radius: 3rem;}
+    .quick-mn h3 {display: none;}
+    .quick-mn ul li {width: calc(100% / 5);}
+    .quick-mn ul li + li {margin-left: 0;}
+    .quick-mn ul li img {width: 5.55rem; margin: 0 auto;}
+    .quick-mn ul li h4 {font-size: 1.1rem; bottom:-2rem;}
+    .quick-mn ul li h4 span {display: none;}
+
+    .mn-search-box-wrap {right: initial; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 90%;}
+    .mn-search-box-wrap.show {height: 5rem;}
+    .mnSearchBox {width: 100%; border-radius: 1rem;}
+    .mnSearchBox input {width: 100%; font-size: 1.4rem; padding: 1rem;}
+    .mn-search-box-wrap .mn-s-back {margin-left: 1rem; width: 2rem; height: 2rem; margin-top: -1rem; position: absolute; right: -1rem; top: 0;}
+    .mnSearchBox .mn-s-btn {width: 7rem;}
+    .mnSearchBox .mn-s-btn .btn-icon {width: 2.6rem; height: 2.6rem; background-size: contain;}
+
+
+}
+
+    </style>
 </head>
 <body>
-
-    <div id="wrap">
-
-        <!-- header -->
-        <header id="header" class="mn-hdrWrap">
-            <div class="h_wrap mn-hdr">
-                <h1>
-                    Hi-SPORTAL
-                </h1>
-                <div class="menu">
-                    <ul class="mn-nav">
-                        <li class="nb-btn-search"></li>
-                        <li class="nb-btn_notice">
-                            <div class="mn-new">N</div>
-                        </li>
-                    </ul>
-
-                    <!-- 전체메뉴 -->
-                    <div class="quick-all-menu">
-                        <button class="btn-menu">메뉴 더보기</button>
-                        <div class="menu-box">
-                            <div class="h_wrap nb-h-wrap">
-                                <h1>
-                                    Hi-SPORTAL
-                                </h1>
-                                <div class="menu">
-                                    <!-- <button class="btn-menu-home">홈으로 가기</button> -->
-                                    <button class="btn-logout">홈 으로</button>
-                                    <button class="btn-menu-close">전체메뉴 닫기</button>
-                                </div>
-                            </div>
-                        <!-- menu -->
-                        <div class="slidemenu nb-slideMenu">
-                            <div class="menu_top nb-menu-top">
-                                <div class="user_info">
-                                    <p class="img"><img src="./images/bg/img_user.gif" alt=""></p>
-                                    <div class="info">
-                                        <strong class="name">김현대</strong><a href="#none" class="menu_card">전자명함 <em class="mark"></em></a>
-                                    </div>
-                                </div>
-                                <div class="member_menu">
-                                    <ul>
-                                        <li class="m1"><a href="javascript:void(0)">앱설정</a></li>
-                                        <li class="m2"><a href="javascript:void(0)">오늘의일정</a></li>
-                                        <li class="m3"><a href="javascript:void(0)">서랍장</a></li>
-                                        <li class="m4"><a href="javascript:void(0)">출결용QR</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="menu_gnb">
-                                <div class="inner">
-                                    <ul class="dep1">
-                                        <!-- 즐겨찾기 후 -->
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep01">즐겨찾기</a>
-                                        </li>
-                                        <!-- 즐겨찾기 후 -->
-    
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep02">고객</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep03">장기</a>
-    
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep04">자동차</a>
-    
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep05">심사업무조회</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep06">보상</a>
-    
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep07">가상계좌</a>
-    
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep08">신용카드</a>
-    
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep09">증명서발급</a>
-    
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep10">행복보장분석</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep11">사진등록</a>
-    
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)" rel="dep12">M소식지</a>
-    
-                                        </li>
-                                    </ul>
-                                    <ul class="dep2-box">
-                                        <!-- 즐겨찾기 -->
-                                        <li class="dep01 active">
-                                            <ul class="dep2">
-                                                <li>
-                                                    <a href="javascript:void(0)">영상교육</a>
-                                                    <div class="dep3">
-                                                        <ul>
-                                                            <li><a href="javascript:void(0)">하이캐스트</a></li>
-                                                            <li><a href="javascript:void(0)">하이캐스트</a></li>
-                                                            <li><a href="javascript:void(0)">하이캐스트</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li><a href="javascript:void(0)">상품정보</a>
-                                                    <div class="dep3">
-                                                        <ul>
-                                                            <li><a href="javascript:void(0)">하이캐스트</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <!-- 고객 -->
-                                        <li class="dep02">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">고객등록조회</a></li>
-                                                <li><a href="javascript:void(0)">가입설계동의</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- 장기 -->
-                                        <li class="dep03">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">설계조회</a></li>
-                                                <li><a href="javascript:void(0)">계약조회</a></li>
-                                                <li><a href="javascript:void(0)">집금책임계약</a></li>
-                                                <li><a href="javascript:void(0)">실손담보조회</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- 자동차 -->
-                                        <li class="dep04">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">계약조회</a></li>
-                                                <li><a href="javascript:void(0)">단기운전자배서</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- 심사업무조회 -->
-                                        <li class="dep06">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">구비서류안내</a></li>
-                                                <li><a href="javascript:void(0)">간편접수URL문자발송</a></li>
-                                                <li><a href="javascript:void(0)">보상진행현황조회</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- 가상계좌 -->
-                                        <li class="dep07">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">가상계좌부여/조회</a></li>
-                                                <li><a href="javascript:void(0)">가상계좌입금조회</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- 신용카드 -->
-                                        <li class="dep08">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">신용카드승인</a></li>
-                                                <li><a href="javascript:void(0)">신용카드승인내역조회</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- 증명서발급 -->
-                                        <li class="dep09">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">증권및약관발송</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- 사진등록 -->
-                                        <li class="dep10">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">장기사진등록</a></li>
-                                                <li><a href="javascript:void(0)">자동차사진등록</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- M소식지 -->
-                                        <li class="dep11">
-                                            <ul class="dep2">
-                                                <li><a href="javascript:void(0)">메뉴</a></li>
-                                                <li><a href="javascript:void(0)">메뉴</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//menu -->
-                        </div>
+    <div class="quickmn-wrap">
+        <div class="quick-mn">
+            <h3>무엇을 <br>
+                도와드릴까요?</h3>
+            <ul>
+                <li>
+                    <a href="javascript:void(0);" class="mn-s-open">
+                        <img src="/entpf/images/product/webResource/mn-quick-search.png" alt="FAQ">
+                        <h4>통합 검색</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="floating_pop_open('consulting')">
+                        <img src="/entpf/images/product/webResource/mn-quick-consulting.png" alt="컨설팅 신청">
+                        <h4>컨설팅 신청</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cs/P_CS_AF_001.do">
+                        <img src="/entpf/images/product/webResource/mn-quick-paper.png" alt="신청서 다운로드">
+                        <h4>신청서</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cs/P_CS_BR_001.do">
+                        <img src="/entpf/images/product/webResource/mn-quick-intro.png" alt="소개자료 다운로드">
+                        <h4>소개자료</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://page.stibee.com/subscriptions/214254" target="_blank">
+                        <img src="/entpf/images/product/webResource/mn-quick-news.png" alt="뉴스레터 신청">
+                        <h4>뉴스레터</h4>
+                    </a>
+                </li>
+            </ul>
+            <div class="mn-search-box-wrap">
+                <div class="mnSearchBox">
+                    <input type="text" id="mb_quickmn_in_search" placeholder="검색어를 입력하세요">
+                    <div class="mn-s-btn">
+                        <div class="btn-icon" id="mb_quickmn_btnSearchKeyword"></div>
                     </div>
-                    <!-- //전체메뉴 -->
-                </div>
-            </div>
-        </header>
-        <!-- // #header -->
-
-
-        <div class="white-wrap">
-            <!-- main-icon -->
-            <div class="mn-mainWrap">
-                <div class="mn-main-inner">
-                    <div class="top-date-cont">
-                        <div class="top-today">
-                            <span class="mn-month"></span>월 <span class="mn-day"></span>일 <span class="mn-dayweek"></span>요일 
-                            
-                        </div>
-                        <div class="top-dday roboto-re">
-                            D-<span>16</span>
-                        </div>
-                    </div>
-
-                    <div class="btm-icons">
-                        <ul id="sortable">
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_agree.png" alt="아이콘">
-                                    <span>가입설계동의</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_check.png" alt="아이콘">
-                                    <span>고객등록조회</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_deposit.png" alt="아이콘">
-                                    <span>가입설계청약</span> 
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_inquiry.png" alt="아이콘">
-                                    <span>계약조회</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_sign.png" alt="아이콘">
-                                    <span>모집자서명</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_house.png" alt="아이콘">
-                                    <span>집금책임계약</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_happy.png" alt="아이콘">
-                                    <span>행복보장분석</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_photo.png" alt="아이콘">
-                                    <span>사진등록</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_judge.png" alt="아이콘">
-                                    <span>심사업무조회</span>
-                                </a>
-                            </li>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_certi.png" alt="아이콘">
-                                    <span>증명서발급</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_car.png" alt="아이콘">
-                                    <span>단기운전자</span>
-                                </a>
-                            </li>
-                            <li class="nb-all-icon">
-                                <a href="">
-                                    <img src="./images3/ico/icon_allmenu.png" alt="아이콘">
-                                    <span>전체메뉴</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_write.png" alt="아이콘">
-                                    <span>가입설계요청</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_lookcer.png" alt="아이콘">
-                                    <span>설계명세조회</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_movie.png" alt="아이콘">
-                                    <span>영상교육</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_budget.png" alt="아이콘">
-                                    <span>실손정액담보</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_pay.png" alt="아이콘">
-                                    <span>보험료수납</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_hitalk.png" alt="아이콘">
-                                    <span>Hi심사톡</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_simplesend.png" alt="아이콘">
-                                    <span>간편접수발송</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_longterm.png" alt="아이콘">
-                                    <span>장기사고접수</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_allser.png" alt="아이콘">
-                                    <span>고객통합조회</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_earn.png" alt="아이콘">
-                                    <span>실적소득</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_case.png" alt="아이콘">
-                                    <span>실적건별</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_carend.png" alt="아이콘">
-                                    <span>자동차만기대상</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="./images3/ico/icon_longuser.png" alt="아이콘">
-                                    <span>장기만기대상</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <div class="mn-arr-wrap">
-                        <div class="icon-morebtn mnicon-open">
-                            위치변경
-                            <img src="./images3/ico/icon_arrow_open.png" alt="더보기 아이콘">
-                        </div>
-                        <div class="icon-morebtn mnicon-close hide">
-                            위치저장
-                            <img src="./images3/ico/icon_arrow_close.png" alt="더보기 아이콘">
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-
-
-
-            <!-- mid-banner -->
-            <div class="mn-bnrWrap">
-                <div class="mn-banner mid-bnr">
-                    <div class="slider-bnr01">
-                        <ul class="swiper-wrapper">
-                            <li class="swiper-slide">
-                                <img src="./images3/banner/mid-banner01.png" alt="배너 이미지">
-                            </li>
-                            <li class="swiper-slide">
-                                <img src="./images3/banner/mid-banner01.png" alt="배너 이미지">
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 컨트롤러 -->
-                    <div class="mid-controller">
-                        <div class="numcount sPage1">
-                        </div>
-                        <div class="playBtns">
-                            <img src="./images3/ico/icon-play.png" alt="재생버튼" class="mn-play hide">
-                            <img src="./images3/ico/icon-pause.png" alt="멈춤버튼" class="mn-pause">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- name search -->
-            <div class="mn-cntwrap">
-                <div class="mn-contInner cnt01">
-
-                    <div class="mn-inputBox">
-                        <img src="./images3/ico/icon-user.png" alt="사람 아이콘">
-                        <div class="inp_bar mt0">
-                            <input type="text" name="" value="" placeholder="고객명을 입력하세요">
-                            <button type="button" class="input_reset"><span class="blind">삭제</span></button>
-                        </div>
-                        <a class="mn-btn-search">
-                            <img src="./images3/ico/icon_searchbar_search.png" alt="고객검색 버튼">
-                        </a>
-                    </div>
-                    
-                    <ul>
-                        <li>
-                            <span>장기만기대상</span>
-                            <span class="mn-number">111</span>
-                        </li>
-                        <li>
-                            <span>자동차만기대상</span>
-                            <span class="mn-number">23</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <!-- 당월 실적 -->
-            <div class="mn-cntwrap">
-                <div class="mn-contInner cnt02">
-                    <div class="mn-tittxt">
-                        <h2>현재실적 <span class="mn-smalltit">(단위 : 천원)</span></h2>
-                        <div class="mn-arrow"></div>
-                    </div>
-
-                    <ul>
-                        <li>
-                            <div class="tit">장기신</div> 
-                            <div class="mn-counter">
-                                    <div class="lft">
-                                        <span>실적</span>
-                                        <span class="counter">
-                                            22
-                                        </span>
-                                    </div>
-                                    <div class="rht">
-                                        <span>환산</span>
-                                        <span class="counter">
-                                            22
-                                        </span>
-                                    </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="tit">자동차</div> 
-                            <div class="mn-counter">
-                                    <div>
-                                        <span>실적</span>
-                                        <span class="counter">
-                                            123
-                                        </span>
-                                    </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <!-- btm-banner -->
-            <div class="mn-bnrWrap">
-                <div class="mn-banner btm-bnr">
-                    <ul class="slider-bnr02">
-                        <li>
-                            <a href="">
-                                <div class="innnerTxts">
-                                    <h4>비대면 영업지원부터 교육까지 한 번에!</h4>
-                                    <h3>M 소식지</h3>
-                                </div>
-                                <img src="./images3/ico/img_book.png" alt="책 아이콘">
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-
-
-
-            <!-- 행복보장분석 -->
-            <div class="mn-cntwrap">
-                <div class="mn-contInner cnt03">
-                    <div class="mn-tittxt">
-                        <h2>행복보장분석</h2>
-                    </div>
-
-                    <div class="slider-bnr03">
-                        <ul class="swiper-wrapper">
-                            <li class="swiper-slide">
-                                <div class="mn-user-info">
-                                    <span class="mn-name">김길동</span>
-                                    <span class="mn-infos">
-                                        (<span>1987-01-01</span>, <span>38</span>세)
-                                    </span>
-                                </div>
-    
-                                <div class="mn-detail-date">
-                                    <div class="date-fu">
-                                        <span>상령일:</span>
-                                        <span>2023-07-22</span>
-                                    </div>
-                                    <div class="mn-date-design">
-                                        <span>보장분석일:</span>
-                                        <span>2024-03-10</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="swiper-slide">
-                                <div class="mn-user-info">
-                                    <span class="mn-name">홍길동</span>
-                                    <span class="mn-infos">
-                                        (<span>1991-11-05</span>, <span>20</span>세)
-                                    </span>
-                                </div>
-    
-                                <div class="mn-detail-date">
-                                    <div class="date-fu">
-                                        <span>상령일:</span>
-                                        <span>2020-03-11</span>
-                                    </div>
-                                    <div class="mn-date-design">
-                                        <span>보장분석일:</span>
-                                        <span>2022-02-20</span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="slider-bnr03-arrows"></div>
-                </div>
-            </div>
-
-        </div>
-        <!-- white-wrap -->
-
-
-
-
-        <!-- footer -->
-        <div class="mn-ftrWrap">
-            <div class="mn-ftr">
-                <p>
-                    ⓒ 2024 Hyundai Marine & Fire Insurance Co, Ltd All right reserved.  
-                </p>
-            </div>
-        </div>
-    </div> <!-- wrap -->
-    
+                </div><!-- mnSearchBox -->
+                <div class="mn-s-back"></div>
+            </div><!-- mn-search-box-wrap -->
+        </div><!-- quick-mn -->
+    </div>
     
 </body>
 </html>
