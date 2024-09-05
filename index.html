@@ -27,93 +27,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
     <style>
-
-/* 퀵메뉴 */
-.quickmn-wrap {padding: 0 2rem 2rem 2rem;margin-top: -5rem;position: relative;z-index: 1;}
-.quick-mn {display: flex;justify-content: space-between;background-color: #fff;align-items: center;box-shadow: 3px 3px 20px #00000029;border-radius: 11.4rem;margin: 5rem auto 0;padding: 2.6rem 11rem;width: 1280px;height: 19.7rem;}
-.quick-mn img {display: block;}
-.quick-mn h3 {font-size: 3.3rem;font-weight: 700;letter-spacing: -0.82px;line-height: 1.2;white-space: nowrap;margin-right: 9.9rem;padding-right: 5rem;position: relative;}
-.quick-mn h3:after {display: block;content: '';width: 1px;height: 15.5rem;background-color: #EDEDED;position: absolute;right: 0;bottom: -4rem;}
-.quick-mn ul {display: flex;justify-content: space-between;align-items: center;transition: all 0.5s;height: 100%;width: 100%;opacity: 1;overflow: hidden;}
-.quick-mn ul.hide {opacity: 0;height: 0;}
-.quick-mn ul li {width: 10.7rem;padding-bottom: 3.5rem;}
-.quick-mn ul li + li{margin-left: 4.8rem;}
-.quick-mn ul li a {position: relative;}
-.quick-mn ul li h4{text-align: center;font-size: 1.8rem;margin-top: 1.3rem;letter-spacing: -0.45px;white-space: nowrap;position: initial; width: fit-content; font-weight: 400;font-family: 'pretendard'; margin: 1.3rem auto 0; -webkit-transform: initial !important;
-}
-.quick-mn ul li:hover h4{font-weight: 700;}
-.quick-mn ul li h4 span {color: #0565F0;}
-.mn-search-box-wrap {display: flex;height: 0;overflow-y: hidden;opacity: 0;transition: all 0.5s;position: absolute;z-index: 1;right: 19.5rem;}
-
-.mn-search-box-wrap.show {height: 8rem;overflow: initial;opacity: 1;}
-.mnSearchBox {display: flex;border: 3px solid #000000;border-radius: 1.5rem;overflow: hidden;width: 62.2rem;}
-.mnSearchBox input {width: 53.2rem;border: 0;padding: 2.1rem 2.9rem;font-size: 2.4rem;color: #000;font-family: 'pretendard';letter-spacing: -0.6px;}
-.mnSearchBox input::placeholder {color: #9D9D9D;font-family: 'pretendard';letter-spacing: -0.6px;}
-.mnSearchBox .mn-s-btn {width: 9rem;background-color: #0097E5;display: flex;align-items: center;cursor: pointer;border-left: 3px solid #000;}
-.mnSearchBox .mn-s-btn .btn-icon{background-image: url('/entpf/images/product/webResource/mn-seacrhBox-icon.png');background-repeat: no-repeat;background-size: cover;background-position: center;width: 3.6rem;height: 3.6rem;margin: 0 auto;transition: all 0.5s;}
-.mn-search-box-wrap .mn-s-back {width: 3.8rem;height: 3.8rem;background-image: url('/entpf/images/product/webResource/mn-seacrhBox-back.png');background-repeat: no-repeat;background-size: cover;background-position: center;margin-left: 4.5rem;margin-top: -3rem;cursor: pointer;}
-
-@media (max-width:760px) {
-    /* 퀵메뉴 */
-    .quickmn-wrap {padding: 0;margin-top: -8rem;}
-    .quick-mn {width: 100%;padding: 2rem 1rem;border-radius: 0rem;box-shadow: initial;height: 13rem; border-top-left-radius: 3rem; border-top-right-radius: 3rem;}
-    .quick-mn h3 {display: none;}
-    .quick-mn ul li {width: calc(100% / 5);}
-    .quick-mn ul li + li {margin-left: 0;}
-    .quick-mn ul li img {width: 5.55rem; margin: 0 auto;}
-    .quick-mn ul li h4 {font-size: 1.1rem; bottom:-2rem;}
-    .quick-mn ul li h4 span {display: none;}
-
-    .mn-search-box-wrap {right: initial; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 90%;}
-    .mn-search-box-wrap.show {height: 5rem;}
-    .mnSearchBox {width: 100%; border-radius: 1rem;}
-    .mnSearchBox input {width: 100%; font-size: 1.4rem; padding: 1rem;}
-    .mn-search-box-wrap .mn-s-back {margin-left: 1rem; width: 2rem; height: 2rem; margin-top: -1rem; position: absolute; right: -1rem; top: 0;}
-    .mnSearchBox .mn-s-btn {width: 7rem;}
-    .mnSearchBox .mn-s-btn .btn-icon {width: 2.6rem; height: 2.6rem; background-size: contain;}
-
-
-}
-
+        #mb_quickmn_in_search {width: 350px;}
     </style>
 </head>
 <body>
     <div class="quickmn-wrap">
         <div class="quick-mn">
-            <h3>무엇을 <br>
-                도와드릴까요?</h3>
-            <ul>
-                <li>
-                    <a href="javascript:void(0);" class="mn-s-open">
-                        <img src="/entpf/images/product/webResource/mn-quick-search.png" alt="FAQ">
-                        <h4>통합 검색</h4>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" onclick="floating_pop_open('consulting')">
-                        <img src="/entpf/images/product/webResource/mn-quick-consulting.png" alt="컨설팅 신청">
-                        <h4>컨설팅 신청</h4>
-                    </a>
-                </li>
-                <li>
-                    <a href="/cs/P_CS_AF_001.do">
-                        <img src="/entpf/images/product/webResource/mn-quick-paper.png" alt="신청서 다운로드">
-                        <h4>신청서</h4>
-                    </a>
-                </li>
-                <li>
-                    <a href="/cs/P_CS_BR_001.do">
-                        <img src="/entpf/images/product/webResource/mn-quick-intro.png" alt="소개자료 다운로드">
-                        <h4>소개자료</h4>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://page.stibee.com/subscriptions/214254" target="_blank">
-                        <img src="/entpf/images/product/webResource/mn-quick-news.png" alt="뉴스레터 신청">
-                        <h4>뉴스레터</h4>
-                    </a>
-                </li>
-            </ul>
             <div class="mn-search-box-wrap">
                 <div class="mnSearchBox">
                     <input type="text" id="mb_quickmn_in_search" placeholder="검색어를 입력하세요">
@@ -129,3 +48,16 @@
 </body>
 </html>
 
+
+<script>
+// 소문자만 입력 공통스크립트
+
+$(document).ready(function(){
+   
+   $('#mb_quickmn_in_search').bind("keyup", function(){
+       $(this).val($(this).val().toLowerCase());
+  });
+   
+});
+
+</script>
