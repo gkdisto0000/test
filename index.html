@@ -71,6 +71,12 @@
     /* 축소하고싶으신만큼의 높이값을 입력 */
     .idCardWrap .imgWrap.zoom {height: 12rem;}
     .idCardWrap .imgWrap img {display: block; width: 100%; height: 100%; transition: all 0.5s;}
+
+    
+    .inputFocus:focus ~ .fixedFooterContainer {
+      display: none;
+    }
+
   </style>
 
 
@@ -1377,6 +1383,15 @@
               });
           }
       }
+
+      $('input').focus(function(){
+        $('.fixedFooterContainer').hide();
+      });
+
+      $('input').blur(function(){
+        $('.fixedFooterContainer').show();
+      });
+
 </script>
 </body>
 
