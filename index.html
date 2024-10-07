@@ -1,61 +1,1383 @@
 <!DOCTYPE html>
-<html lang="en" class="hdmf renew newbuild">
+<html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-    <title>현대해상 메인</title>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NZ4CRZ8');
+  </script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author-Date(Date)" content="" />
+  <meta name="naver-site-verification" content="70a0cae19ae057fea7e4a95c12081024a872f5d3" />
+  <meta name="Keywords" content="kt, 케이티, ktmyr.com, ktmyr닷컴, 마이알뜰폰닷컴, 마이알뜰폰, 알뜰폰, 알뜰폰 가입" />
+  <meta name="Description" content="[kt] 마이알뜰폰 메인입니다. 알뜰폰 상품 정보 확인부터 가입, 개통, 변경까지 한번에 가능한 KT 알뜰폰 전용 서비스입니다. /" />
+  <!-- <meta name="Keywords" content="kt, 케이티, ktmyr.com, ktmyr닷컴, 마이알뜰폰닷컴, 마이알뜰폰, 이벤트, 진행 중인 이벤트, 알뜰폰 이벤트">
+  <meta name="Description" content="[마이알뜰폰] 이벤트 - 마이알뜰폰에서 진행하고 있는 이벤트를 확인해 보세요."> -->
+  <meta property="og:title" content="3단계 고객정보·신분증 확인 | 셀프개통 신청 | 셀프개통 | 유심/eSIM | KT 마이알뜰폰" />
+  <meta property="og:description" content="알뜰폰 상품 정보 확인부터 가입, 개통, 변경까지 한번에 가능한 KT 알뜰폰 전용 서비스" />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:url" content="https://www.ktmyr.com/" /> -->
+  <meta property="og:image" content="assets/images/common/myr_ci.png" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="210" />
+  <title>3단계 고객정보·신분증 확인 | 셀프개통 신청 | 셀프개통 | 유심/eSIM | KT 마이알뜰폰</title>
+  <!-- DR-2023-34353 20230711 -->
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <!-- [운영] DR-2023-28511 -->
+  <!-- Add style -->
+  <link rel="stylesheet" href="assets/default/font.css" />
+  <link rel="stylesheet" href="assets/default/reset.css" />
+  <link rel="stylesheet" href="assets/default/swiper.min.css" />
+  <!-- swiper CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Script -->
+  <script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="assets/js/locales/bootstrap-datepicker.ko.js"></script>
+  <script type="text/javascript" src="assets/js/swiper.min.js"></script>
+  <script type="text/javascript" src="assets/js/masonry.pkgd.min.js"></script>
+  <!-- masonry JS -->
+  <script type="text/javascript" src="assets/js/bundle.js"></script>
 
 
-    <!-- 기존 js, css -->
-    <link rel="stylesheet" href="././css/hdmf/style.css">
-    <link rel="stylesheet" href="././css/hdmf/style_renew.css">
-    <link rel="stylesheet" href="././css/hdmf/renew/renew_content_v2.css">
-    <script src="././js/jquery-1.12.4.js"></script>
-    <script src="././js/ui_common.js"></script>
-    <script src="././js/ui_common_v2.js"></script>
-    <script src="././js/swiper.js"></script>
 
-    <style src="./css/reset.css"></style>
+  <style>
+    /* 탭 작동 */
+    /* 탭작동 하기전엔 높이값 0으로 설정 후 on클래스로 노출 설정 */
+    .testWrap {height: 0; overflow: hidden;}
+    .testWrap.on {height: auto; overflow: visible;}
 
 
-    <!-- 신규 js -->
-    <script src="./js/script_newbuild.js"></script>
+    /* 이미지 축소 */
+    /* 축소하고싶으신만큼의 높이값을 입력 */
+    .idCardWrap .imgWrap.zoom {height: 12rem;}
+    .idCardWrap .imgWrap img {display: block; width: 100%; height: 100%; transition: all 0.5s;}
+  </style>
 
 
-    <!-- 메인 아이콘 움직임 js -->
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-
-    <style>
-        #mb_quickmn_in_search {width: 350px;}
-    </style>
 </head>
+
 <body>
-    <div class="quickmn-wrap">
-        <div class="quick-mn">
-            <div class="mn-search-box-wrap">
-                <div class="mnSearchBox">
-                    <input type="text" id="mb_quickmn_in_search" placeholder="검색어를 입력하세요">
-                    <div class="mn-s-btn">
-                        <div class="btn-icon" id="mb_quickmn_btnSearchKeyword"></div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZ4CRZ8" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="skip">
+    <a href="#contentContainer">본문 바로가기</a>
+    <a href="#gnbContainer" class="pcType">주메뉴 바로 가기</a>
+    <a href="#footerMenu">푸터 바로가기</a>
+  </div>
+  <!-- //skip -->
+  <!-- 신청 페이지 클래스 : usimApply -->
+  <div class="wrap detail usimApply">
+    <div class="headerContainer">
+      <div class="headerArea">
+        <!-- [운영] DR-2023-55179 20230918 headerInner 추가 -->
+        <div class="headerInner">
+          <header class="header">
+            <h1 class="logo">
+              <a href="javascript:void(0);" role="button">
+                <img src="assets/images/common/logo_color.svg" alt="KT 마이알뜰폰" />
+              </a>
+            </h1>
+            <!-- [2차] 20221130 구조변경 -->
+            <div class="headerIcons moType">
+              <button type="button" class="btnChatbot moType" title="KT마이알뜰폰 챗봇 새창열림"></button>
+              <a href="javascript:void(0);" class="btnAlarm"><span>알림</span></a><!-- APP에서 클래스 show 추가 -->
+            </div>
+            <!-- //[2차] 20221130 구조변경 -->
+            <div class="totalSearchBar headerSearchBar openedAuto">
+              <form>
+                <fieldset>
+                  <legend>통합 검색</legend>
+                  <div class="searchBarArea">
+                    <button type="button" class="btnSearchOpen"><span>검색창 열기</span></button>
+                    <label for="total-search-header" class="ir">검색어 입력 창</label>
+                    <input type="text" id="total-search-header" />
+                    <button type="button" class="btnRemove hide"><span>검색어 지우기</span></button>
+                    <button type="button" class="btnSearch"><span>검색하기</span></button>
+                  </div>
+                </fieldset>
+              </form>
+              <div class="keywordContainer">
+                <!-- 인기 검색어 -->
+                <div class="keywordArea">
+                  <div class="keywordTop">
+                    <strong class="keyTitle">인기 검색어</strong>
+                  </div>
+                  <div class="keywordMiddle">
+                    <ul class="keywordList">
+                      <li><a href="#" keyword="iphone13" class="ranker">iphone13</a></li>
+                      <li><a href="#" keyword="링투유" class="ranker">링투유</a></li>
+                      <li><a href="#" keyword="소액결제" class="ranker">소액결제</a></li>
+                      <li><a href="#" keyword="선택약정">선택약정</a></li>
+                      <li><a href="#" keyword="요금제">요금제</a></li>
+                      <li><a href="#" keyword="장기혜택 데이터 쿠폰">장기혜택 데이터 쿠폰</a></li>
+                      <li><a href="#" keyword="스팸차단">스팸차단</a></li>
+                      <li><a href="#" keyword="콘텐츠 이용료">콘텐츠 이용료</a></li>
+                      <li><a href="#" keyword="약정">약정</a></li>
+                      <li><a href="#" keyword="해지">해지</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- 자동완성 -->
+                <div class="autoKeywordArea">
+                  <ul class="autoList" aria-label="자동완성">
+                    <li>
+                      <a href="#" keyword="KT 알뜰폰 사업 소개">KT <em>알뜰폰</em> 사업 소개</a>
+                    </li>
+                    <li>
+                      <a href="#" keyword="마이알뜰폰 소개">마이 <em>알뜰폰</em> 소개</a>
+                    </li>
+                    <li>
+                      <a href="#" keyword="알뜰폰 가입 안내"><em>알뜰폰</em> 가입 안내</a>
+                    </li>
+                    <li>
+                      <a href="#" keyword="알뜰폰 사업자"><em>알뜰폰</em> 사업자</a>
+                    </li>
+                    <li>
+                      <a href="#" keyword="알뜰폰 로밍"><em>알뜰폰</em> 로밍</a>
+                    </li>
+                    <li>
+                      <a href="#" keyword="알뜰폰 로밍"><em>알뜰폰</em> 로밍</a>
+                    </li>
+                    <li>
+                      <a href="#" keyword="알뜰폰 로밍"><em>알뜰폰</em> 로밍</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btnSearchClose"><span>검색창 닫기</span></button>
+            </div>
+            <div class="userMenu">
+              <div class="mobileHeader">
+                <button type="button" class="btnMenuOpen"><span>메뉴 열기</span></button>
+                <button type="button" class="btnMenuClose"><span>메뉴 닫기</span></button>
+              </div>
+            </div>
+            <div class="mobileContainer">
+              <!-- 이 위치의 myInfoSummary는 모바일 ���글 메뉴 안에서 제공하여 메인/서브페���지에서 동일하게 이동 할 수 있습니다. -->
+              <div class="myInfoSummary">
+                <div class="infoSummaryTop">
+                  <div class="summaryField">
+                    <div class="subTitleContainer">
+                      <div class="subTitleLeft">
+                        <a href="javascript:void(0);" class="strongText iconBgLink" title="내 계정정보 수정(조회)"> <strong>유*정</strong>님 반갑습니다 </a>
+                        <div class="profileLabel">
+                          <span class="memberLevel">정회원</span>
+                          <div class="labelArea">
+                            <span>사용중인 알뜰폰 회선</span>
+                            <span class="bold">2개</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="subTitleRight">
+                        <div class="dropdownArea phoneLineSummaryDrop">
+                          <div class="dropdownTitle">
+                            <div class="titleLabel">
+                              <span class="colorLabel">대표번호</span> <span class="imgWrap"><img src="assets/images/bizlogo/thumbnail_freet.png" alt="프리티" /></span>
+                              <span class="labelGroup">
+                                <span class="product">모두다 맘껏 7.0GB+</span>
+                                <strong class="phone">010-00**-*00</strong>
+                              </span>
+                            </div>
+                            <button type="button" class="dropdownBtn" aria-expanded="false"><span>회선 변경</span></button>
+                          </div>
+                          <ul class="dropdownList" aria-label="회선">
+                            <li>
+                              <button type="button" class="phoneLine" title="선택됨">
+                                <span class="colorLabel">대표번호</span> <span class="imgWrap"><img src="assets/images/bizlogo/thumbnail_freet.png" alt="프리티" /></span>
+                                <span class="labelGroup">
+                                  <span class="product">모두다 맘껏 7.0GB+</span>
+                                  <strong class="phone">010-00**-*00</strong>
+                                </span>
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" class="phoneLine">
+                                <span class="imgWrap"><img src="assets/images/bizlogo/thumbnail_freet.png" alt="프리티" /></span>
+                                <span class="labelGroup">
+                                  <span class="product">모두다 맘껏 7.0GB+</span>
+                                  <strong class="phone">010-00**-*00</strong>
+                                </span>
+                              </button>
+                            </li>
+                          </ul>
+                          <button type="button" class="dropSetting" title="나의 알뜰폰 번호 설정하기"></button>
+                        </div>
+                        <div class="bottomButtons">
+                          <!-- [운영] KMVNO-3987 회선 쿠폰 아이콘 추가 -->
+                          <a href="#" class="myCouponBox">
+                            <strong class="myCouponTitle">보유 쿠폰</strong>
+                            <span class="myCouponCount">3</span>
+                            <span>장</span>
+                          </a>
+                          <!-- [운영] KMVNO-3987 회선 쿠폰 아이콘 추가 -->
+                          <a href="javascript:void(0);" class="hideInfoBtn">가려진(*) 정보보기</a>
+                        </div>
+                      </div>
                     </div>
-                </div><!-- mnSearchBox -->
-                <div class="mn-s-back"></div>
-            </div><!-- mn-search-box-wrap -->
-        </div><!-- quick-mn -->
+                  </div>
+                </div>
+                <div class="infoSummaryBottom">
+                  <!-- 활성화 .active -->
+                  <div class="summaryTop">
+                    <div class="summaryField">
+                      <div class="summaryBtnTitle">
+                        <div class="summaryItem">
+                          <strong class="summaryTitle iconBgData"><span>잔여 데이터</span></strong>
+                          <div class="summaryData">
+                            <div class="data">
+                              <span>999</span>
+                            </div>
+                            <span>GB</span>
+                          </div>
+                        </div>
+                        <div class="summaryItem">
+                          <strong class="summaryTitle iconBgCost"><span>실시간 요금</span></strong>
+                          <div class="summaryData">
+                            <div class="data">
+                              <span>00,000</span>
+                            </div>
+                            <span>원</span>
+                          </div>
+                        </div>
+                        <button type="button" class="summaryBtn" aria-expanded="false"><span>상세 요금 정보</span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summaryBottom" tabindex="-1">
+                    <div class="summaryField">
+                      <div class="swiper summaryInfoArea summarySwiper swiper5">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide usageSummary">
+                            <a href="javascript:void(0);" class="summaryInfoTitle iconBgLink">
+                              <strong>사용량 조회</strong>
+                            </a>
+                            <div class="summaryInfoContent">
+                              <div class="informationItem">
+                                <dl class="itemTop grayBox flex center">
+                                  <!-- [VOS2차] 결함 ID 1122170 ir 한줄 삭제 -->
+                                  <dd class="itemData">
+                                    <div class="flexRow">
+                                      <strong class="title">데이터 잔여량</strong>
+                                      <div class="text"><strong class="colorPrimary">3.2GB</strong><strong>남음</strong></div>
+                                      <button type="button" class="iconBgRefesh"><span>새로고침</span></button>
+                                    </div>
+                                    <div class="gageBar" aria-hidden="true">
+                                      <span class="bar" style="width: 90%"></span>
+                                    </div>
+                                  </dd>
+                                  <dd class="flexRow">
+                                    <div class="itemHalf">
+                                      <div class="iconBgCall"><span>음성</span></div>
+                                      <div class="text"><strong class="colorPrimary">무제한</strong><strong>남음</strong></div>
+                                    </div>
+                                    <div class="itemHalf">
+                                      <div class="iconBgSMS"><span>문자</span></div>
+                                      <div class="text"><strong class="colorPrimary">100개</strong><strong>남음</strong></div>
+                                    </div>
+                                  </dd>
+                                </dl>
+                                <dl class="itemBottom flex">
+                                  <dt>
+                                    <div class="flexRow">
+                                      <strong class="title">실시간 요금</strong>
+                                      <button type="button" class="iconBgRefesh"><span>새로고침</span></button>
+                                    </div>
+                                    <span class="smallText">오늘 기준(부가세 포함)</span>
+                                  </dt>
+                                  <dd class="text">
+                                    <span>29,700</span>
+                                    <span>원</span>
+                                  </dd>
+                                </dl>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide costSummary">
+                            <a href="javascript:void(0);" class="summaryInfoTitle iconBgLink">
+                              <strong>요금제 정보</strong>
+                            </a>
+                            <div class="summaryInfoContent">
+                              <div class="informationItem">
+                                <div class="itemTop">
+                                  <div class="imgWrap">
+                                    <img src="assets/images/bizlogo/thumbnail_KT-Mobile.png" alt="KT M mobile" />
+                                  </div>
+                                  <strong class="bigTitle">데이터 맘껏 15GB+ / 300분</strong>
+                                </div>
+                                <dl class="itemBottom grayBox hyphen">
+                                  <dt>부가 서비스 정보</dt>
+                                  <dd>캐치콜</dd>
+                                  <dd>요금 납무 알림 서비스</dd>
+                                </dl>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide specsSummary">
+                            <a href="javascript:void(0);" class="summaryInfoTitle iconBgLink">
+                              <strong>요금 명세서</strong>
+                            </a>
+                            <div class="summaryInfoContent">
+                              <div class="informationItem">
+                                <div class="itemTop flex">
+                                  <div class="bigTitle">
+                                    <span class="moFull">2월 청구 금액은</span>
+                                    <strong class="colorPrimary">25,500원</strong>
+                                    <span>입니다.</span>
+                                  </div>
+                                  <p class="unitDate">22.01.01 ~ 22.01.31</p>
+                                </div>
+                                <div class="itemBottom grayBox">
+                                  <dl class="flexRow">
+                                    <dt>이용요금</dt>
+                                    <dd>29,500원</dd>
+                                  </dl>
+                                  <dl class="flexRow">
+                                    <dt>할인금액</dt>
+                                    <dd class="colorRed">-4,000원</dd>
+                                  </dl>
+                                  <dl class="flexRow">
+                                    <dt>미납요금</dt>
+                                    <dd>0원</dd>
+                                  </dl>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="summaryPagination"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //myInfoSummary -->
+              <nav class="gnbContainer" id="gnbContainer">
+                <div class="gnbBottom moType">
+                  <div class="gnbBtmMenu">
+                    <strong class="gnbBtmMenuTitle">
+                      즐겨찾는 메뉴
+                      <button type="button" class="iconBgSetting" title="즐겨찾는 메뉴 편집"><img src="assets/images/common/icon_settings.svg" alt="" /></button><!-- [K-WAX] 20221117 수정 -->
+                    </strong>
+                    <ul class="bottomMenu">
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>요금 조회</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>사용량 조회</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>데이터 쉐어링</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>분실 신고</span></a>
+                      </li>
+                    </ul>
+                    <!-- pc용 bottomButtons -->
+                    <div class="bottomButtons pcType">
+                      <a href="javascript:void(0);" class="logoutBtn">로그아웃</a>
+                    </div>
+                  </div>
+                </div>
+                <ul class="gnb">
+                  <!-- 2차 GNB 구조변경 -->
+                  <li>
+                    <a href="javascript:void(0);" class="depth01">마이알뜰폰</a>
+                    <button type="button" class="moDepth01" aria-expanded="false">하위 메뉴</button>
+                    <ul class="subMenu" aria-label="마이알뜰폰">
+                      <li><a href="javascript:void(0);" class="depth02">마이알뜰폰 홈</a></li>
+                      <!-- [2차] 공통 20221004 추가 -->
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">가입/계정</a>
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="가입/계정">
+                          <li><a href="javascript:void(0);" class="depth03">가입 정보</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">내 계정 정보</a></li>
+                          <!-- [2차] 20220919 추가 -->
+                          <li><a href="javascript:void(0);" class="depth03">기기변경(eSIM)</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">번호 변경</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">유심 변경</a></li>
+                          <!-- //[2차] 20220919 추가 -->
+                        </ul>
+                      </li>
+                      <li><a href="javascript:void(0);" class="depth02">사용량 조회</a></li>
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">요금</a>
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="요금">
+                          <li><a href="javascript:void(0);" class="depth03">요금 조회</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">명세서유형변경</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">납부방법변경</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">소액결제 내역</a></li>
+                          <!-- [2차] 20220901 추가 -->
+                        </ul>
+                      </li>
+                      <li><a href="javascript:void(0);" class="depth02">요금제/부가서비스</a></li>
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">회선</a>
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="회선">
+                          <li><a href="javascript:void(0);" class="depth03">회선 관리</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">회선 추가</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">분실/일시정지</a>
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="분실/일시정지">
+                          <li><a href="javascript:void(0);" class="depth03">분실/일시정지 관리</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">분실 신고</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">일시 정지</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="javascript:void(0);" class="depth02">데이터 쉐어링</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">데이터 주고받기</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">선불 잔액 조회</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">쿠폰함</a></li>
+                      <!-- [운영] KMVNO-3987 메뉴 변경 -->
+                      <li><a href="javascript:void(0);" class="depth02">나의 후기</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);" class="depth01">상품</a>
+                    <button type="button" class="moDepth01" aria-expanded="false">하위 메뉴</button>
+                    <ul class="subMenu" aria-label="상품">
+                      <li><a href="javascript:void(0);" class="depth02">후불 요금제</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">선불 요금제</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">부가서비스</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">로밍 서비스</a></li>
+                      <!-- [운영] KMVNO-3792 20230904 메뉴 추가 -->
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">결합서비스</a>
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="결합서비스">
+                          <!-- [운영] KMVNO-3792 20230906 줄바꿈 수정 -->
+                          <li>
+                            <a href="javascript:void(0);" class="depth03">알뜰폰+알뜰폰 <br />무선결합</a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0);" class="depth03">알뜰폰+KT 유/무선결합<br />(본인)</a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0);" class="depth03">알뜰폰+KT 유/무선결합<br />(가족)</a>
+                          </li>
+                          <!-- //[운영] KMVNO-3792 20230906 줄바꿈 수정 -->
+                          <li><a href="javascript:void(0);" class="depth03">결합 내역 조회</a></li>
+                        </ul>
+                      </li>
+                      <!-- //[운영] KMVNO-3792 20230904 메뉴 추가 -->
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">추천 서비스</a>
+                        <!-- [운영] 20230525 메뉴 추가 -->
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="추천 서비스">
+                          <li><a href="javascript:void(0);" class="depth03">원스토어</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">PASS</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">휴대폰 결제</a></li>
+                        </ul>
+                        <!-- [운영] 20230525 메뉴 추가 -->
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);" class="depth01">유심/eSIM</a>
+                    <button type="button" class="moDepth01" aria-expanded="false">하위 메뉴</button>
+                    <ul class="subMenu" aria-label="유심/eSIM">
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">유심구매</a>
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="유심구매">
+                          <li><a href="javascript:void(0);" class="depth03">바로배송유심 주문</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">배송주문조회</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">바로유심(편의점)</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="depth02">셀프개통</a>
+                        <button type="button" class="openDepth03" aria-expanded="false">하위 메뉴</button>
+                        <ul class="subMenuChild" aria-label="셀프개통">
+                          <li><a href="javascript:void(0);" class="depth03">셀프개통(USIM/eSIM)</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">워치개통(eSIM)</a></li>
+                          <li><a href="javascript:void(0);" class="depth03">개통신청조회</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="javascript:void(0);" class="depth02">자급제단말등록</a></li>
+                    </ul>
+                  </li>
+                  <!-- //2차 GNB 구조변경 -->
+                  <li>
+                    <a href="javascript:void(0);" class="depth01">이벤트</a>
+                    <button type="button" class="moDepth01" aria-expanded="false">하위 메뉴</button>
+                    <ul class="subMenu" aria-label="이벤트">
+                      <li><a href="javascript:void(0);" class="depth02">진행중 이벤트</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">종료된 이벤트</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">당첨자 발표</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">제휴카드</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);" class="depth01">고객지원</a>
+                    <button type="button" class="moDepth01" aria-expanded="false">하위 메뉴</button>
+                    <ul class="subMenu" aria-label="고객지원">
+                      <li><a href="javascript:void(0);" class="depth02">FAQ</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">고객상담</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">고객센터 안내</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">공지사항</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">이용가이드</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);" class="depth01">서비스</a>
+                    <button type="button" class="moDepth01" aria-expanded="false">하위 메뉴</button>
+                    <ul class="subMenu" aria-label="서비스">
+                      <li><a href="javascript:void(0);" class="depth02">마이알뜰폰 소개</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">마이알뜰폰 프렌즈</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">KT 알뜰폰 사업</a></li>
+                      <li><a href="javascript:void(0);" class="depth02">바로유심(편의점)</a></li>
+                      <!-- [2차] 20221123 공통 메뉴명 수정 -->
+                    </ul>
+                  </li>
+                </ul>
+                <!-- mo용 bottomButtons -->
+                <div class="bottomButtons moType">
+                  <a href="javascript:void(0);" class="logoutBtn">로그아웃</a>
+                </div>
+                <div class="gnbBottom pcType">
+                  <div class="gnbBtmMenu">
+                    <strong class="gnbBtmMenuTitle">
+                      즐겨찾는 메뉴
+                      <button type="button" class="iconBgSetting" title="즐겨찾는 메뉴 편집"><img src="assets/images/common/icon_settings.svg" alt="" /></button><!-- [K-WAX] 20221117 수정 -->
+                    </strong>
+                    <ul class="bottomMenu">
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>요금 조회</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>사용량 조회</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>데이터 쉐어링</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" class="btnMenu"><span>분실 신고</span></a>
+                      </li>
+                    </ul>
+                    <!-- pc용 bottomButtons -->
+                    <div class="bottomButtons pcType">
+                      <a href="javascript:void(0);" class="logoutBtn">로그아웃</a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              <!-- //gnbContainer -->
+              <!-- [운영 20220816] 로그아웃 버튼 추가 -->
+              <button type="button" class="btnLogout iconLogout pcType"><span>로그아웃</span></button>
+              <!-- //[운영 20220816] 로그아웃 버튼 추가 -->
+              <!-- [2차] 20221124 챗봇 pc -->
+              <button type="button" class="btnChatbot pcType" title="챗봇 새창열림"></button>
+              <!-- //[2차] 20221124 챗봇 pc -->
+              <!-- 통합검색 -->
+              <!-- 검색 하단영역 열림(기본값 인기 검색어 활성화) 클래스(클래스 .wrap 위치에 추가) : .openedSearch ------ 자동완성 활성화 클래스 : .openedAuto -->
+              <div class="totalSearchBar headerSearchBar openedAuto">
+                <form>
+                  <fieldset>
+                    <legend>통합 검색</legend>
+                    <div class="searchBarArea">
+                      <button type="button" class="btnSearchOpen"><span>검색창 열기</span></button>
+                      <label for="total-search-field" class="ir">검색어 입력 창</label>
+                      <input type="text" id="total-search-field" />
+                      <button type="button" class="btnRemove hide"><span>검색어 지우기</span></button>
+                      <button type="button" class="btnSearch"><span>검색하기</span></button>
+                    </div>
+                  </fieldset>
+                </form>
+                <div class="keywordContainer">
+                  <!-- 인기 검색어 -->
+                  <div class="keywordArea">
+                    <div class="keywordTop">
+                      <strong class="keyTitle">인기 검색어</strong>
+                    </div>
+                    <div class="keywordMiddle">
+                      <ul class="keywordList">
+                        <li><a href="#" keyword="iphone13" class="ranker">iphone13</a></li>
+                        <li><a href="#" keyword="링투유" class="ranker">링투유</a></li>
+                        <li><a href="#" keyword="소액결제" class="ranker">소액결제</a></li>
+                        <li><a href="#" keyword="선택약정">선택약정</a></li>
+                        <li><a href="#" keyword="요금제">요금제</a></li>
+                        <li><a href="#" keyword="장기혜택 데이터 쿠폰">장기혜택 데이터 쿠폰</a></li>
+                        <li><a href="#" keyword="스팸차단">스팸차단</a></li>
+                        <li><a href="#" keyword="콘텐츠 이용료">콘텐츠 이용료</a></li>
+                        <li><a href="#" keyword="약정">약정</a></li>
+                        <li><a href="#" keyword="해지">해지</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 자동완성 -->
+                  <div class="autoKeywordArea">
+                    <ul class="autoList" aria-label="자동완성">
+                      <li>
+                        <a href="#" keyword="KT 알뜰폰 사업 소개">KT <em>알뜰폰</em> 사업 소개</a>
+                      </li>
+                      <li>
+                        <a href="#" keyword="마이알뜰폰 소개">마이 <em>알뜰폰</em> 소개</a>
+                      </li>
+                      <li>
+                        <a href="#" keyword="알뜰폰 가입 안내"><em>알뜰폰</em> 가입 안내</a>
+                      </li>
+                      <li>
+                        <a href="#" keyword="알뜰폰 사업자"><em>알뜰폰</em> 사업자</a>
+                      </li>
+                      <li>
+                        <a href="#" keyword="알뜰폰 로밍"><em>알뜰폰</em> 로밍</a>
+                      </li>
+                      <li>
+                        <a href="#" keyword="알뜰폰 로밍"><em>알뜰폰</em> 로밍</a>
+                      </li>
+                      <li>
+                        <a href="#" keyword="알뜰폰 로밍"><em>알뜰폰</em> 로밍</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <button type="button" class="btnSearchClose"><span>검색창 닫기</span></button>
+              </div>
+              <!-- //통합검색 -->
+            </div>
+          </header>
+        </div>
+        <!-- //[운영] DR-2023-55179 20230918 headerInner 추가 -->
+      </div>
+      <nav class="mobileNav">
+        <!-- 2차 GNB 구조변경 -->
+        <ul class="menuList" role="tablist" aria-label="KT마이알뜰폰 대메뉴">
+          <li>
+            <button type="button" id="mainMenuChor01" class="menu" aria-controls="mainMenu01" role="tab" aria-selected="false"><span>마이알뜰폰</span></button>
+          </li>
+          <li>
+            <button type="button" id="mainMenuChor02" class="menu" aria-controls="mainMenu02" role="tab" aria-selected="false"><span>상품</span></button>
+          </li>
+          <li>
+            <button type="button" id="mainMenuChor03" class="menu active" aria-controls="mainMenu03" role="tab" aria-selected="true"><span>유심/eSIM</span></button>
+          </li>
+          <li>
+            <button type="button" id="mainMenuChor04" class="menu" aria-controls="mainMenu04" role="tab" aria-selected="false"><span>이벤트</span></button>
+          </li>
+          <li>
+            <button type="button" id="mainMenuChor05" class="menu" aria-controls="mainMenu05" role="tab" aria-selected="false"><span>고객지원</span></button>
+          </li>
+          <li>
+            <button type="button" id="mainMenuChor06" class="menu" aria-controls="mainMenu06" role="tab" aria-selected="false"><span>서비스</span></button>
+          </li>
+        </ul>
+        <div class="mobileMenu">
+          <div class="titleContainer">
+            <div class="titleArea">
+              <div class="currentPageTitle">
+                <button type="button" class="btnGoBack"><span class="ir">이전 페이지로 돌아가기</span></button>
+                <strong class="menuTitle">사용량 조회</strong><!-- [VOS2차] 결함ID 1122632 헤딩태그 삭제, 클래스 추가 -->
+              </div>
+              <button type="button" class="btnShowAll" aria-expanded="false" title="하위 메뉴 전체보기"></button>
+            </div>
+          </div>
+          <div class="mobileSubMenuList">
+            <div id="mainMenu01" class="mobileSubMenuArea" role="tabpanel" aria-labelledby="mainMenuChor01">
+              <ul class="mobileSubMenu" aria-label="하위 메뉴">
+                <li><a href="../myThrifty/myThriftyMain.html" class="depth02" title="선택 됨">마이알뜰폰 홈</a></li>
+                <!-- [개발] 현재 페이지/선택 된 하위 메뉴에 title="선택 됨" / 클래스 active 초기값 추가 -->
+                <li><a href="javascript:void(0);" id="secondMenu_1_2" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_1_2">가입/계정</a></li>
+                <li><a href="../myThrifty/myThriftyListUsage.html" class="depth02">사용량 조회</a></li>
+                <li><a href="javascript:void(0);" id="secondMenu_1_4" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_1_4">요금</a></li>
+                <li><a href="../myThrifty/myThriftyListPlan.html" class="depth02">요금제/부가서비스</a></li>
+                <li><a href="javascript:void(0);" id="secondMenu_1_6" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_1_6">회선</a></li>
+                <li><a href="javascript:void(0);" id="secondMenu_1_7" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_1_7">분실/일시정지</a></li>
+                <li><a href="../myThrifty/sharingMain.html" id="secondMenu_1_8" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_1_8">데이터 쉐어링</a></li>
+                <!-- [2차] 공통 하위 메뉴 추가 -->
+                <li><a href="../myThrifty/exchangeMain.html" class="depth02">데이터 주고받기</a></li>
+                <li><a href="../myThrifty/myThriftyPrepaidPlanDetail.html" class="depth02">선불 잔액 조회</a></li>
+                <li><a href="../myThrifty/myThriftyListCoupon.html" class="depth02">쿠폰함</a></li>
+                <!-- [운영] KMVNO-3987 메뉴 변경 -->
+                <li><a href="../myThrifty/myThriftyListReview.html" class="depth02">나의 후기</a></li>
+              </ul>
+            </div>
+            <!-- //마이알뜰폰 -->
+            <div id="mainMenu02" class="mobileSubMenuArea" role="tabpanel" aria-labelledby="mainMenuChor02">
+              <ul class="mobileSubMenu" aria-label="하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth02">후불 요금제</a></li>
+                <li><a href="javascript:void(0);" class="depth02">선불 요금제</a></li>
+                <li><a href="javascript:void(0);" class="depth02">부가서비스</a></li>
+                <li><a href="javascript:void(0);" class="depth02">로밍 서비스</a></li>
+                <!-- [운영] KMVNO-3792 20230906 메뉴 추가 -->
+                <li><a href="javascript:void(0);" id="secondMenu_2_5" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_2_5">결합서비스</a></li>
+                <li><a href="javascript:void(0);" id="secondMenu_2_6" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_2_6">추천 서비스</a></li>
+                <!-- [운영] KMVNO-3792 20230906 메뉴 추가 -->
+              </ul>
+            </div>
+            <!-- //상품 -->
+            <div id="mainMenu03" class="mobileSubMenuArea active-2" role="tabpanel" aria-labelledby="mainMenuChor03">
+              <ul class="mobileSubMenu" aria-label="하위 메뉴">
+                <li><a href="javascript:void(0);" id="secondMenu_3_1" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_3_1">유심구매</a></li>
+                <li><a href="javascript:void(0);" id="secondMenu_3_2" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_3_2">유심개통</a></li>
+                <li><a href="javascript:void(0);" class="depth02">자급제단말등록</a></li>
+                <li><a href="javascript:void(0);" id="secondMenu_3_4" class="depth02 hasThirdMenu" role="tab" aria-controls="thirdMenu_3_4">단말</a></li>
+              </ul>
+            </div>
+            <!-- //유심/eSIM -->
+            <div id="mainMenu04" class="mobileSubMenuArea" role="tabpanel" aria-labelledby="mainMenuChor04">
+              <ul class="mobileSubMenu" aria-label="하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth02">진행중 이벤트</a></li>
+                <li><a href="javascript:void(0);" class="depth02">종료된 이벤트</a></li>
+                <li><a href="javascript:void(0);" class="depth02">당첨자 발표</a></li>
+              </ul>
+            </div>
+            <!-- //이벤트 -->
+            <div id="mainMenu05" class="mobileSubMenuArea" role="tabpanel" aria-labelledby="mainMenuChor05">
+              <ul class="mobileSubMenu" aria-label="하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth02">FAQ</a></li>
+                <li><a href="javascript:void(0);" class="depth02">고객상담</a></li>
+                <li><a href="javascript:void(0);" class="depth02">고객센터 안내</a></li>
+                <li><a href="javascript:void(0);" class="depth02">공지사항</a></li>
+                <li><a href="javascript:void(0);" class="depth02">이용가이드</a></li>
+              </ul>
+            </div>
+            <!-- //고객지원 -->
+            <div id="mainMenu06" class="mobileSubMenuArea" role="tabpanel" aria-labelledby="mainMenuChor06">
+              <ul class="mobileSubMenu" aria-label="하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth02">마이알뜰폰 소개</a></li>
+                <li><a href="javascript:void(0);" class="depth02">마이알뜰폰 프렌즈</a></li>
+                <li><a href="javascript:void(0);" class="depth02">KT 알뜰폰 사업</a></li>
+                <li><a href="javascript:void(0);" class="depth02">바로유심(편의점)</a></li>
+                <!-- [2차] 20221123 공통 메뉴명 수정 -->
+              </ul>
+            </div>
+            <!-- //서비스 -->
+          </div>
+          <div class="mobileThirdMenuList">
+            <div id="thirdMenu_1_2" role="tabpanel" aria-labelledby="secondMenu_1_2" class="mobileThirdMenuArea">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">가입 정보</a></li>
+                <li><a href="javascript:void(0);" class="depth03">내 계정 정보</a></li>
+                <!-- [2차] 20220919 추가 -->
+                <li><a href="javascript:void(0);" class="depth03">기기변경(eSIM)</a></li>
+                <li><a href="javascript:void(0);" class="depth03">번호 변경</a></li>
+                <li><a href="javascript:void(0);" class="depth03">유심 변경</a></li>
+                <!-- //[2차] 20220919 추가 -->
+              </ul>
+            </div>
+            <!-- //그룹 - 가입/계정 -->
+            <div id="thirdMenu_1_4" role="tabpanel" aria-labelledby="secondMenu_1_4" class="mobileThirdMenuArea">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">요금 조회</a></li>
+                <li><a href="javascript:void(0);" class="depth03">명세서유형변경</a></li>
+                <li><a href="javascript:void(0);" class="depth03">납부방법변경</a></li>
+                <li><a href="javascript:void(0);" class="depth03">소액결제 내역</a></li>
+                <!-- [2차] 20220901 추가 -->
+              </ul>
+            </div>
+            <!-- //그룹 - 요금 -->
+            <div id="thirdMenu_1_6" role="tabpanel" aria-labelledby="secondMenu_1_5" class="mobileThirdMenuArea">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">회선 관리</a></li>
+                <li><a href="javascript:void(0);" class="depth03">회선 추가</a></li>
+              </ul>
+            </div>
+            <!-- //그룹 - 회선 -->
+            <div id="thirdMenu_1_7" role="tabpanel" aria-labelledby="secondMenu_1_7" class="mobileThirdMenuArea">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">분실/일시정지 관리</a></li>
+                <li><a href="javascript:void(0);" class="depth03">분실 신고</a></li>
+                <li><a href="javascript:void(0);" class="depth03">일시 정지</a></li>
+              </ul>
+            </div>
+            <!-- //그룹 - 분실/일시정지 -->
+            <!-- [2차] 공통 하위 메뉴 추가 -->
+            <div id="thirdMenu_1_8" role="tabpanel" aria-labelledby="secondMenu_1_8" class="mobileThirdMenuArea">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">데이터쉐어링 결합</a></li>
+                <li><a href="javascript:void(0);" class="depth03">개통신청조회</a></li>
+              </ul>
+            </div>
+            <!-- //그룹 - 분실/일시정지 -->
+            <!-- //[2차] 공통 하위 메뉴 추가 -->
+            <!-- [운영] KMVNO-3792 20230906 메뉴 추가 -->
+            <div id="thirdMenu_2_5" role="tabpanel" aria-labelledby="secondMenu_2_5" class="mobileThirdMenuArea">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">알뜰폰+알뜰폰 무선결합</a></li>
+                <li><a href="javascript:void(0);" class="depth03">알뜰폰+KT 유/무선결합(본인)</a></li>
+                <li><a href="javascript:void(0);" class="depth03">알뜰폰+KT 유/무선결합(가족)</a></li>
+                <li><a href="javascript:void(0);" class="depth03">결합 내역 조회</a></li>
+              </ul>
+            </div>
+            <!-- //[운영] KMVNO-3792 20230906 메뉴 추가 -->
+            <!-- //결합서비스 -->
+            <!-- [운영] 20230525 메뉴 추가 -->
+            <div id="thirdMenu_2_6" role="tabpanel" aria-labelledby="secondMenu_2_6" class="mobileThirdMenuArea">
+              <!-- [운영] KMVNO-3792 20230906 id값 수정 -->
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">원스토어</a></li>
+                <li><a href="javascript:void(0);" class="depth03">PASS</a></li>
+                <li><a href="javascript:void(0);" class="depth03">휴대폰 결제</a></li>
+              </ul>
+            </div>
+            <!-- //[운영] 20230525 메뉴 추가 -->
+            <div id="thirdMenu_3_1" role="tabpanel" aria-labelledby="secondMenu_3_1" class="mobileThirdMenuArea active-1">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">바로배송유심 주문</a></li>
+                <li><a href="javascript:void(0);" class="depth03">배송주문조회</a></li>
+                <li><a href="javascript:void(0);" class="depth03">바로유심(편의점)</a></li>
+              </ul>
+            </div>
+            <!-- //그룹 - 유심구매 -->
+            <div id="thirdMenu_3_2" role="tabpanel" aria-labelledby="secondMenu_3_2" class="mobileThirdMenuArea active-1">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">셀프개통(USIM/eSIM)</a></li>
+                <li><a href="javascript:void(0);" class="depth03">워치개통(eSIM)</a></li>
+                <li><a href="javascript:void(0);" class="depth03">개통신청조회</a></li>
+              </ul>
+            </div>
+            <!-- //그룹 - 유심개통 -->
+            <div id="thirdMenu_3_4" role="tabpanel" aria-labelledby="secondMenu_3_4" class="mobileThirdMenuArea active-1">
+              <ul class="mobileThirdMenu" aria-label="최하위 메뉴">
+                <li><a href="javascript:void(0);" class="depth03">기기변경</a></li>
+                <li><a href="javascript:void(0);" class="depth03">번호변경</a></li>
+                <li><a href="javascript:void(0);" class="depth03">유심변경</a></li>
+              </ul>
+            </div>
+            <!-- //그룹 - 단말 -->
+          </div>
+        </div>
+        <!-- //2차 GNB 구조변경 -->
+      </nav>
     </div>
-    
-</body>
-</html>
+    <!-- //END headerContainer -->
+    <main class="contentContainer" id="contentContainer">
+      <div class="pageTitleContainer">
+        <div class="pageTitleContent">
+          <div class="titleAreaLeft">
+            <div class="title">
+              <button type="button" class="titleArrow" title="이전 페이지로 이동"></button>
+              <h2>셀프개통 신청</h2>
+              <!-- [2차] 20220830 수정 -->
+            </div>
+          </div>
+          <div class="titleAreaRight">
+            <div class="breadcrumbContainer">
+              <span class="breadcrumb iconBgHome"><span class="ir">홈</span></span>
+              <div class="breadcrumb">
+                <span class="breadcrumbTitle"><span>유심/eSIM</span></span>
+                <div class="breadcrumbDrop">
+                  <button type="button" class="breadcrumbBtn" aria-expanded="false" title="대메뉴 목록"></button>
+                  <ul class="breadcrumbDropList" aria-label="대메뉴">
+                    <li><a href="javascript:void(0);">마이알뜰폰</a></li>
+                    <li><a href="javascript:void(0);">상품</a></li>
+                    <li><a href="javascript:void(0);">유심/eSIM</a></li>
+                    <li><a href="javascript:void(0);">이벤트</a></li>
+                    <li><a href="javascript:void(0);">고객지원</a></li>
+                    <li><a href="javascript:void(0);">서비스</a></li>
+                  </ul>
+                </div>
+                <!-- //breadcrumbDrop -->
+              </div>
+              <div class="breadcrumb">
+                <span class="breadcrumbTitle"><span>셀프개통(USIM/eSIM)</span></span>
+                <div class="breadcrumbDrop">
+                  <button type="button" class="breadcrumbBtn" aria-expanded="false" title="메뉴 목록"></button>
+                  <ul class="breadcrumbDropList" aria-label="메뉴">
+                    <li><a href="javascript:void(0);">바로배송유심 주문</a></li>
+                    <li><a href="javascript:void(0);">배송주문조회</a></li>
+                    <li><a href="javascript:void(0);">바로유심(편의점)</a></li>
+                    <li><a href="javascript:void(0);">셀프개통(USIM/eSIM)</a></li>
+                    <li><a href="javascript:void(0);">워치개통(eSIM)</a></li>
+                    <li><a href="javascript:void(0);">개통신청조회</a></li>
+                    <li><a href="javascript:void(0);">자급제단말등록</a></li>
+                    <li><a href="javascript:void(0);">기기변경</a></li>
+                    <li><a href="javascript:void(0);">번호변경</a></li>
+                    <li><a href="javascript:void(0);">유심변경</a></li>
+                  </ul>
+                </div>
+                <!-- //breadcrumbDrop -->
+              </div>
+              <div class="breadcrumb">
+                <span class="breadcrumbTitle"><span>셀프개통 신청</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //END pageTitleContainer -->
+      <div class="contentArea">
+        <div class="contentInner">
+          <!-- [2차] 20220830 단계 추가 -->
+          <div class="applySteps">
+            <strong class="title">진행 단계</strong>
+            <!-- [VOS2차] 결함 ID 1122841 타이틀 추가 -->
+            <ul class="steps">
+              <!-- [VOS2차] 결함 ID 1122841 aria-label 제거 -->
+              <li class="unit">1</li>
+              <li class="unit">2</li>
+              <li class="unit current" aria-current="step"><span class="message">현재 단계</span>3<!-- [VOS2차] 결함ID 1122059 --></li>
+              <li class="unit">4</li>
+              <li class="unit">5</li>
+            </ul>
+          </div>
+          <!-- //[2차] 20220830 단계 추가 -->
+          <div class="formContainer">
+            <form>
+              <fieldset class="formInner">
+                <legend class="formTitleArea">
+                  <strong class="formTitle">고객 정보</strong>
+                </legend>
+                <div class="formItemArea">
+                  <div class="field fieldInput">
+                    <label for="nameInput" class="fieldLabel">이름</label>
+                    <div class="fieldForm">
+                      <div class="input">
+                        <input type="text" id="nameInput" class="readonly" readonly value="임태일" placeholder="이름을 입력해주세요." />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field fieldInput">
+                    <label for="input-id-02" class="fieldLabel">연락 가능 전화번호</label>
+                    <div class="fieldForm">
+                      <div class="input">
+                        <input type="text" id="input-id-02" value="01038073443" placeholder="연락 가능 전화번호를 입력해주세요." />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 주소 -->
+                  <div class="field fieldInput">
+                    <label for="input-id-03" class="fieldLabel">주소</label>
+                    <div class="fieldForm">
+                      <div class="input">
+                        <input type="text" id="input-id-03" class="readonly" readonly value="서울특별시 강남구 도산대로 222" placeholder="주소를 검색해주세요." />
+                      </div>
+                      <div class="buttonArea">
+                        <button type="button" class="btn btnSizeMiddle" title="새창열림"><span>주소 찾기</span></button>
+                        <!-- [VOS2차] 결함 ID 1122302 타이틀 추가 -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 상세주소 -->
+                  <div class="field fieldInput">
+                    <label for="input-id-04" class="fieldLabel">상세주소</label>
+                    <div class="fieldForm">
+                      <div class="input">
+                        <input type="text" id="input-id-04" value="(논현동) 5층" placeholder="상세주소를 입력해주세요." />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field fieldInput">
+                    <label for="input-id-05" class="fieldLabel">이메일</label>
+                    <div class="fieldForm">
+                      <div class="input">
+                        <input type="email" id="input-id-05" placeholder="이메일을 입력해주세요." />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- [운영]DR-2024-49631 셀프개통 실명인증 입력 프로세스 및 UX/UI 화면 개선 20240906 -->
+                  <div class="dataInner">
+                    <div class="dataTitleArea">
+                      <strong class="dataTitle">신분증 확인</strong>
+                    </div>
+                    <div class="checkboxLineFlex">
+                      <div class="checkboxLine" >
+                        <input type="radio" id="checkType01" name="checkType" data-cer="cer1" />
+                        <label for="checkType01" class="checkboxLabel">
+                          <span>주민등록증</span>
+                          <span class="checkIcon"></span>
+                        </label>
+                      </div>
+                      <div class="checkboxLine" >
+                        <input type="radio" id="checkType02" name="checkType" data-cer="cer2" />
+                        <label for="checkType02" class="checkboxLabel">
+                          <span>운전면허증</span>
+                          <span class="checkIcon"></span>
+                        </label>
+                      </div>
+                      <div class="checkboxLine">
+                        <input type="radio" id="checkType03" name="checkType"  data-cer="cer3" />
+                        <label for="checkType03" class="checkboxLabel">
+                          <span>장애인 등록증</span>
+                          <span class="checkIcon"></span>
+                        </label>
+                      </div>
+                      <div class="checkboxLine">
+                        <input type="radio" id="checkType04" name="checkType" data-cer="cer4" />
+                        <label for="checkType04" class="checkboxLabel">
+                          <span>국가 유공자증</span>
+                          <span class="checkIcon"></span>
+                        </label>
+                      </div>
+                    </div>
 
 
+
+
+
+                    <div class="idCardType01 testWrap" id="cer1">
+                      <div class="idCardWrap">
+                        <div class="imgWrap" id="주민등록증Area">
+                          <img src="assets/images/usim/img_idcard01.png" alt="주민등록증 발급일자 예시 이미지, 예시 2021.01.01" />
+                          <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                        </div>
+                      </div>
+                      <!-- [2차] 20221026 달력 삭제 -->
+                      <div class="field fieldInput">
+                        <label for="input-date-01" class="fieldLabel">발급 일자</label>
+                        <div class="fieldForm">
+                          <div class="input">
+                            <input class="inputFocus" type="number" id="input-date-01" placeholder="주민등록증 발급 일자 숫자만 입력(예 19990626)" onfocus="focusElement('#주민등록증Area')" />
+                            <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- //[2차] 20221026 달력 삭제 -->
+                    </div>
+                     
+
+
+
+                    <!-- //운전면허증 -->
+                    <div class="idCardType02 testWrap" id="cer2">
+                      <div class="idCardWrap">
+                        <div class="imgWrap" id="운전면허증Area">
+                          <img src="assets/images/usim/img_idcard02-02.png" alt="운전면허증 발급일자 예시 이미지, 예시 01-01-123456-01" />
+                          <!-- [VOS2차] 결함 ID 1122377 문구수정 -->
+                        </div>
+                      </div>
+                      <!-- [2차] 20221026 달력 삭제 -->
+                      <div class="field fieldInput">
+                        <label for="input-date-02" class="fieldLabel">발급 일자</label>
+                        <div class="fieldForm">
+                          <div class="input">
+                            <input class="inputFocus" type="number" id="input-date-02" placeholder="운전면허증 발급 일자 숫자만 입력(예 19990626)" onfocus="focusElement('#운전면허증Area')"/>
+                            <!-- [VOS2차] 결함 ID 1122377 문구수정 -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- //[2차] 20221026 달력 삭제 -->
+                      <div class="field fieldSelectInput">
+                        <div class="fieldLabel">면허번호</div>
+                        <div class="fieldForm">
+                          <div class="dropdownArea">
+                            <div class="dropdownTitle">
+                              <div class="titleLabel">
+                                <span>지역 선택</span>
+                              </div>
+                              <button type="button" class="dropdownBtn" aria-expanded="false" title="면허 발급 지역" onfocus="focusElement('#운전면허증Area')"><span>면허 발급 지역 선택</span></button>
+                              <!-- [VOS2차] 결함 ID 1122375 수정 -->
+                            </div>
+                            <ul class="dropdownList" aria-label="면허 발급 지역">
+                              <li><button type="button" title="선택됨">서울(11)</button></li>
+                              <li><button type="button">부산(12)</button></li>
+                              <li><button type="button">경기(13)</button></li>
+                              <li><button type="button">강원(14)</button></li>
+                              <li><button type="button">충북(15)</button></li>
+                              <li><button type="button">충남(16)</button></li>
+                              <li><button type="button">전북(17)</button></li>
+                              <li><button type="button">전남(18)</button></li>
+                              <li><button type="button">경북(19)</button></li>
+                              <li><button type="button">경남(20)</button></li>
+                              <li><button type="button">제주(21)</button></li>
+                              <li><button type="button">대구(22)</button></li>
+                              <li><button type="button">인천(23)</button></li>
+                              <li><button type="button">광주(24)</button></li>
+                              <li><button type="button">대전(25)</button></li>
+                              <li><button type="button">울산(26)</button></li>
+                              <li><button type="button">경기북부(28)</button></li>
+                            </ul>
+                          </div>
+                          <div class="input">
+                            <input type="number" id="input-id-01" title="면허번호" placeholder="뒤 10자리 숫자만 입력" onfocus="focusElement('#운전면허증Area')" />
+                            <!-- [VOS2차] 결함 ID 1122375 수정 -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+                    <!-- //장애인등록증 -->
+                    <div class="idCardType03 testWrap" id="cer3">
+                      <div class="idCardWrap">
+                        <div class="imgWrap" id="장애인등록증Area">
+                          <img src="assets/images/usim/img_idcard03-02.png" alt="장애인등록증 발급일자 예시 이미지, 예시 2021.01.01" />
+                          <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                        </div>
+                      </div>
+                      <!-- [2차] 20221026 달력 삭제 -->
+                      <div class="field fieldInput">
+                        <label for="input-date-03" class="fieldLabel">발급 일자</label>
+                        <div class="fieldForm">
+                          <div class="input">
+                            <input class="inputFocus" type="number" id="input-date-03" placeholder="장애인 등록증 발급 일자 숫자만 입력(예 19990626)" onfocus="focusElement('#장애인등록증Area')" />
+                            <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- //[2차] 20221026 달력 삭제 -->
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <!-- //국가유공자 -->
+                    <div class="idCardType04 testWrap" id="cer4">
+                      <div class="idCardWrap">
+                        <div class="imgWrap" id="국가유공자증Area">
+                          <img src="assets/images/usim/img_idcard04-02.png" alt="국가유공자증 발급일자,번호 예시 이미지, 예시 보훈번호 01-123456, 발행일자 2021년 01월 01일" />
+                          <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                        </div>
+                      </div>
+                      <!-- [2차] 20221026 달력 삭제 -->
+                      <div class="field fieldInput">
+                        <label for="input-date-04" class="fieldLabel">발행 일자</label>
+                        <div class="fieldForm">
+                          <div class="input">
+                            <input class="inputFocus" type="number" id="input-date-04" placeholder="국가 유공자증 발행 일자 숫자만 입력(예 19990626)"  onfocus="focusElement('#국가유공자증Area')"/>
+                            <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- //[2차] 20221026 달력 삭제 -->
+                      <div class="field">
+                        <label for="input-date-05" class="fieldLabel">보훈번호</label>
+                        <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                        <div class="fieldForm">
+                          <div class="input">
+                            <input class="inputFocus" type="number" id="input-date-05" placeholder="보훈번호 숫자만 입력(앞 2자리 포함)" onfocus="focusElement('#국가유공자증Area')" />
+                            <!-- [VOS2차] 결함 ID 1122377 수정 -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <!-- //국가 유공자증 -->
+                    <div class="field fieldCheckbox botm" id="cer4">
+                      <div class="fieldForm">
+                        <div class="checkbox">
+                          <input type="checkbox" id="agreeCheck0" />
+                          <label for="agreeCheck0" class="checkboxLabel">
+                            <span class="checkIcon"></span>
+                            <span>본인 조회에 동의합니다. (필수)</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //[운영]DR-2024-49631 셀프개통 실명인증 입력 프로세스 및 UX/UI 화면 개선 20240906 -->
+                  <!-- //신분증 확인 -->
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="fixedFooterContainer">
+          <div class="fixedFooterArea">
+            <div class="descArea">
+              <div class="left">
+                <p class="title">KT엠모바일</p>
+                <p class="desc">데이터 맘껏 15GB+ / 300분 데이터 맘껏 15GB+</p>
+              </div>
+              <div class="right">
+                <div class="desc">
+                  월
+                  <p class="priceArea"><span class="price">29,700</span>&nbsp;원</p>
+                </div>
+              </div>
+            </div>
+            <div class="buttonArea">
+              <button type="button" class="btn btnPrimary"><span>다음</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- //END fixedFooterContainer -->
+      </div>
+      <!-- //END contentArea -->
+    </main>
+    <!-- //END contentContainer -->
+    <footer class="footerContainer" id="footerMenu">
+      <!-- [2차] footer 2차메뉴 반영 -->
+      <div class="footer">
+        <div class="footerTop">
+          <div class="footerLeft">
+            <a href="javascript:void(0);" class="footerLogo">
+              <img src="assets/images/common/logo_black.svg" alt="마이알뜰폰" />
+            </a>
+            <address class="footerAdress">
+              <span>(주)케이티</span>
+              <span>경기도 성남시 분당구 불정로 90 (정자동) | 대표자 : 김영섭</span><!-- 20230831 개발 선반영 현행화 -->
+              <span>사업자등록번호 : 102-81-42945</span>
+              <span>통신판매업신고 : 2002-경기성남-0048</span>
+            </address>
+          </div>
+          <div class="footerRight">
+            <ul class="siteMap" aria-label="사이트맵">
+              <li>
+                <a href="javascript:void(0);" class="title">마이알뜰폰</a>
+                <ul class="list">
+                  <li><a href="javascript:void(0);">마이알뜰폰 홈</a></li>
+                  <li><a href="javascript:void(0);">가입/계정</a></li>
+                  <li><a href="javascript:void(0);">사용량 조회</a></li>
+                  <li><a href="javascript:void(0);">요금</a></li>
+                  <li><a href="javascript:void(0);">요금제/부가서비스</a></li>
+                  <li><a href="javascript:void(0);">회선</a></li>
+                  <li><a href="javascript:void(0);">분실/일시정지</a></li>
+                  <li><a href="javascript:void(0);">데이터쉐어링</a></li>
+                  <li><a href="javascript:void(0);">데이터 주고받기</a></li>
+                  <li><a href="javascript:void(0);">선불 잔액 조회</a></li>
+                  <li><a href="javascript:void(0);">쿠폰함</a></li>
+                  <!-- [운영] KMVNO-3987 메뉴 변경 -->
+                  <li><a href="javascript:void(0);">나의 후기</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="title">상품</a>
+                <ul class="list">
+                  <li><a href="javascript:void(0);">후불 요금제</a></li>
+                  <li><a href="javascript:void(0);">선불 요금제</a></li>
+                  <li><a href="javascript:void(0);">부가서비스</a></li>
+                  <li><a href="javascript:void(0);">로밍서비스</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="title">유심/eSIM</a>
+                <ul class="list">
+                  <li><a href="javascript:void(0);">유심구매</a></li>
+                  <li><a href="javascript:void(0);">셀프개통</a></li>
+                  <li><a href="javascript:void(0);">자급제단말등록</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="title">이벤트</a>
+                <ul class="list">
+                  <li><a href="javascript:void(0);">진행중 이벤트</a></li>
+                  <li><a href="javascript:void(0);">종료된 이벤트</a></li>
+                  <li><a href="javascript:void(0);">당첨자 발표</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="title">고객지원</a>
+                <ul class="list">
+                  <li><a href="javascript:void(0);">FAQ</a></li>
+                  <li><a href="javascript:void(0);">고객상담</a></li>
+                  <li><a href="javascript:void(0);">고객센터 안내</a></li>
+                  <li><a href="javascript:void(0);">공지사항</a></li>
+                  <li><a href="javascript:void(0);">이용가이드</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="title">서비스</a>
+                <ul class="list">
+                  <li><a href="javascript:void(0);">마이알뜰폰 소개</a></li>
+                  <li><a href="javascript:void(0);">마이알뜰폰 프렌즈</a></li>
+                  <li><a href="javascript:void(0);">KT알뜰폰 사업</a></li>
+                  <li><a href="javascript:void(0);">바로유심(편의점)</a></li>
+                  <!-- [2차] 20221123 공통 메뉴명 수정 -->
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footerBottom">
+          <div class="footerLeft">
+            <ul class="footerMenu">
+              <li><a href="javascript:void(0);">이용약관</a></li>
+              <li><a href="javascript:void(0);">개인정보처리방침</a></li>
+              <li><a href="javascript:void(0);">개인정보이용내역</a></li>
+              <li><a href="javascript:void(0);">법적고지</a></li>
+              <li><a href="javascript:void(0);" target="_blank" title="새 창 열림">명의도용방지서비스</a></li>
+              <li><a href="javascript:void(0);" target="_blank" title="새 창 열림">오픈소스 라이선스</a></li>
+            </ul>
+          </div>
+          <div class="footerRight">
+            <p class="copyright">Copyright © KT Inc. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+      <!-- //[2차] footer 2차메뉴 반영 -->
+    </footer>
+    <!-- //END footerContainer -->
+  </div>
+  <!-- //END wrap -->
+  <!-- Start Script -->
 <script>
-// 소문자만 입력 공통스크립트
+       //탭 작동
+       $(".checkboxLine > input").on('click', function(){
+        var tabNum = $(this).data('cer');
+        $('.testWrap').removeClass('on');
+        $('#' + tabNum).addClass('on');
+        //탭 누르면 줌 액션 삭제됨
+        $('.idCardWrap .imgWrap').removeClass('zoom');
+       });
+       //첫번째 탭 작동 트리거
+       $('#checkType01').trigger('click');
 
-$(document).ready(function(){
-   $('#mb_quickmn_in_search').bind("keyup", function(){
-       $(this).val($(this).val().toLowerCase());
-  });
-});
 
+
+
+       //인풋 클릭시 등록증 줌 액션
+       $('.inputFocus').on('click', function(){
+          $('.idCardWrap .imgWrap').addClass('zoom');
+       });
+
+
+
+
+      //스크롤 액션
+      // 스크롤되어야 하는 요소에 '요소명 + Area' 부여 ex) id="주민등록증Area"
+      // 클릭하는 요소에 onfocus="focusElement('#주민등록증Area')"> 함수 추가 시 작동
+      function focusElement(selector) {
+          const element = document.querySelector(selector);
+          if (element) {
+              const elementPosition = element.getBoundingClientRect().top;
+              //헤더값 45px 감소 처리
+              const offsetPosition = elementPosition + window.pageYOffset - 45;
+              
+              window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+              });
+          }
+      }
 </script>
+</body>
+
+</html>
