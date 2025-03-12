@@ -470,79 +470,83 @@
   <script>
     //제이쿼리 테스트
     document.addEventListener('DOMContentLoaded', function() {
-      // 모든 swiper-notification 요소의 aria 속성 변경
-      const notifications = document.querySelectorAll('.swiper-notification');
-      notifications.forEach(notification => {
-        notification.setAttribute('aria-live', 'off');
-        notification.setAttribute('aria-atomic', 'false');
-      });
+      // 공통 Swiper 설정 함수
+      function initAccessibleSwiper(swiperInstance, containerSelector) {
+        // 초기 상태 설정
+        function updateSlideAccessibility() {
+          const slides = document.querySelectorAll(`${containerSelector} .swiper-slide`);
+          slides.forEach(slide => {
+            // 모든 슬라이드에 기본 속성 설정
+            slide.setAttribute('aria-hidden', 'true');
+            
+            // 슬라이드 내부의 모든 상호작용 요소(링크, 버튼)
+            const interactiveElements = slide.querySelectorAll('a, button');
+            interactiveElements.forEach(element => {
+              element.setAttribute('tabindex', '-1');
+            });
 
-      const notificationsWrapper = document.querySelectorAll('.swiper-wrapper');
-      notificationsWrapper.forEach(notificationWrapper => {
-        notificationWrapper.setAttribute('aria-live', 'off');
-        notificationWrapper.setAttribute('aria-atomic', 'false');
-      });
-
-      const swiperOptions = {
-        // 기존 옵션들은 그대로 유지
-        a11y: {
-          enabled: true,
-          notificationClass: 'swiper-notification',
-          prevSlideMessage: '',
-          nextSlideMessage: '',
-          firstSlideMessage: '',
-          lastSlideMessage: '',
-          paginationBulletMessage: ''
+            // 활성 슬라이드 처리
+            if (slide.classList.contains('swiper-slide-active')) {
+              slide.setAttribute('aria-hidden', 'false');
+              interactiveElements.forEach(element => {
+                element.setAttribute('tabindex', '0');
+              });
+            }
+          });
         }
-      };
+
+        // 슬라이드 변경 시 접근성 속성 업데이트
+        swiperInstance.on('slideChange', function() {
+          updateSlideAccessibility();
+        });
+
+        // 초기 접근성 속성 설정
+        updateSlideAccessibility();
+      }
 
       // 멤버십 제휴사 할인 혜택 스와이퍼
-      const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", swiperOptions, {
+      const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", {
         slidesPerView: 'auto',
         spaceBetween: 8,
         loop: false,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
+        },
+        a11y: {
+          enabled: true,
+          slideRole: 'group',
+          notificationClass: 'swiper-notification'
         }
       });
+      initAccessibleSwiper(membershipSwiper, "[data-swiper='ship-benefit-swiper']");
 
       // OTT 구독 할인 스와이퍼
-      const subscriptionSwiper = new Swiper(".subscription-d", swiperOptions, {
+      const subscriptionSwiper = new Swiper(".subscription-d", {
         slidesPerView: 'auto',
         spaceBetween: 10,
         loop: true,
-        on: {
-          init: function () {
-            // Swiper 초기화 후 aria-live 속성 강제 설정
-            const wrapper = document.getElementById('WC032_LIST');
-            if (wrapper) {
-              wrapper.setAttribute('aria-live', 'off');
-              wrapper.setAttribute('aria-atomic', 'false');
-            }
-          }
+        a11y: {
+          enabled: true,
+          slideRole: 'group'
         }
       });
+      initAccessibleSwiper(subscriptionSwiper, ".subscription-d");
 
       // 핫딜 스와이퍼
       const hotdealSwiper = new Swiper(".hotdeal-tp1", {
         slidesPerView: 1,
         spaceBetween: 0,
         loop: true,
-        on: {
-        init: function () {
-          // Swiper 초기화 후 aria-live 속성 강제 설정
-          const wrapper = document.getElementById('WC032_LIST');
-          if (wrapper) {
-            wrapper.setAttribute('aria-live', 'off');
-            wrapper.setAttribute('aria-atomic', 'false');
-          }
+        a11y: {
+          enabled: true,
+          slideRole: 'group'
         }
-      }
       });
+      initAccessibleSwiper(hotdealSwiper, ".hotdeal-tp1");
 
       // 가전특가 스와이퍼
-      const specialSalesSwiper = new Swiper("[data-swiper='special-sales-swiper']", swiperOptions, {
+      const specialSalesSwiper = new Swiper("[data-swiper='special-sales-swiper']", {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
@@ -553,18 +557,42 @@
         pagination: {
           el: '.swiper-pagination-fraction',
           type: 'fraction'
+        },
+        a11y: {
+          enabled: true,
+          slideRole: 'group'
         }
       });
+      initAccessibleSwiper(specialSalesSwiper, "[data-swiper='special-sales-swiper']");
 
       // 이벤트 스와이퍼
-      const eventSwiper = new Swiper(".events-tp-1", swiperOptions, {
+      const eventSwiper = new Swiper(".events-tp-1", {
         slidesPerView: 'auto',
         spaceBetween: 10,
         loop: false,
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
+        },
+        a11y: {
+          enabled: true,
+          slideRole: 'group'
         }
+      });
+      initAccessibleSwiper(eventSwiper, ".events-tp-1");
+
+      // 모든 swiper-notification 요소의 aria 속성 변경
+      const notifications = document.querySelectorAll('.swiper-notification');
+      notifications.forEach(notification => {
+        notification.setAttribute('aria-live', 'off');
+        notification.setAttribute('aria-atomic', 'false');
+      });
+
+      // 모든 swiper-wrapper의 aria 속성 변경
+      const wrappers = document.querySelectorAll('.swiper-wrapper');
+      wrappers.forEach(wrapper => {
+        wrapper.setAttribute('aria-live', 'off');
+        wrapper.setAttribute('aria-atomic', 'false');
       });
     });
   </script>
