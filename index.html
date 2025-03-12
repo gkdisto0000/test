@@ -22,7 +22,65 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   
   
- 
+  <style type="text/css">
+    /* 공통 Swiper 스타일 */
+    .swiper-wrapper {
+      display: flex;
+      transition-property: transform;
+    }
+
+    .swiper-slide {
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    /* 멤버십 제휴사 스와이퍼 */
+    [data-swiper='ship-benefit-swiper'] .swiper-slide {
+      width: auto !important;
+    }
+
+    /* OTT 구독 스와이퍼 */
+    .subscription-d .swiper-slide {
+      width: auto;
+      max-width: 280px;
+    }
+
+    /* 핫딜 스와이퍼 */
+    .hotdeal-tp1 .swiper-slide {
+      width: 100%;
+    }
+
+    /* 가전특가 스와이퍼 */
+    [data-swiper='special-sales-swiper'] .swiper-slide {
+      width: 336px;
+    }
+
+    /* 이벤트 스와이퍼 */
+    .events-tp-1 .swiper-slide {
+      width: auto;
+      max-width: 264px;
+    }
+
+    /* 네비게이션 버튼 스타일 */
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    /* 페이지네이션 스타일 */
+    .swiper-pagination-fraction {
+      position: absolute;
+      text-align: center;
+      bottom: 10px;
+      width: 100%;
+    }
+
+  </style>
+  <!-- 공통 resource css등 -->
   
   <title>혜택메인&nbsp;| KT</title>
   <link rel="stylesheet" type="text/css" href="https://m.my.kt.com/app/css/cardmain/v5/a_BenefitCardMain.css?v=7.0.0g"><!-- 개별페이지들의 css 영역 -->
@@ -33,8 +91,6 @@
 </head>
   
   <body class="mKTAppBenefit">
-
-
 
     <!-- ============================ -->
     <!-- 각 입점서비스 콘텐츠 개발 영역 -->
@@ -406,7 +462,7 @@
 
 
 
-
+        
 
 
         // 멤버십 제휴사 할인 혜택 스와이퍼
