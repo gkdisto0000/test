@@ -79,6 +79,28 @@
       width: 100%;
     }
 
+    .testFixedBtn {
+      position: 
+      fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      z-index: 9999;
+    }
+
+    .testFixedBtn a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   </style>
   <!-- 공통 resource css등 -->
   
@@ -91,6 +113,10 @@
 </head>
   
   <body class="mKTAppBenefit">
+
+    <div class="testFixedBtn">
+      <a href="https://www.naver.com/" target="_blank">클릭</a>
+    </div>
 
     <!-- ============================ -->
     <!-- 각 입점서비스 콘텐츠 개발 영역 -->
@@ -431,43 +457,10 @@
   <script>
     //제이쿼리 테스트
     document.addEventListener('DOMContentLoaded', function() {
-      // 1. 접근성 설정 함수
-      function initAccessibility() {
-        const allSlides = document.querySelectorAll('.swiper-slide');
-        
-        allSlides.forEach(slide => {
-          slide.setAttribute('aria-hidden', 'false');
-          slide.setAttribute('aria-live', 'off');
-
-          const interactiveElements = slide.querySelectorAll('a, button');
-          interactiveElements.forEach(element => {
-            element.addEventListener('focus', () => {
-              slide.setAttribute('aria-live', 'polite');
-            });
-            
-            element.addEventListener('blur', () => {
-              slide.setAttribute('aria-live', 'off');
-            });
-          });
-        });
-      }
-
-      // 2. 스와이퍼 초기화 함수
+      // 1. 스와이퍼 초기화 함수
       function initSwipers() {
-        // 공통 스와이퍼 옵션
-        const commonOptions = {
-          touchRatio: 1, // 터치 감도 활성화
-          touchAngle: 45, // 터치 각도 설정
-          touchMoveStopPropagation: true,
-          touchStartPreventDefault: false,
-          grabCursor: true, // 그랩 커서 활성화
-          resistance: true, // 저항 효과
-          resistanceRatio: 0.85,
-        };
-
         // 멤버십 제휴사 할인 혜택 스와이퍼
         const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", {
-          ...commonOptions,
           slidesPerView: 'auto',
           spaceBetween: 8,
           loop: false,
@@ -479,7 +472,6 @@
 
         // OTT 구독 할인 스와이퍼
         const subscriptionSwiper = new Swiper(".subscription-d", {
-          ...commonOptions,
           slidesPerView: 'auto',
           spaceBetween: 10,
           loop: false
@@ -487,7 +479,6 @@
 
         // 핫딜 스와이퍼
         const hotdealSwiper = new Swiper(".hotdeal-tp1", {
-          ...commonOptions,
           slidesPerView: 1,
           spaceBetween: 0,
           loop: true
@@ -495,7 +486,6 @@
 
         // 가전특가 스와이퍼
         const specialSalesSwiper = new Swiper("[data-swiper='special-sales-swiper']", {
-          ...commonOptions,
           slidesPerView: 1,
           spaceBetween: 30,
           loop: false,
@@ -511,7 +501,6 @@
 
         // 이벤트 스와이퍼
         const eventSwiper = new Swiper(".events-tp-1", {
-          ...commonOptions,
           slidesPerView: 'auto',
           spaceBetween: 10,
           loop: false,
@@ -521,13 +510,6 @@
           }
         });
 
-        // 모바일 터치 이벤트 방지
-        document.addEventListener('touchmove', function(e) {
-          if (e.target.closest('.swiper-container')) {
-            e.preventDefault();
-          }
-        }, { passive: false });
-
         return {
           membershipSwiper,
           subscriptionSwiper,
@@ -535,6 +517,29 @@
           specialSalesSwiper,
           eventSwiper
         };
+      }
+
+      // 2. 접근성 설정 함수
+      function initAccessibility() {
+        const allSlides = document.querySelectorAll('.swiper-slide');
+        
+        allSlides.forEach(slide => {
+          // 기본 접근성 속성 설정
+          slide.setAttribute('aria-hidden', 'false');
+          slide.setAttribute('aria-live', 'off');
+
+          // 초점 이벤트에 대한 접근성 처리
+          const interactiveElements = slide.querySelectorAll('a, button');
+          interactiveElements.forEach(element => {
+            element.addEventListener('focus', () => {
+              slide.setAttribute('aria-live', 'polite');
+            });
+            
+            element.addEventListener('blur', () => {
+              slide.setAttribute('aria-live', 'off');
+            });
+          });
+        });
       }
 
       // 3. 초기화 실행
