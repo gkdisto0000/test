@@ -470,8 +470,16 @@
   <script>
     //제이쿼리 테스트
     document.addEventListener('DOMContentLoaded', function() {
+
+
+      
       // 공통 Swiper 설정 함수
       function initAccessibleSwiper(swiperInstance, containerSelector) {
+        // 멤버십 제휴사 할인 혜택 스와이퍼는 제외
+        if (containerSelector === "[data-swiper='ship-benefit-swiper']") {
+          return;
+        }
+
         // 초기 상태 설정
         function updateSlideAccessibility() {
           // 먼저 모든 슬라이드를 비활성화 상태로 설정
@@ -497,7 +505,7 @@
 
         // 슬라이드 변경 시 접근성 속성 업데이트
         swiperInstance.on('slideChange', function() {
-          setTimeout(updateSlideAccessibility, 0); // 다음 프레임에서 실행하여 DOM 업데이트 보장
+          setTimeout(updateSlideAccessibility, 0);
         });
 
         // 슬라이드 전환 완료 후에도 접근성 속성 업데이트
@@ -516,15 +524,6 @@
 
       // 각 스와이퍼 초기화 시 공통 옵션 설정
       const commonSwiperOptions = {
-        a11y: {
-          enabled: true,
-          slideRole: 'group',
-          notificationClass: 'swiper-notification',
-          prevSlideMessage: '이전 슬라이드',
-          nextSlideMessage: '다음 슬라이드',
-          firstSlideMessage: '첫번째 슬라이드',
-          lastSlideMessage: '마지막 슬라이드'
-        },
         on: {
           init: function() {
             initAccessibleSwiper(this, this.$el[0].dataset.swiper);
@@ -532,9 +531,15 @@
         }
       };
 
-      // 멤버십 제휴사 할인 혜택 스와이퍼
+
+
+
+
+
+
+
+      // 멤버십 제휴사 할인 혜택 스와이퍼 (접근성 속성 제외)
       const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", {
-        ...commonSwiperOptions,
         slidesPerView: 'auto',
         spaceBetween: 8,
         loop: false,
