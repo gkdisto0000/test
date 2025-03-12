@@ -259,14 +259,22 @@
 					}
 				});
 
-
-
-					const specialMode = new MktAppSwiperAuto('[data-swiper="special-sales-swiper"]');
-					specialMode.between = 30;
-					specialMode.createSwiper(specialMode.swiper);
-					
-
-
+        const specialMode = new MktAppSwiperAuto('[data-swiper="special-sales-swiper"]');
+        specialMode.between = 30;
+        specialMode.createSwiper(specialMode.swiper);
+        
+        // 기존 조건문
+        // if (CARD_WRK == 'CARD_BE1060') {
+        //   if (DATA_COUNT[CARD_WRK] > 1) {
+        //     const specialMode = new MktAppSwiperAuto('[data-swiper="special-sales-swiper"]');
+        //     specialMode.between = 30;
+        //     specialMode.createSwiper(specialMode.swiper);
+            
+        //   } else {
+        //     const autoMode1060 = new MktAppSwiperAuto('div.' + CARD_WRK + ' [data-swiper="special-sales-swiper"]', false);
+        //     autoMode1060.createSwiper(autoMode1060.swiper, false);
+        //   }
+        // }
   </script>
 
   </html>
