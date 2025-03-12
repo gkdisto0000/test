@@ -477,10 +477,10 @@
         notification.setAttribute('aria-atomic', 'false');
       });
 
-      const notifications = document.querySelectorAll('.swiper-wrapper');
-      notifications.forEach(notification => {
-        notification.setAttribute('aria-live', 'off');
-        notification.setAttribute('aria-atomic', 'false');
+      const notificationsWrapper = document.querySelectorAll('.swiper-wrapper');
+      notificationsWrapper.forEach(notificationWrapper => {
+        notificationWrapper.setAttribute('aria-live', 'off');
+        notificationWrapper.setAttribute('aria-atomic', 'false');
       });
 
       const swiperOptions = {
