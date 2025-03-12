@@ -513,6 +513,16 @@
         slidesPerView: 1,
         spaceBetween: 0,
         loop: true,
+        on: {
+        init: function () {
+          // Swiper 초기화 후 aria-live 속성 강제 설정
+          const wrapper = document.getElementById('WC032_LIST');
+          if (wrapper) {
+            wrapper.setAttribute('aria-live', 'off');
+            wrapper.setAttribute('aria-atomic', 'false');
+          }
+        }
+      }
       });
 
       // 가전특가 스와이퍼
