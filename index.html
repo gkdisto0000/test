@@ -108,17 +108,6 @@
 
 
 
-    /* ai가 추천한 수정방법 */
-    .swiper-notification {
-      position: absolute;
-      left: -9999px;
-      /* 또는 */
-      display: none;
-      /* 또는 */
-      visibility: hidden;
-    }
-
-
   </style>
   <!-- 공통 resource css등 -->
   
@@ -474,6 +463,33 @@
 
   <script>
     //제이쿼리 테스트
+
+
+    // 스와이퍼 노티피케이션 수정
+    const swiperOptions = {
+  a11y: {
+    enabled: true,  // 접근성 기능 유지
+    notificationClass: 'screen-reader-only',
+    // 불필요한 자동 알림 메시지들 비활성화
+    lastSlideMessage: '',
+    nextSlideMessage: '',
+    prevSlideMessage: '',
+    firstSlideMessage: '',
+    containerMessage: '',
+    containerRoleDescriptionMessage: ''
+      }
+    };
+
+    // 각 스와이퍼 초기화시 옵션 적용
+    const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", swiperOptions);
+    const subscriptionSwiper = new Swiper(".subscription-d", swiperOptions);
+    const hotdealSwiper = new Swiper(".hotdeal-tp1", swiperOptions);
+    const specialSalesSwiper = new Swiper("[data-swiper='special-sales-swiper']", swiperOptions);
+    const eventSwiper = new Swiper(".events-tp-1", swiperOptions);
+
+
+
+
     document.addEventListener('DOMContentLoaded', function() {
   // 멤버십 제휴사 할인 혜택 스와이퍼
   const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", {
