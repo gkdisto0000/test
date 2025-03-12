@@ -477,6 +477,12 @@
         notification.setAttribute('aria-atomic', 'false');
       });
 
+      const notifications = document.querySelectorAll('.swiper-wrapper');
+      notifications.forEach(notification => {
+        notification.setAttribute('aria-live', 'off');
+        notification.setAttribute('aria-atomic', 'false');
+      });
+
       const swiperOptions = {
         // 기존 옵션들은 그대로 유지
         a11y: {
@@ -506,6 +512,16 @@
         slidesPerView: 'auto',
         spaceBetween: 10,
         loop: true,
+        on: {
+          init: function () {
+            // Swiper 초기화 후 aria-live 속성 강제 설정
+            const wrapper = document.getElementById('WC032_LIST');
+            if (wrapper) {
+              wrapper.setAttribute('aria-live', 'off');
+              wrapper.setAttribute('aria-atomic', 'false');
+            }
+          }
+        }
       });
 
       // 핫딜 스와이퍼
