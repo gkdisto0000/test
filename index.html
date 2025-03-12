@@ -454,62 +454,107 @@
   
 
 
+
   <script>
     //제이쿼리 테스트
     document.addEventListener('DOMContentLoaded', function() {
-  // 멤버십 제휴사 할인 혜택 스와이퍼
-  const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", {
-    slidesPerView: 'auto',
-    spaceBetween: 8,
-    loop: false,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  });
+      // 1. 스와이퍼 초기화 함수
+      function initSwipers() {
+        // 2. 접근성 설정 함수
+        function initAccessibility() {
+          const allSlides = document.querySelectorAll('.swiper-slide');
+          
+          allSlides.forEach(slide => {
+            // 기본 접근성 속성 설정
+            slide.setAttribute('aria-hidden', 'false');
+            slide.setAttribute('aria-live', 'off');
 
-  // OTT 구독 할인 스와이퍼
-  const subscriptionSwiper = new Swiper(".subscription-d", {
-    slidesPerView: 'auto',
-    spaceBetween: 10,
-    loop: true,
-  });
+            // 초점 이벤트에 대한 접근성 처리
+            const interactiveElements = slide.querySelectorAll('a, button');
+            interactiveElements.forEach(element => {
+              element.addEventListener('focus', () => {
+                slide.setAttribute('aria-live', 'polite');
+              });
+              
+              element.addEventListener('blur', () => {
+                slide.setAttribute('aria-live', 'off');
+              });
+            });
+          });
+        }
 
-  // 핫딜 스와이퍼
-  const hotdealSwiper = new Swiper(".hotdeal-tp1", {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-  });
+        // 3. 초기화 실행
+        const swipers = initSwipers();
+        initAccessibility();
 
-  // 가전특가 스와이퍼
-  const specialSalesSwiper = new Swiper("[data-swiper='special-sales-swiper']", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    navigation: {
-      nextEl: '.special-sales-swiper-next',
-      prevEl: '.special-sales-swiper-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination-fraction',
-      type: 'fraction'
-    }
-  });
 
-  // 이벤트 스와이퍼
-  const eventSwiper = new Swiper(".events-tp-1", {
-    slidesPerView: 'auto',
-    spaceBetween: 10,
-    loop: false,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    }
-  });
-});
+
+        
+
+
+        // 멤버십 제휴사 할인 혜택 스와이퍼
+        const membershipSwiper = new Swiper("[data-swiper='ship-benefit-swiper']", {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          loop: false,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }
+        });
+
+        // OTT 구독 할인 스와이퍼
+        const subscriptionSwiper = new Swiper(".subscription-d", {
+          slidesPerView: 'auto',
+          spaceBetween: 10,
+          loop: false
+        });
+
+        // 핫딜 스와이퍼
+        const hotdealSwiper = new Swiper(".hotdeal-tp1", {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          loop: true
+        });
+
+        // 가전특가 스와이퍼
+        const specialSalesSwiper = new Swiper("[data-swiper='special-sales-swiper']", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: false,
+          navigation: {
+            nextEl: '.special-sales-swiper-next',
+            prevEl: '.special-sales-swiper-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination-fraction',
+            type: 'fraction'
+          }
+        });
+
+        // 이벤트 스와이퍼
+        const eventSwiper = new Swiper(".events-tp-1", {
+          slidesPerView: 'auto',
+          spaceBetween: 10,
+          loop: false,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+          }
+        });
+
+        return {
+          membershipSwiper,
+          subscriptionSwiper,
+          hotdealSwiper,
+          specialSalesSwiper,
+          eventSwiper
+        };
+      }
+
+
+    });
   </script>
-  
 
   
 
