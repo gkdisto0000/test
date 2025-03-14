@@ -31,26 +31,8 @@
   */
   
   /* 접근성 개선을 위한 스타일 */
-  .swiper-slide[role="group"] {
-    outline: none;
-  }
-  
-  .swiper-slide[role="group"]:focus-within {
-    outline: 2px solid #000;
-    outline-offset: -2px;
-  }
-  
-  /* 스크린리더에서만 읽히는 텍스트를 위한 클래스 */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  .swiper-wrapper {
+    transition-property: transform;
   }
   </style>
   <!-- 공통 resource css등 -->
@@ -69,7 +51,7 @@
           <a href="https://m.membership.kt.com/discount/partner/s_PartnerList.do" class="mktapp-ui-more-bl ADOBE_BUTTON adobeSet" adobe_cd="멤버십제휴사할인혜택^더보기">멤버십 제휴사 할인 혜택</a>
         </h2>
         <article class="mKTAppMembershipBenefitSwiper" data-swiper="ship-benefit-swiper">
-          <div class="swiper-wrapper" aria-live="off" aria-atomic="false">
+          <div class="swiper-wrapper" aria-live="off">
             <div class="swiper-slide">
               <button type="button" class="button"data-move-swiper="0">#맛있는 할인</button>
             </div>
@@ -86,7 +68,7 @@
 
         <article class="mKTAppMembershipBenefitSwiper-tabCont" data-swiper="ship-benefit-content-swiper">
 
-          <div class="swiper-wrapper" aria-live="off" aria-atomic="false">
+          <div class="swiper-wrapper" aria-live="off">
             <div class="swiper-slide swiper-slide-active">
               <ul class="brand-list">
                 <li>
@@ -173,7 +155,7 @@
         <h2 class="mktapp-ui-ctit2">KT 고객 한정 가전특가</h2>
         <div class="mKTAppBannerAutoSwiper-column mKTAppBannerAutoSwiper-prevnext-class">
           <article class="mKTAppBannerAutoSwiper" data-swiper="special-sales-swiper">
-            <div class="swiper-wrapper" aria-live="off" aria-atomic="false" id="WC038_LIST">
+            <div class="swiper-wrapper" aria-live="off" id="WC038_LIST">
               <div class="swiper-slide">
                 <a href="https://m.shop.kt.com:444/m/rental/rentalProdDtlView.do?prodNo=WR00072656" class="ADOBE_BUTTON adobeSet" adobe_cd="가전_렌탈^삼성43인치무빙스타일M70228" role="button" style="background:#ffffff;">
                   <img src="https://m.my.kt.com/apps/appV5Bene/images/202502281530_7870df932f864e70956f3207d6643919.png" alt="삼성 43인치 무빙스타일 M7 납부 총액(36개월) 936%2C000원 월 납부금액(36개월) 26%2C000원">
@@ -241,34 +223,16 @@
   <script>
     // 접근성 개선을 위한 함수 추가
     document.addEventListener('DOMContentLoaded', function() {
-      // 모든 swiper-slide 요소에 접근성 속성 적용
-      const allSlides = document.querySelectorAll('.swiper-slide');
-      
-      allSlides.forEach(slide => {
-        // role="group" 속성이 있는 경우에만 처리
-        if (slide.getAttribute('role') === 'group') {
-          // 기본적으로 aria-hidden="true"로 설정하여 스크린 리더가 읽지 않도록 함
-          slide.setAttribute('aria-hidden', 'true');
-          
-          // 초점이 들어왔을 때만 aria-hidden="false"로 변경
-          slide.addEventListener('focusin', function() {
-            this.setAttribute('aria-hidden', 'false');
-          });
-          
-          // 초점이 나갔을 때 다시 aria-hidden="true"로 변경
-          slide.addEventListener('focusout', function() {
-            if (!this.classList.contains('swiper-slide-active')) {
-              this.setAttribute('aria-hidden', 'true');
-            }
-          });
-        }
-      });
-      
       // 모든 swiper-notification 요소의 aria-live 속성을 "off"로 설정
       const notifications = document.querySelectorAll('.swiper-notification');
       notifications.forEach(notification => {
         notification.setAttribute('aria-live', 'off');
-        notification.setAttribute('aria-atomic', 'false');
+      });
+      
+      // 모든 swiper-wrapper 요소의 aria-live 속성을 "off"로 설정
+      const wrappers = document.querySelectorAll('.swiper-wrapper');
+      wrappers.forEach(wrapper => {
+        wrapper.setAttribute('aria-live', 'off');
       });
     });
 				
@@ -279,7 +243,7 @@
 						init: function() {
 							const slides = this.slides;
 							slides[0].classList.add('active');
-							slides[0].querySelector('button').setAttribute('title', '�좏깮��');
+							slides[0].querySelector('button').setAttribute('title', '선택됨');
 							slides.forEach(slide => {
 								slide.addEventListener('click', function(e) {
 									swiperTabCont.slideTo(e.target.dataset.moveSwiper, 500);
@@ -315,7 +279,7 @@
 								slide.querySelector('button').removeAttribute('title');
 							});
 							swiperTab.slides[realIndex].classList.add('active');
-							swiperTab.slides[realIndex].querySelector('button').setAttribute('title', '�좏깮��');
+							swiperTab.slides[realIndex].querySelector('button').setAttribute('title', '선택됨');
 
 							this.slides.forEach(slide => {
 								slide.setAttribute('aria-hidden', true);
