@@ -213,7 +213,56 @@
 				const swiperTab = new Swiper('[data-swiper="ship-benefit-swiper"]', {
 					spaceBetween: 8,
 					slidesPerView: 'auto',
+
+          // 추가 영역 시작★
 					on: {
+            init: function() {
+            // 초기에 모든 슬라이드를 숨김 처리
+            this.slides.forEach((slide, index) => {
+                if (index !== 0) {
+                    slide.setAttribute('aria-hidden', 'true');
+                } else {
+                    slide.setAttribute('aria-hidden', 'false');
+                }
+            });
+          },
+
+          activeIndexChange: function() {
+            const realIndex = swiperTabCont.realIndex;
+            
+            // 탭 활성화 상태 업데이트
+            swiperTab.slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                slide.querySelector('button').removeAttribute('title');
+                
+                // 현재 활성화된 탭만 선택됨 상태로 표시
+                if (index === realIndex) {
+                    slide.classList.add('active');
+                    slide.querySelector('button').setAttribute('title', '선택됨');
+                }
+            });
+
+            // 슬라이드 접근성 속성 업데이트 - 중요: 여기서 변경이 필요함
+            this.slides.forEach((slide, index) => {
+                if (index === realIndex) {
+                    // 활성 슬라이드에만 접근 가능하도록 설정
+                    slide.setAttribute('aria-hidden', 'false');
+                } else {
+                    slide.setAttribute('aria-hidden', 'true');
+                }
+            });
+
+            // 탭 스크롤 위치 조정
+            if (realIndex > 0 && realIndex < (this.slides.length - 1)) {
+                swiperTab.slideTo(realIndex - 1, 500);
+            } else {
+                swiperTab.slideTo(realIndex, 500);
+            }
+        }, 
+        // 추가 영역 끝★
+
+
+
 						init: function() {
 							const slides = this.slides;
 							slides[0].classList.add('active');
@@ -275,6 +324,10 @@
         //     autoMode1060.createSwiper(autoMode1060.swiper, false);
         //   }
         // }
+
+
+
+        
   </script>
 
   </html>
