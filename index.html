@@ -264,15 +264,7 @@
 				const swiperTabCont = new Swiper('[data-swiper="ship-benefit-content-swiper"]', {
 					slidesPerView: 'auto',
 					centeredSlides: true,
-					a11y: {
-						enabled: true,
-						lastSlideMessage: '마지막 슬라이드',
-						firstSlideMessage: '첫번째 슬라이드',
-						prevSlideMessage: '이전 슬라이드',
-						nextSlideMessage: '다음 슬라이드',
-						notificationClass: 'swiper-notification',
-						containerMessage: '멤버십 제휴사 할인 혜택 슬라이더',
-					},
+					a11y: false,
 					on: {
 						init: function() {
 							// 초기 접근성 설정
@@ -280,9 +272,13 @@
 								if (index === 0) {
 									slide.removeAttribute('aria-hidden');
 									slide.setAttribute('aria-current', 'true');
+									// 첫 번째 슬라이드의 내용만 읽을 수 있도록 설정
+									slide.setAttribute('aria-live', 'polite');
+									slide.setAttribute('role', 'region');
 								} else {
 									slide.setAttribute('aria-hidden', 'true');
 									slide.removeAttribute('aria-current');
+									slide.removeAttribute('aria-live');
 								}
 							});
 						},
@@ -302,9 +298,13 @@
 								if (index === this.activeIndex) {
 									slide.removeAttribute('aria-hidden');
 									slide.setAttribute('aria-current', 'true');
+									// 현재 활성화된 슬라이드만 읽을 수 있도록 설정
+									slide.setAttribute('aria-live', 'polite');
+									slide.setAttribute('role', 'region');
 								} else {
 									slide.setAttribute('aria-hidden', 'true');
 									slide.removeAttribute('aria-current');
+									slide.removeAttribute('aria-live');
 								}
 							});
 
@@ -414,27 +414,15 @@
                         }
                     });
                     
-                    // 스크린리더 알림 업데이트
-                    const currentSlide = this.slides[this.activeIndex];
-                    const link = currentSlide.querySelector('a');
-                    if (link) {
-                        this.el.querySelector('.swiper-notification').textContent = 
-                            `현재 슬라이드: ${link.getAttribute('aria-label')}`;
-                    }
-                },
-                
-                // 터치 이벤트 발생 시 자동재생 일시정지
-                touchStart: function() {
-                    if (this.autoplay.running) {
-                        this.autoplay.stop();
-                    }
-                },
-                
-                // 터치 이벤트 종료 시 자동재생 재개
-                touchEnd: function() {
-                    if (document.querySelector('.auto-button.start').classList.contains('active')) {
-                        this.autoplay.start();
-                    }
+                    // 스크린리더 알림 업데이트 - 딜레이 추가
+                    setTimeout(() => {
+                        const currentSlide = this.slides[this.activeIndex];
+                        const link = currentSlide.querySelector('a');
+                        if (link) {
+                            this.el.querySelector('.swiper-notification').textContent = 
+                                `현재 슬라이드: ${link.getAttribute('aria-label')}`;
+                        }
+                    }, 100); // 100ms 딜레이 추가
                 }
             }
         });
