@@ -404,7 +404,7 @@
                             // 복제 슬라이드는 스크린리더에서 완전히 제외
                             slide.setAttribute('aria-hidden', 'true');
                             slide.setAttribute('tabindex', '-1');
-                            slide.style.visibility = 'hidden'; // 시각적으로는 보이지만 스크린리더에서는 완전히 무시
+                            slide.style.visibility = 'hidden';
                             const link = slide.querySelector('a');
                             if (link) {
                                 link.setAttribute('tabindex', '-1');
@@ -424,12 +424,12 @@
                         notification.remove();
                     }
 
-                    // 새로운 알림 영역 생성 (현재 슬라이드 번호만 읽도록)
-                    const newNotification = document.createElement('div');
-                    newNotification.className = 'swiper-notification';
-                    newNotification.setAttribute('aria-live', 'polite');
-                    newNotification.setAttribute('aria-atomic', 'true');
-                    this.el.appendChild(newNotification);
+                    // 페이지네이션 알림 영역 설정
+                    const paginationEl = this.el.querySelector('.swiper-navigation-auto .count');
+                    if (paginationEl) {
+                        paginationEl.setAttribute('aria-live', 'off');
+                        paginationEl.setAttribute('aria-atomic', 'true');
+                    }
                 },
                 
                 slideChange: function() {
@@ -458,11 +458,12 @@
                         }
                     });
 
-                    // 페이지네이션 업데이트
-                    const current = (realIndex % 4) + 1;
+                    // 페이지네이션 업데이트 (사용자 상호작용 시에만 알림)
                     const paginationEl = this.el.querySelector('.swiper-navigation-auto .count');
                     if (paginationEl) {
+                        const current = (realIndex % 4) + 1;
                         paginationEl.setAttribute('aria-label', `전체 4개 중 ${current}번째 슬라이드`);
+                        paginationEl.setAttribute('aria-live', 'off');
                     }
                 },
 
