@@ -278,6 +278,12 @@
 									slide.removeAttribute('aria-current');
 								}
 							});
+
+              // 알림 영역 비활성화
+              const notification = this.el.querySelector('.swiper-notification');
+              if (notification) {
+                notification.remove(); // 알림 영역 제거
+              }
 						},
 						activeIndexChange: function() {
 							const realIndex = swiperTabCont.realIndex;
@@ -318,7 +324,9 @@
             spaceBetween: 30,
             loop: true,
             watchSlidesProgress: true,
-            loopedSlides: 4, // 실제 슬라이드 개수
+            loopedSlides: 4,
+            allowTouchMove: true,
+            preventInteractionOnTransition: true,
             
             // 자동 재생 설정
             autoplay: {
@@ -344,26 +352,28 @@
                 el: '.swiper-navigation-auto .count',
                 type: 'fraction',
                 formatFractionCurrent: function(number) {
-                    return ((number - 1) % 4) + 1; // 실제 슬라이드 인덱스로 변환
+                    return ((number - 1) % 4) + 1;
                 },
                 formatFractionTotal: function(number) {
-                    return 4; // 실제 슬라이드 개수
+                    return 4;
+                },
+                renderFraction: function(currentClass, totalClass) {
+                    return '<span class="' + currentClass + '"></span>' +
+                           ' / ' +
+                           '<span class="' + totalClass + '"></span>';
                 }
             },
 
             // 접근성 설정
-            a11y: {
-                enabled: true,
-                lastSlideMessage: '',
-                firstSlideMessage: '',
-                prevSlideMessage: '',
-                nextSlideMessage: '',
-                paginationBulletMessage: '',
-                notificationClass: 'swiper-notification'
-            },
+            a11y: false, // 기본 접근성 기능 비활성화
             
             // 접근성 관련 이벤트 핸들러
             on: {
+                beforeInit: function() {
+                    // 복제 슬라이드 처리를 위한 준비
+                    this.originalSlides = Array.from(this.el.querySelectorAll('.swiper-slide')).slice(0, 4);
+                },
+                
                 init: function() {
                     // 자동재생 컨트롤
                     const startBtn = document.querySelector('.auto-button.start');
@@ -389,62 +399,80 @@
 
                     // 접근성 속성 설정
                     this.slides.forEach((slide, index) => {
-                        // 복제된 슬라이드 처리
                         const isClone = slide.classList.contains('swiper-slide-duplicate');
                         if (isClone) {
+                            // 복제 슬라이드는 스크린리더에서 완전히 제외
                             slide.setAttribute('aria-hidden', 'true');
                             slide.setAttribute('tabindex', '-1');
+                            slide.style.visibility = 'hidden'; // 시각적으로는 보이지만 스크린리더에서는 완전히 무시
                             const link = slide.querySelector('a');
                             if (link) {
                                 link.setAttribute('tabindex', '-1');
                                 link.setAttribute('aria-hidden', 'true');
                             }
                         } else {
+                            // 실제 슬라이드 처리
+                            const realIndex = ((index - this.loopedSlides) % 4 + 4) % 4;
                             slide.setAttribute('role', 'listitem');
-                            const realIndex = ((index - this.loopedSlides) % 4 + 4) % 4; // 실제 인덱스 계산
                             slide.setAttribute('aria-label', `${realIndex + 1}번 슬라이드`);
                         }
                     });
 
-                    // 알림 영역 초기화
+                    // 알림 영역 제거
                     const notification = this.el.querySelector('.swiper-notification');
                     if (notification) {
-                        notification.setAttribute('aria-live', 'off');
+                        notification.remove();
                     }
+
+                    // 새로운 알림 영역 생성 (현재 슬라이드 번호만 읽도록)
+                    const newNotification = document.createElement('div');
+                    newNotification.className = 'swiper-notification';
+                    newNotification.setAttribute('aria-live', 'polite');
+                    newNotification.setAttribute('aria-atomic', 'true');
+                    this.el.appendChild(newNotification);
                 },
                 
                 slideChange: function() {
-                    // 현재 슬라이드 상태 업데이트
-                    const realIndex = this.realIndex; // 실제 활성 슬라이드 인덱스
+                    const realIndex = this.realIndex;
                     
+                    // 실제 슬라이드만 처리
                     this.slides.forEach((slide, index) => {
                         const isClone = slide.classList.contains('swiper-slide-duplicate');
-                        
-                        if (isClone) {
-                            // 복제 슬라이드는 항상 숨김 처리
-                            slide.setAttribute('aria-hidden', 'true');
-                            slide.setAttribute('tabindex', '-1');
-                        } else {
-                            // 실제 슬라이드만 처리
+                        if (!isClone) {
                             const slideRealIndex = ((index - this.loopedSlides) % 4 + 4) % 4;
                             if (slideRealIndex === realIndex) {
                                 slide.removeAttribute('aria-hidden');
                                 slide.setAttribute('aria-current', 'true');
-                                slide.removeAttribute('tabindex');
+                                const link = slide.querySelector('a');
+                                if (link) {
+                                    link.removeAttribute('tabindex');
+                                }
                             } else {
                                 slide.setAttribute('aria-hidden', 'true');
                                 slide.removeAttribute('aria-current');
-                                slide.setAttribute('tabindex', '-1');
+                                const link = slide.querySelector('a');
+                                if (link) {
+                                    link.setAttribute('tabindex', '-1');
+                                }
                             }
                         }
                     });
 
-                    // 페이지네이션 업데이트 - 실제 슬라이드 번호 사용
+                    // 페이지네이션 업데이트
                     const current = (realIndex % 4) + 1;
-                    const total = 4; // 실제 슬라이드 개수
                     const paginationEl = this.el.querySelector('.swiper-navigation-auto .count');
                     if (paginationEl) {
-                        paginationEl.setAttribute('aria-label', `전체 ${total}개 중 ${current}번째 슬라이드`);
+                        paginationEl.setAttribute('aria-label', `전체 4개 중 ${current}번째 슬라이드`);
+                    }
+                },
+
+                // 슬라이드 전환 완료 후 처리
+                transitionEnd: function() {
+                    // 복제 슬라이드에서 실제 슬라이드로 이동했을 때 처리
+                    const activeSlide = this.slides[this.activeIndex];
+                    if (activeSlide.classList.contains('swiper-slide-duplicate')) {
+                        const realIndex = parseInt(activeSlide.getAttribute('data-swiper-slide-index'));
+                        this.slideTo(realIndex + this.loopedSlides, 0);
                     }
                 }
             }
