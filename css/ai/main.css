@@ -416,6 +416,16 @@ br {
     /* z-index는 개별적으로 지정 */
 }
 
+/* 깜빡임 방지 */
+.parallax-images img {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    image-rendering: auto;
+}
+
 /* 각 이미지의 위치 (Tailwind의 top, left, right, bottom 변환) */
 .image-obj-0 {
     width: 20.125rem;
