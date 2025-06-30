@@ -241,18 +241,25 @@ function initParallaxSectionAnimation() {
     const images = section.querySelectorAll('.parallax-images img');
     const container = section.querySelector('.parallax-container');
 
+    // iOS 깜빡임 방지: will-change, backface-visibility, translateZ 적용
+    images.forEach(img => {
+        img.style.willChange = 'transform, opacity';
+        img.style.backfaceVisibility = 'hidden';
+        img.style.transform = 'translateZ(0)';
+    });
+
     ScrollTrigger.matchMedia({
         '(max-width: 768px)': function () {
             gsap.set(images[3], { scaleX: -1 });
         },
     });
+
     // 컨테이너 고정 애니메이션
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: section,
             start: 'top top',
             end: 'bottom bottom',
-            // scrub: 1,
             pin: true,
             pinSpacing: false,
         },
@@ -260,9 +267,7 @@ function initParallaxSectionAnimation() {
 
     gsap.fromTo(
         '.parallax-titles, .parallax-description',
-        {
-            opacity: 0,
-        },
+        { opacity: 0 },
         {
             opacity: 1,
             duration: 1,
@@ -276,20 +281,24 @@ function initParallaxSectionAnimation() {
         },
     );
 
-    // 각 이미지별 패럴렉스 애니메이션
+    // 각 이미지별 패럴렉스 애니메이션 (3D transform, force3D)
     images.forEach((img, index) => {
-        // 이미지별로 다른 속도 적용
         const speeds = [1, 1, 1, 1, 1];
         const speed = speeds[index] || 1;
 
         tl.fromTo(
             img,
+            { y: '0' },
             {
-                y: '0', // 시작 위치 (화면 하단)
-            },
-            {
-                y: `-${200 * speed}vh`, // 속도에 따른 최종 위치 조정
+                y: `-${200 * speed}vh`,
                 ease: 'none',
+                force3D: true, // GPU 가속
+                onUpdate: () => {
+                    // iOS에서 강제 리페인트: opacity 토글 트릭(필요시)
+                    // img.style.opacity = 0.99;
+                    // img.offsetHeight; // 강제 리플로우
+                    // img.style.opacity = 1;
+                },
                 scrollTrigger: {
                     trigger: section,
                     start: 'top top',
@@ -301,15 +310,14 @@ function initParallaxSectionAnimation() {
         );
     });
 
+    // 나머지 fade-in 애니메이션도 force3D 적용
     gsap.fromTo(
         images[1],
-        {
-            opacity: 0,
-            xPercent: -20,
-        },
+        { opacity: 0, xPercent: -20 },
         {
             opacity: 1,
             xPercent: 0,
+            force3D: true,
             ease: 'none',
             scrollTrigger: {
                 trigger: section,
@@ -321,13 +329,11 @@ function initParallaxSectionAnimation() {
     );
     gsap.fromTo(
         images[4],
-        {
-            opacity: 0,
-            xPercent: 20,
-        },
+        { opacity: 0, xPercent: 20 },
         {
             opacity: 1,
             xPercent: 0,
+            force3D: true,
             ease: 'none',
             scrollTrigger: {
                 trigger: section,
@@ -337,8 +343,6 @@ function initParallaxSectionAnimation() {
             },
         },
     );
-
-    // return tl;
 }
 
 // 큐브 이미지 경로
