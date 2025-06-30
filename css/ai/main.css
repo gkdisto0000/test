@@ -409,30 +409,11 @@ br {
     z-index: -1;
 }
 
-
-/* 깜빡임 방지 */
-
 .parallax-images img {
     position: absolute;
     object-fit: cover;
     border-radius: 0.75rem;
     /* z-index는 개별적으로 지정 */
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translate3d(0,0,0) scale3d(1,1,1);
-    -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
-    image-rendering: auto;
-}
-
-/* 깜빡임 방지 */
-.parallax-images img {
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    image-rendering: auto;
 }
 
 /* 각 이미지의 위치 (Tailwind의 top, left, right, bottom 변환) */
@@ -1937,6 +1918,25 @@ br {
         font-weight: 800;
         letter-spacing: var(--letter-spacing-md);
     }
+
+    /* 개선1 */
+
+    .parallax-section {
+        transform: translateZ(0);
+        will-change: transform;
+    }
+
+    .parallax-section .parallax-images img {
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        image-rendering: auto;
+    }
+
+
+    /* 개선1 */
 
     .parallax-section .parallax-images img:nth-child(1) {
         width: 15.8rem;

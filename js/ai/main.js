@@ -240,28 +240,32 @@ function initParallaxSectionAnimation() {
     const section = document.querySelector('.parallax-section');
     if (!section || !window.gsap || !window.ScrollTrigger) return;
 
+    // 이미지 요소들 선택
     const images = section.querySelectorAll('.parallax-images img');
-    const titles = section.querySelector('.parallax-titles');
-    const description = section.querySelector('.parallax-description');
+    const container = section.querySelector('.parallax-container');
 
-    // iOS 성능 대응 GPU 가속 적용
-    gsap.set(images, {
-        willChange: 'transform, opacity',
-        transform: 'translateZ(0)',
-        force3D: true
-    });
-
-    // 모바일 반전 이미지
     ScrollTrigger.matchMedia({
         '(max-width: 768px)': function () {
             gsap.set(images[3], { scaleX: -1 });
-        }
+        },
+    });
+    // 컨테이너 고정 애니메이션
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: 'bottom bottom',
+            // scrub: 1,
+            pin: true,
+            pinSpacing: false,
+        },
     });
 
-    // 타이틀/설명 페이드인
     gsap.fromTo(
-        [titles, description],
-        { opacity: 0 },
+        '.parallax-titles, .parallax-description',
+        {
+            opacity: 0,
+        },
         {
             opacity: 1,
             duration: 1,
@@ -270,34 +274,74 @@ function initParallaxSectionAnimation() {
                 trigger: section,
                 start: 'top center',
                 end: 'center center',
-                scrub: 1
-            }
-        }
+                scrub: 1,
+            },
+        },
     );
 
-    // 메인 패럴렉스 타임라인 (ScrollTrigger는 하나만)
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: '+=150%', // 스크롤 길이 줄여 공백 줄임
-            scrub: 1,
-            pin: true,
-            pinSpacing: true, // false 시 다음 섹션 margin-top 필요
-            anticipatePin: 1,
-            invalidateOnRefresh: true
-        }
+    // 각 이미지별 패럴렉스 애니메이션
+    images.forEach((img, index) => {
+        // 이미지별로 다른 속도 적용
+        const speeds = [1, 1, 1, 1, 1];
+        const speed = speeds[index] || 1;
+
+        tl.fromTo(
+            img,
+            {
+                y: '0', // 시작 위치 (화면 하단)
+            },
+            {
+                y: `-${200 * speed}vh`, // 속도에 따른 최종 위치 조정
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    toggleActions: 'play none none reverse',
+                },
+            },
+        );
     });
 
-    // 이미지별 패럴렉스 이동 적용 (속도 다양화)
-    const speeds = [0.3, 0.5, 0.7, 0.9, 1.1];
-    images.forEach((img, index) => {
-        const speed = speeds[index] ?? 1;
-        tl.to(img, {
-            y: `-${speed * 80}vh`, // 과한 이동 방지
-            ease: 'none'
-        }, 0); // 모두 동시에 시작
-    });
+    gsap.fromTo(
+        images[1],
+        {
+            // opacity: 0,
+            // xPercent: -20,
+        },
+        {
+            opacity: 1,
+            xPercent: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'top center',
+                scrub: 1,
+            },
+        },
+    );
+    gsap.fromTo(
+        images[4],
+        {
+            // opacity: 0,
+            // xPercent: 20,
+        },
+        {
+            opacity: 1,
+            xPercent: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top center',
+                end: 'top top',
+                scrub: 1,
+            },
+        },
+    );
+
+    // return tl;
 }
 
 // 큐브 이미지 경로
@@ -860,14 +904,30 @@ function initUsecaseSectionAnimation() {
         track.appendChild(clone);
     });
 
-    // 마우스 호버 시 애니메이션 정지
+    // 마우스/터치 호버 시 애니메이션 정지 (모바일 대응)
     const wrapper = document.querySelector('.custom-slider');
-
     wrapper.addEventListener('mouseenter', () => {
         track.style.animationPlayState = 'paused';
     });
-
     wrapper.addEventListener('mouseleave', () => {
+        track.style.animationPlayState = 'running';
+    });
+    wrapper.addEventListener('touchstart', () => {
+        track.style.animationPlayState = 'paused';
+    });
+    wrapper.addEventListener('touchend', () => {
+        track.style.animationPlayState = 'running';
+    });
+    // iOS 등에서 애니메이션 멈춤 복구
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            track.style.animationPlayState = 'running';
+        }
+    });
+    window.addEventListener('orientationchange', () => {
+        track.style.animationPlayState = 'running';
+    });
+    window.addEventListener('resize', () => {
         track.style.animationPlayState = 'running';
     });
 }
