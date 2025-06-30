@@ -241,25 +241,18 @@ function initParallaxSectionAnimation() {
     const images = section.querySelectorAll('.parallax-images img');
     const container = section.querySelector('.parallax-container');
 
-    // iOS 깜빡임 방지: will-change, backface-visibility, translateZ 적용
-    images.forEach(img => {
-        img.style.willChange = 'transform, opacity';
-        img.style.backfaceVisibility = 'hidden';
-        img.style.transform = 'translateZ(0)';
-    });
-
     ScrollTrigger.matchMedia({
         '(max-width: 768px)': function () {
             gsap.set(images[3], { scaleX: -1 });
         },
     });
-
     // 컨테이너 고정 애니메이션
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: section,
             start: 'top top',
             end: 'bottom bottom',
+            // scrub: 1,
             pin: true,
             pinSpacing: false,
         },
@@ -267,7 +260,9 @@ function initParallaxSectionAnimation() {
 
     gsap.fromTo(
         '.parallax-titles, .parallax-description',
-        { opacity: 0 },
+        {
+            opacity: 0,
+        },
         {
             opacity: 1,
             duration: 1,
@@ -276,46 +271,45 @@ function initParallaxSectionAnimation() {
                 trigger: section,
                 start: 'top center',
                 end: 'center center',
-                scrub: true,
+                scrub: 1,
             },
         },
     );
 
-    // 각 이미지별 패럴렉스 애니메이션 (3D transform, force3D)
+    // 각 이미지별 패럴렉스 애니메이션
     images.forEach((img, index) => {
+        // 이미지별로 다른 속도 적용
         const speeds = [1, 1, 1, 1, 1];
         const speed = speeds[index] || 1;
+
         tl.fromTo(
             img,
-            { y: '0' },
             {
-                y: `-${200 * speed}vh`,
+                y: '0', // 시작 위치 (화면 하단)
+            },
+            {
+                y: `-${200 * speed}vh`, // 속도에 따른 최종 위치 조정
                 ease: 'none',
-                force3D: true, // GPU 가속
-                onUpdate: () => {
-                    if (/(iPad|iPhone|iPod)/.test(navigator.userAgent) && !window.MSStream) {
-                        forceRepaint(img);
-                    }
-                },
                 scrollTrigger: {
                     trigger: section,
                     start: 'top top',
                     end: 'bottom bottom',
-                    scrub: true,
+                    scrub: 1,
                     toggleActions: 'play none none reverse',
                 },
             },
         );
     });
 
-    // 나머지 fade-in 애니메이션도 force3D 적용
     gsap.fromTo(
         images[1],
-        { opacity: 0, xPercent: -20 },
+        {
+            // opacity: 0,
+            // xPercent: -20,
+        },
         {
             opacity: 1,
             xPercent: 0,
-            force3D: true,
             ease: 'none',
             scrollTrigger: {
                 trigger: section,
@@ -327,11 +321,13 @@ function initParallaxSectionAnimation() {
     );
     gsap.fromTo(
         images[4],
-        { opacity: 0, xPercent: 20 },
+        {
+            // opacity: 0,
+            // xPercent: 20,
+        },
         {
             opacity: 1,
             xPercent: 0,
-            force3D: true,
             ease: 'none',
             scrollTrigger: {
                 trigger: section,
@@ -341,6 +337,8 @@ function initParallaxSectionAnimation() {
             },
         },
     );
+
+    // return tl;
 }
 
 // 큐브 이미지 경로
@@ -421,6 +419,13 @@ function initParallaxDepthSectionAnimation() {
 
     window.addEventListener('scroll', trackScrollState, { passive: true });
 
+    // 리사이즈, 오리엔테이션, visibilitychange 시 ScrollTrigger 강제 새로고침
+    window.addEventListener('orientationchange', () => ScrollTrigger.refresh());
+    window.addEventListener('resize', () => ScrollTrigger.refresh());
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') ScrollTrigger.refresh();
+    });
+
     ScrollTrigger.matchMedia({
         '(min-width: 769px)': function () {
             let tlComplete = false;
@@ -483,10 +488,11 @@ function initParallaxDepthSectionAnimation() {
             ScrollTrigger.create({
                 trigger: '.component-content',
                 start: 'top top',
-                end: '+=8000', // 충분한 스크롤 공간 확보
+                end: '+=8000',
                 pin: true,
                 pinSpacing: true,
                 id: 'depth-pin',
+                pinType: 'fixed',
                 onEnter: () => {
                     disableScroll();
                     const checkComplete = () => {
@@ -610,7 +616,6 @@ function initParallaxDepthSectionAnimation() {
                     },
                 },
             });
-
             tl2.fromTo('.list-wrap ul', { opacity: 1 }, { opacity: 0, duration: 0.5 })
                 .fromTo(
                     '.cube-wrapper',
@@ -644,7 +649,7 @@ function initParallaxDepthSectionAnimation() {
                 );
         },
         '(max-width: 768px)': function () {
-            // Swiper 인스턴스 생성 (모바일 메뉴용)
+            // 모바일: Swiper만 사용, pin/pinSpacing 관련 ScrollTrigger 코드는 실행하지 않음
             var pdsSwiper = null;
             var section = document.querySelector('.parallax-depth-section .component-content');
             if (!section || !window.Swiper) return;
@@ -683,6 +688,8 @@ function initParallaxDepthSectionAnimation() {
                 trigger: section,
                 start: 'top center',
                 end: 'bottom center',
+                pin: false, // 모바일에서는 pin 사용하지 않음
+                pinSpacing: false,
                 onEnter: function () {
                     if (pdsSwiper) {
                         pdsSwiper.slideTo(0, 0);
@@ -708,16 +715,6 @@ function initParallaxDepthSectionAnimation() {
                 },
             });
         },
-    });
-
-    // 리사이즈 시 WheelNavigation만 재생성
-    window.addEventListener('resize', () => {
-        ScrollTrigger.refresh();
-        // if (wheelNavInstance) {
-        //     console.log(wheelNavInstance);
-        //     wheelNavInstance.destroy();
-        //     wheelNavInstance = null;
-        // }
     });
 
     // cleanup function
@@ -950,11 +947,4 @@ window.addEventListener('load', function () {
 // Ensure GSAP ScrollToPlugin is registered
 if (window.gsap && window.ScrollToPlugin) {
     gsap.registerPlugin(ScrollToPlugin);
-}
-
-function forceRepaint(el) {
-    el.style.display = 'none';
-    // 강제 리플로우
-    void el.offsetHeight;
-    el.style.display = '';
 }
