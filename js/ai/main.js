@@ -904,6 +904,13 @@ function initUsecaseSectionAnimation() {
         track.appendChild(clone);
     });
 
+    // 강제 repaint 함수
+    function forceRepaint(el) {
+        el.style.display = 'none';
+        void el.offsetHeight;
+        el.style.display = '';
+    }
+
     // 마우스/터치 호버 시 애니메이션 정지 (모바일 대응)
     const wrapper = document.querySelector('.custom-slider');
     wrapper.addEventListener('mouseenter', () => {
@@ -911,25 +918,42 @@ function initUsecaseSectionAnimation() {
     });
     wrapper.addEventListener('mouseleave', () => {
         track.style.animationPlayState = 'running';
+        forceRepaint(track);
     });
     wrapper.addEventListener('touchstart', () => {
         track.style.animationPlayState = 'paused';
     });
     wrapper.addEventListener('touchend', () => {
         track.style.animationPlayState = 'running';
+        forceRepaint(track);
     });
-    // iOS 등에서 애니메이션 멈춤 복구
+    // iOS 등에서 애니메이션 멈춤 복구 + 강제 repaint
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
             track.style.animationPlayState = 'running';
+            forceRepaint(track);
         }
     });
     window.addEventListener('orientationchange', () => {
         track.style.animationPlayState = 'running';
+        forceRepaint(track);
     });
     window.addEventListener('resize', () => {
         track.style.animationPlayState = 'running';
+        forceRepaint(track);
     });
+    // IntersectionObserver로 트랙이 다시 보일 때 복구
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    track.style.animationPlayState = 'running';
+                    forceRepaint(track);
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(track);
+    }
 }
 
 function initMobileMenu() {
