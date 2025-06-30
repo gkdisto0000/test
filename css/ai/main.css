@@ -1920,12 +1920,6 @@ br {
     }
 
     /* 개선1 */
-
-    .parallax-section {
-        transform: translateZ(0);
-        will-change: transform;
-    }
-
     .parallax-section .parallax-images img {
         will-change: transform, opacity;
         backface-visibility: hidden;
@@ -1934,9 +1928,6 @@ br {
         -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
         image-rendering: auto;
     }
-
-
-    /* 개선1 */
 
     .parallax-section .parallax-images img:nth-child(1) {
         width: 15.8rem;

@@ -233,9 +233,6 @@ function initIntroSectionAnimation() {
     });
 }
 
-
-
-
 function initParallaxSectionAnimation() {
     const section = document.querySelector('.parallax-section');
     if (!section || !window.gsap || !window.ScrollTrigger) return;
@@ -372,21 +369,52 @@ const imagePaths = [
     },
 ];
 
+// iOS 디바이스 감지 함수 개선
+function isIOSDevice() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
+function isIOSChrome() {
+    return isIOSDevice() && navigator.userAgent.includes('CriOS');
+}
+
 function disableScroll() {
-    document.addEventListener('wheel', preventDefault, { passive: false });
-    document.addEventListener('touchmove', preventDefault, { passive: false });
-    document.addEventListener('keydown', preventDefaultForScrollKeys, { passive: false });
-    // 추가 이벤트들
-    document.addEventListener('scroll', preventDefault, { passive: false });
-    document.addEventListener('DOMMouseScroll', preventDefault, { passive: false }); // Firefox
+    const isIOS = isIOSDevice();
+    
+    if (isIOS) {
+        // iOS용 스크롤 제어 - body를 고정하여 스크롤 방지
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.height = '100%';
+    } else {
+        // 데스크톱 및 안드로이드용 이벤트 기반 제어
+        document.addEventListener('wheel', preventDefault, { passive: false });
+        document.addEventListener('touchmove', preventDefault, { passive: false });
+        document.addEventListener('keydown', preventDefaultForScrollKeys, { passive: false });
+        document.addEventListener('scroll', preventDefault, { passive: false });
+        document.addEventListener('DOMMouseScroll', preventDefault, { passive: false }); // Firefox
+    }
 }
 
 function enableScroll() {
-    document.removeEventListener('wheel', preventDefault);
-    document.removeEventListener('touchmove', preventDefault);
-    document.removeEventListener('keydown', preventDefaultForScrollKeys);
-    document.removeEventListener('scroll', preventDefault);
-    document.removeEventListener('DOMMouseScroll', preventDefault);
+    const isIOS = isIOSDevice();
+    
+    if (isIOS) {
+        // iOS용 스크롤 복원
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+    } else {
+        // 데스크톱 및 안드로이드용 이벤트 리스너 제거
+        document.removeEventListener('wheel', preventDefault);
+        document.removeEventListener('touchmove', preventDefault);
+        document.removeEventListener('keydown', preventDefaultForScrollKeys);
+        document.removeEventListener('scroll', preventDefault);
+        document.removeEventListener('DOMMouseScroll', preventDefault);
+    }
 }
 
 function preventDefault(e) {
@@ -778,27 +806,60 @@ class WheelNavigation {
             initialCubeImg.src = imagePaths[this.currentIndex].active;
         }
 
-        window.addEventListener('wheel', this.boundHandleWheel, { passive: false });
+        // iOS 디바이스 감지 및 이벤트 리스너 등록
+        const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        
+        if (isIOSDevice) {
+            // iOS에서는 터치 이벤트 사용
+            let touchStartY = 0;
+            let touchEndY = 0;
+            
+            this.boundHandleTouchStart = (e) => {
+                touchStartY = e.touches[0].clientY;
+            };
+            
+            this.boundHandleTouchEnd = (e) => {
+                touchEndY = e.changedTouches[0].clientY;
+                const deltaY = touchStartY - touchEndY;
+                
+                if (Math.abs(deltaY) > 30) { // 최소 스와이프 거리
+                    const direction = deltaY > 0 ? 1 : -1;
+                    this.handleNavigation(direction);
+                }
+            };
+            
+            window.addEventListener('touchstart', this.boundHandleTouchStart, { passive: true });
+            window.addEventListener('touchend', this.boundHandleTouchEnd, { passive: true });
+        } else {
+            // 데스크톱에서는 휘 이벤트 사용
+            window.addEventListener('wheel', this.boundHandleWheel, { passive: false });
+        }
     }
 
     destroy() {
-        window.removeEventListener('wheel', this.boundHandleWheel, { passive: false });
+        const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        
+        if (isIOSDevice) {
+            window.removeEventListener('touchstart', this.boundHandleTouchStart);
+            window.removeEventListener('touchend', this.boundHandleTouchEnd);
+        } else {
+            window.removeEventListener('wheel', this.boundHandleWheel);
+        }
     }
 
-    handleWheel(e) {
+    handleNavigation(direction) {
         const currentTime = Date.now();
         // 쿨다운 체크
         if (currentTime - this.lastScrollTime < this.scrollCooldown) {
-            e.preventDefault();
             return;
         }
         if (this.isAnimating) {
-            e.preventDefault();
             return;
         }
 
         this.lastScrollTime = currentTime;
-        const direction = e.deltaY > 0 ? 1 : -1;
 
         const st = ScrollTrigger.getById('depth-pin');
         const scrollY = window.scrollY || window.pageYOffset;
@@ -809,7 +870,6 @@ class WheelNavigation {
 
         if ((isExitingTop || isExitingBottom) && isInPinRange) {
             // pin 구간 내부일 때만 강제 이동
-            e.preventDefault();
             this.isAnimating = true;
             if (window.gsap && window.ScrollToPlugin) {
                 let targetY = isExitingTop ? st.start - 1 : st.end + 1;
@@ -835,14 +895,19 @@ class WheelNavigation {
             return;
         }
 
-        // 이하 원본 유지
-        e.preventDefault();
+        // 인덱스 변경 및 애니메이션
         const nextIndex = this.currentIndex + direction;
         if (nextIndex >= 0 && nextIndex < this.listItems.length) {
             setTimeout(() => {
                 this.animateTo(nextIndex);
             }, 50);
         }
+    }
+
+    handleWheel(e) {
+        e.preventDefault();
+        const direction = e.deltaY > 0 ? 1 : -1;
+        this.handleNavigation(direction);
     }
 
     animateTo(newIndex) {
@@ -904,56 +969,16 @@ function initUsecaseSectionAnimation() {
         track.appendChild(clone);
     });
 
-    // 강제 repaint 함수
-    function forceRepaint(el) {
-        el.style.display = 'none';
-        void el.offsetHeight;
-        el.style.display = '';
-    }
-
-    // 마우스/터치 호버 시 애니메이션 정지 (모바일 대응)
+    // 마우스 호버 시 애니메이션 정지
     const wrapper = document.querySelector('.custom-slider');
+
     wrapper.addEventListener('mouseenter', () => {
         track.style.animationPlayState = 'paused';
     });
+
     wrapper.addEventListener('mouseleave', () => {
         track.style.animationPlayState = 'running';
-        forceRepaint(track);
     });
-    wrapper.addEventListener('touchstart', () => {
-        track.style.animationPlayState = 'paused';
-    });
-    wrapper.addEventListener('touchend', () => {
-        track.style.animationPlayState = 'running';
-        forceRepaint(track);
-    });
-    // iOS 등에서 애니메이션 멈춤 복구 + 강제 repaint
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-            track.style.animationPlayState = 'running';
-            forceRepaint(track);
-        }
-    });
-    window.addEventListener('orientationchange', () => {
-        track.style.animationPlayState = 'running';
-        forceRepaint(track);
-    });
-    window.addEventListener('resize', () => {
-        track.style.animationPlayState = 'running';
-        forceRepaint(track);
-    });
-    // IntersectionObserver로 트랙이 다시 보일 때 복구
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    track.style.animationPlayState = 'running';
-                    forceRepaint(track);
-                }
-            });
-        }, { threshold: 0.1 });
-        observer.observe(track);
-    }
 }
 
 function initMobileMenu() {
