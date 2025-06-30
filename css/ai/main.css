@@ -409,11 +409,20 @@ br {
     z-index: -1;
 }
 
+
+/* 깜빡임 방지 */
+
 .parallax-images img {
     position: absolute;
     object-fit: cover;
     border-radius: 0.75rem;
     /* z-index는 개별적으로 지정 */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0,0,0) scale3d(1,1,1);
+    -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+    image-rendering: auto;
 }
 
 /* 깜빡임 방지 */

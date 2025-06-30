@@ -293,10 +293,8 @@ function initParallaxSectionAnimation() {
                 ease: 'none',
                 force3D: true, // GPU 가속
                 onUpdate: () => {
-                    // iOS에서 강제 리페인트 트릭 (깜빡임 방지)
                     if (/(iPad|iPhone|iPod)/.test(navigator.userAgent) && !window.MSStream) {
-                        img.style.opacity = '0.99';
-                        requestAnimationFrame(() => { img.style.opacity = '1'; });
+                        forceRepaint(img);
                     }
                 },
                 scrollTrigger: {
@@ -952,4 +950,11 @@ window.addEventListener('load', function () {
 // Ensure GSAP ScrollToPlugin is registered
 if (window.gsap && window.ScrollToPlugin) {
     gsap.registerPlugin(ScrollToPlugin);
+}
+
+function forceRepaint(el) {
+    el.style.display = 'none';
+    // 강제 리플로우
+    void el.offsetHeight;
+    el.style.display = '';
 }
