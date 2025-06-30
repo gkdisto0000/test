@@ -233,36 +233,35 @@ function initIntroSectionAnimation() {
     });
 }
 
+
+
+
 function initParallaxSectionAnimation() {
     const section = document.querySelector('.parallax-section');
     if (!section || !window.gsap || !window.ScrollTrigger) return;
 
-    // 이미지 요소들 선택
     const images = section.querySelectorAll('.parallax-images img');
-    const container = section.querySelector('.parallax-container');
+    const titles = section.querySelector('.parallax-titles');
+    const description = section.querySelector('.parallax-description');
 
+    // iOS 성능 대응 GPU 가속 적용
+    gsap.set(images, {
+        willChange: 'transform, opacity',
+        transform: 'translateZ(0)',
+        force3D: true
+    });
+
+    // 모바일 반전 이미지
     ScrollTrigger.matchMedia({
         '(max-width: 768px)': function () {
             gsap.set(images[3], { scaleX: -1 });
-        },
-    });
-    // 컨테이너 고정 애니메이션
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: 'bottom bottom',
-            // scrub: 1,
-            pin: true,
-            pinSpacing: false,
-        },
+        }
     });
 
+    // 타이틀/설명 페이드인
     gsap.fromTo(
-        '.parallax-titles, .parallax-description',
-        {
-            opacity: 0,
-        },
+        [titles, description],
+        { opacity: 0 },
         {
             opacity: 1,
             duration: 1,
@@ -271,74 +270,34 @@ function initParallaxSectionAnimation() {
                 trigger: section,
                 start: 'top center',
                 end: 'center center',
-                scrub: 1,
-            },
-        },
+                scrub: 1
+            }
+        }
     );
 
-    // 각 이미지별 패럴렉스 애니메이션
-    images.forEach((img, index) => {
-        // 이미지별로 다른 속도 적용
-        const speeds = [1, 1, 1, 1, 1];
-        const speed = speeds[index] || 1;
-
-        tl.fromTo(
-            img,
-            {
-                y: '0', // 시작 위치 (화면 하단)
-            },
-            {
-                y: `-${200 * speed}vh`, // 속도에 따른 최종 위치 조정
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: 1,
-                    toggleActions: 'play none none reverse',
-                },
-            },
-        );
+    // 메인 패럴렉스 타임라인 (ScrollTrigger는 하나만)
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: '+=150%', // 스크롤 길이 줄여 공백 줄임
+            scrub: 1,
+            pin: true,
+            pinSpacing: true, // false 시 다음 섹션 margin-top 필요
+            anticipatePin: 1,
+            invalidateOnRefresh: true
+        }
     });
 
-    gsap.fromTo(
-        images[1],
-        {
-            // opacity: 0,
-            // xPercent: -20,
-        },
-        {
-            opacity: 1,
-            xPercent: 0,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: section,
-                start: 'top bottom',
-                end: 'top center',
-                scrub: 1,
-            },
-        },
-    );
-    gsap.fromTo(
-        images[4],
-        {
-            // opacity: 0,
-            // xPercent: 20,
-        },
-        {
-            opacity: 1,
-            xPercent: 0,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: section,
-                start: 'top center',
-                end: 'top top',
-                scrub: 1,
-            },
-        },
-    );
-
-    // return tl;
+    // 이미지별 패럴렉스 이동 적용 (속도 다양화)
+    const speeds = [0.3, 0.5, 0.7, 0.9, 1.1];
+    images.forEach((img, index) => {
+        const speed = speeds[index] ?? 1;
+        tl.to(img, {
+            y: `-${speed * 80}vh`, // 과한 이동 방지
+            ease: 'none'
+        }, 0); // 모두 동시에 시작
+    });
 }
 
 // 큐브 이미지 경로
@@ -419,13 +378,6 @@ function initParallaxDepthSectionAnimation() {
 
     window.addEventListener('scroll', trackScrollState, { passive: true });
 
-    // 리사이즈, 오리엔테이션, visibilitychange 시 ScrollTrigger 강제 새로고침
-    window.addEventListener('orientationchange', () => ScrollTrigger.refresh());
-    window.addEventListener('resize', () => ScrollTrigger.refresh());
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') ScrollTrigger.refresh();
-    });
-
     ScrollTrigger.matchMedia({
         '(min-width: 769px)': function () {
             let tlComplete = false;
@@ -488,11 +440,10 @@ function initParallaxDepthSectionAnimation() {
             ScrollTrigger.create({
                 trigger: '.component-content',
                 start: 'top top',
-                end: '+=8000',
+                end: '+=8000', // 충분한 스크롤 공간 확보
                 pin: true,
                 pinSpacing: true,
                 id: 'depth-pin',
-                pinType: 'fixed',
                 onEnter: () => {
                     disableScroll();
                     const checkComplete = () => {
@@ -616,6 +567,7 @@ function initParallaxDepthSectionAnimation() {
                     },
                 },
             });
+
             tl2.fromTo('.list-wrap ul', { opacity: 1 }, { opacity: 0, duration: 0.5 })
                 .fromTo(
                     '.cube-wrapper',
@@ -649,7 +601,7 @@ function initParallaxDepthSectionAnimation() {
                 );
         },
         '(max-width: 768px)': function () {
-            // 모바일: Swiper만 사용, pin/pinSpacing 관련 ScrollTrigger 코드는 실행하지 않음
+            // Swiper 인스턴스 생성 (모바일 메뉴용)
             var pdsSwiper = null;
             var section = document.querySelector('.parallax-depth-section .component-content');
             if (!section || !window.Swiper) return;
@@ -688,8 +640,6 @@ function initParallaxDepthSectionAnimation() {
                 trigger: section,
                 start: 'top center',
                 end: 'bottom center',
-                pin: false, // 모바일에서는 pin 사용하지 않음
-                pinSpacing: false,
                 onEnter: function () {
                     if (pdsSwiper) {
                         pdsSwiper.slideTo(0, 0);
@@ -715,6 +665,16 @@ function initParallaxDepthSectionAnimation() {
                 },
             });
         },
+    });
+
+    // 리사이즈 시 WheelNavigation만 재생성
+    window.addEventListener('resize', () => {
+        ScrollTrigger.refresh();
+        // if (wheelNavInstance) {
+        //     console.log(wheelNavInstance);
+        //     wheelNavInstance.destroy();
+        //     wheelNavInstance = null;
+        // }
     });
 
     // cleanup function
