@@ -246,7 +246,7 @@ function initParallaxSectionAnimation() {
             gsap.set(images[3], { scaleX: -1 });
         },
     });
-    // 컨테이너 고정 애니메이션
+// 컨테이너 고정 애니메이션
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: section,
@@ -255,6 +255,7 @@ function initParallaxSectionAnimation() {
             // scrub: 1,
             pin: true,
             pinSpacing: false,
+            normalizeScroll: true,
         },
     });
 
